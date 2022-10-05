@@ -1,0 +1,75 @@
+require:
+  - rubocop-performance
+  - rubocop-rspec
+  - rubocop-rails
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/MutableConstant:
+  Enabled: false
+
+Style/Documentation: 
+  Enabled: false
+
+Layout/LineLength:
+  Max: 120
+
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'test/**/*.rb'
+    - 'spec/**/*.rb'
+    - 'db/**/*.rb'
+    - 'config/**/*.rb'
+    - 'app/admin/**/*.rb'
+
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'tmp/**/*'
+    - 'bin/**/*'
+    - 'vendor/**/*'
+    - '.circleci/**/*'
+    - 'node_modules/**/*'
+    - 'public/**/*'
+    - 'log/**/*'
+    - 'test/**/*'
+Style/MutableConstant:
+  Enabled: false
+
+Style/Documentation: 
+  Enabled: false
+
+Layout/LineLength:
+  Max: 120
+
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'test/**/*.rb'
+    - 'spec/**/*.rb'
+    - 'db/**/*.rb'
+    - 'config/**/*.rb'
+    - 'app/admin/**/*.rb'
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'tmp/**/*'
+    - 'bin/**/*'
+    - 'vendor/**/*'
+    - '.circleci/**/*'
+    - 'node_modules/**/*'
+    - 'public/**/*'
+    - 'log/**/*'
+    - 'test/**/*'
