@@ -4,4 +4,29 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Book.destroy_all
+
+Book.create!([{
+  title: "Physics",
+  author: "Pete Docter",
+  description: "A.",
+  price: 23.99
+},
+{
+  title: "Biology",
+  author: "Pete Docter",
+  description: "B.",
+  price: 26.99
+},
+{
+ title: "English",
+  author: "Pete Doct",
+  description: "C.",
+  price: 29.99
+},
+{
+ title: "Chemistry",
+  author: "Bereznyak",
+  description: "D.",
+  price: 35.99
+}])
