@@ -22,9 +22,8 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'bootstrap-sass', '~> 3.4.1'
-gem 'sassc-rails', '>= 2.1.0'
 gem 'aasm'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'devise'
 gem 'haml-rails'
 gem 'i18n'
@@ -33,6 +32,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'pagy'
 gem 'pundit'
+gem 'sassc-rails', '>= 2.1.0'
 gem 'shrine'
 
 # Use Active Storage variant
@@ -68,6 +68,8 @@ group :test do
   gem 'selenium-webdriver', '>= 4.0.0.rc1'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'simplecov'
+  gem 'shoulda-matchers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
