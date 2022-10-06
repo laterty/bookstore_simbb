@@ -6,4 +6,3 @@ FactoryBot.define do
     price { Faker::Number.decimal(l_digits: 2) }
   end
 end
-

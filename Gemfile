@@ -29,13 +29,13 @@ gem 'font-awesome-sass', '~> 6.2.0'
 gem 'haml-rails'
 gem 'i18n'
 gem 'mini_magick'
+gem 'net-smtp', require: false
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'pagy'
 gem 'pundit'
 gem 'sassc-rails', '>= 2.1.0'
 gem 'shrine'
-gem 'net-smtp', require: false
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -72,10 +72,10 @@ group :test do
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver', '>= 4.0.0.rc1'
   # Easy installation and use of web drivers to run system tests with browsers
+  gem 'rails-controller-testing'
   gem 'shoulda-matchers'
   gem 'simplecov'
   gem 'webdrivers'
-  gem 'rails-controller-testing'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
