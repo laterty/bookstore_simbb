@@ -35,6 +35,7 @@ gem 'pagy'
 gem 'pundit'
 gem 'sassc-rails', '>= 2.1.0'
 gem 'shrine'
+gem 'net-smtp', require: false
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

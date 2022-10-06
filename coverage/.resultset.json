@@ -1,0 +1,89 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/maxtsymbalov/Documents/proga/learn_ruby/bookstore_simbb/app/helpers/application_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/maxtsymbalov/Documents/proga/learn_ruby/bookstore_simbb/app/models/book.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/maxtsymbalov/Documents/proga/learn_ruby/bookstore_simbb/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/maxtsymbalov/Documents/proga/learn_ruby/bookstore_simbb/app/channels/application_cable/channel.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/maxtsymbalov/Documents/proga/learn_ruby/bookstore_simbb/app/channels/application_cable/connection.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/maxtsymbalov/Documents/proga/learn_ruby/bookstore_simbb/app/controllers/application_controller.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/maxtsymbalov/Documents/proga/learn_ruby/bookstore_simbb/app/controllers/home_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/maxtsymbalov/Documents/proga/learn_ruby/bookstore_simbb/app/jobs/application_job.rb": {
+        "lines": [
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/maxtsymbalov/Documents/proga/learn_ruby/bookstore_simbb/app/mailers/application_mailer.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      }
+    },
+    "timestamp": 1665050080
+  }
+}

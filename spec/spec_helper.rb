@@ -14,7 +14,7 @@
 #
 require 'simplecov'
 SimpleCov.add_filter ['spec']
-SimpleCov.start do
+SimpleCov.start 'rails' do
   minimum_coverage line: 90
 end
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
