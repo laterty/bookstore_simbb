@@ -39,6 +39,25 @@ commands:
           command: bundle exec rspec
 
 jobs:
+  build:
+    docker:
+      - image: cimg/ruby:3.1-browsers
+        environment:
+          PGHOST: 127.0.0.1
+          PGUSER: simb
+          RAILS_ENV: test
+      - image: cimg/postgres:14.5.0
+        environment:
+          POSTGRES_USER: simb
+          POSTGRES_DB: bookstore_test
+      - run: 
+        name: Create Database
+        command: |
+          bundle exec rails db:create
+      - run: 
+          name: Load Database Schema
+          command: |
+            bundle exec rails db:schema:load --trace
   lintering:
     executor: default
     steps:
