@@ -3,6 +3,7 @@
     %ol.carousel-indicators
       %li.active{'data-target': "#slider", 'data-slide-to': "0"}
       %li{'data-target': "#slider", 'data-slide-to': "1"}
+      %li{'data-target': "#slider", 'data-slide-to': "2"}
     .carousel-inner{role: "listbox"}
       - @latest_books.each_with_index do |book, index|
         - if index == 0

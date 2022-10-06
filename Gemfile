@@ -34,6 +34,7 @@ gem 'pagy'
 gem 'pundit'
 gem 'sassc-rails', '>= 2.1.0'
 gem 'shrine'
+gem 'font-awesome-sass', '~> 6.2.0'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
