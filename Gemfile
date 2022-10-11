@@ -36,7 +36,6 @@ gem 'pagy'
 gem 'pundit'
 gem 'sassc-rails', '>= 2.1.0'
 gem 'shrine'
-gem 'net-pop'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -54,6 +53,11 @@ group :development, :test do
   gem 'rubocop-performance'
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
+end
+
+group :production do
+  gem 'net-pop'
+  gem 'net-imap'
 end
 
 group :development do
