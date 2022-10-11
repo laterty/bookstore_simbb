@@ -56,8 +56,8 @@ group :development, :test do
 end
 
 group :production do
-  gem 'net-pop'
   gem 'net-imap'
+  gem 'net-pop'
 end
 
 group :development do
