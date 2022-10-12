@@ -9,6 +9,6 @@ class Book < ApplicationRecord
   end
 
   def self.category_count(category)
-    Book.where(category: category).count
+    Book.where(category:).count
   end
 end
