@@ -7,4 +7,8 @@ class Book < ApplicationRecord
   def self.bestsellers
     Book.all
   end
+
+  def self.category_count(category)
+    Book.where(category: category).count
+  end
 end
