@@ -1,5 +1,7 @@
-Book.destroy_all
+require 'factory_bot_rails'
 
+Book.destroy_all
+=begin
 Book.create!([{
                title: 'Physics',
                author: 'Pete Docter',
@@ -28,3 +30,6 @@ Book.create!([{
                 price: 35.99,
                 category: 'Mobile Development'
               }])
+=end
+
+FactoryBot.create_list(:book, 40)
