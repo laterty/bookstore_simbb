@@ -4,7 +4,7 @@ class Book < ApplicationRecord
   validates :price, presence: true, numericality: true
   validates :author, presence: true
 
-  CATEGORIES = {mobile_development: 'Mobile Development', photo: 'Photo', web_design: 'Web Design'}.freeze
+  CATEGORIES = { mobile_development: 'Mobile Development', photo: 'Photo', web_design: 'Web Design' }.freeze
 
   def self.bestsellers
     Book.all
