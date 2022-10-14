@@ -8,13 +8,13 @@
           %i.fa.fa-angle-down.dropdown-icon.pull-right
         %ul.dropdown-menu
           %li
-            %a{href: books_path(sort_type: 'created_at', sort_direction: :desc)} Newest first
+            = link_to 'Newest first', books_path(sort_type: 'created_at', sort_direction: :desc)
           %li
-            %a{href: "#"} Popular first
+            = link_to 'Popular first', books_path(sort_type: 'created_at', sort_direction: :desc)
           %li
-            %a{href: books_path(sort_type: 'price', sort_direction: :asc)} Price: Low to hight
+            = link_to 'Price: Low to high', books_path(sort_type: 'price', sort_direction: :asc)
           %li
-            %a{href: books_path(sort_type: 'price', sort_direction: :desc)} Price: Hight to low
+            = link_to 'Price: High to low', books_path(sort_type: 'price', sort_direction: :desc)
     %ul.list-inline.pt-10.mb-25.mr-240
       %li.mr-35
         %a.filter-link{href: "#{books_path(category: 'All')}"}
@@ -40,13 +40,13 @@
         %i.fa.fa-angle-down.dropdown-icon.pull-right
       %ul.dropdown-menu
         %li
-          %a{href: books_path(sort_type: 'created_at', sort_direction: :desc)} Newest first
+          = link_to 'Newest first', books_path(sort_type: 'created_at', sort_direction: :desc)
         %li
-          %a{href: "#"} Popular first
+          = link_to 'Popular first', books_path(sort_type: 'created_at', sort_direction: :desc)
         %li
-          %a{href: books_path(sort_type: 'price', sort_direction: :asc)} Price: Low to hight
+          = link_to 'Price: Low to high', books_path(sort_type: 'price', sort_direction: :asc)
         %li
-          %a{href: books_path(sort_type: 'price', sort_direction: :desc)} Price: Hight to low
+          = link_to 'Price: High to low', books_path(sort_type: 'price', sort_direction: :desc)
     %p.lead.small.mb-10 Sort by
     .dropdown
       %a.dropdown-toggle.lead.small{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}
