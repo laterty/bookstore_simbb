@@ -8,16 +8,16 @@
           %i.fa.fa-angle-down.dropdown-icon.pull-right
         %ul.dropdown-menu
           %li
-            %a{href: "#"} Newest first
+            %a{href: books_path(sort_type: 'created_at', sort_direction: :desc)} Newest first
           %li
             %a{href: "#"} Popular first
           %li
-            %a{href: "#"} Price: Low to hight
+            %a{href: books_path(sort_type: 'price', sort_direction: :asc)} Price: Low to hight
           %li
-            %a{href: "#"} Price: Hight to low
+            %a{href: books_path(sort_type: 'price', sort_direction: :desc)} Price: Hight to low
     %ul.list-inline.pt-10.mb-25.mr-240
       %li.mr-35
-        %a.filter-link{href: "/books"}
+        %a.filter-link{href: "#{books_path(category: 'All')}"}
           All
           %span.badge.general-badge= Book.count
       %li.mr-35
@@ -40,13 +40,13 @@
         %i.fa.fa-angle-down.dropdown-icon.pull-right
       %ul.dropdown-menu
         %li
-          %a{href: "#"} Newest first
+          %a{href: books_path(sort_type: 'created_at', sort_direction: :desc)} Newest first
         %li
           %a{href: "#"} Popular first
         %li
-          %a{href: "#"} Price: Low to hight
+          %a{href: books_path(sort_type: 'price', sort_direction: :asc)} Price: Low to hight
         %li
-          %a{href: "#"} Price: Hight to low
+          %a{href: books_path(sort_type: 'price', sort_direction: :desc)} Price: Hight to low
     %p.lead.small.mb-10 Sort by
     .dropdown
       %a.dropdown-toggle.lead.small{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}
