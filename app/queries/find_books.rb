@@ -8,14 +8,13 @@ class FindBooks
 
   def call(params)
     scoped = category == 'All' ? initial_scope : filter_by_category(initial_scope, category)
-    scoped = sort(scoped, params[:sort_type] || :price, params[:sort_direction] || :desc)
-    scoped
+    sort(scoped, params[:sort_type] || :price, params[:sort_direction] || :desc)
   end
 
   private
 
   def filter_by_category(scoped, category = nil)
-    category ? scoped.where(category: category) : scoped
+    category ? scoped.where(category:) : scoped
   end
 
   def sort(scoped, sort_type, sort_direction)

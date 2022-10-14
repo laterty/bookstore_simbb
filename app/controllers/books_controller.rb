@@ -1,5 +1,4 @@
 class BooksController < ApplicationController
-
   def index
     @books = FindBooks.new(Book.all, current_category).call(permitted_params)
   end
@@ -18,9 +17,9 @@ class BooksController < ApplicationController
   def categorized_books
     params[:category] ? Book.where(category: params[:category]) : Book.all
   end
-  
+
   def permitted_params
-    params.permit(:category,:sort_direction,
+    params.permit(:category, :sort_direction,
                   :sort_type, :page)
   end
 end
