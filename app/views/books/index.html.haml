@@ -63,7 +63,7 @@
           %a{href: "#"} Price: Hight to low
   .mb-120
     .row
-      - @books.each do |book|
-        = render book, book: book
-    .text-center
-      %button.btn.btn-primary View More
+      #books
+        = render @books
+    #paginator.text-center
+      = link_to_next_page @books, 'View More', remote: true, id: 'view_more', class: "btn btn-primary"

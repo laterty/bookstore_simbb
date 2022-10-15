@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   def index
-    @books = FindBooks.new(Book.all, current_category).call(permitted_params)
+    @books = FindBooks.new(Book.all, current_category).call(permitted_params).page(params[:page])
   end
 
   def show

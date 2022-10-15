@@ -28,6 +28,8 @@ gem 'devise'
 gem 'font-awesome-sass', '~> 6.2.0'
 gem 'haml-rails'
 gem 'i18n'
+gem 'jquery-rails'
+gem 'kaminari'
 gem 'mini_magick'
 gem 'net-smtp', require: false
 gem 'omniauth'
