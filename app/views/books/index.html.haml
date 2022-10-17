@@ -66,4 +66,4 @@
       #books
         = render @books
     #paginator.text-center
-      = link_to_next_page @books, 'View More', remote: true, id: 'view_more', class: "btn btn-primary"
+      = link_to 'View More', books_path(page: (@books.current_page ? @books.current_page + 1 : 1)), remote: true, id: 'view_more', class: "btn btn-primary" 

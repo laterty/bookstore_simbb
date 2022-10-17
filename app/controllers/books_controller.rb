@@ -1,6 +1,12 @@
 class BooksController < ApplicationController
+  protect_from_forgery except: :index
+
   def index
     @books = FindBooks.new(Book.all, current_category).call(permitted_params).page(params[:page])
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show
