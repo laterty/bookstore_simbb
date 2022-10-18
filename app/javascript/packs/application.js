@@ -7,9 +7,10 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-import 'bootstrap'
-require('jquery')
-require('book_desc_listener')
+import "bootstrap"
+require("jquery")
+require("book_desc_listener")
+require("book_price_calculator")
 
 Rails.start()
 Turbolinks.start()

@@ -19,13 +19,13 @@
       %p.lead.small= @book.author
       .row
         .col-xs-12.col-md-4
-          %p.h1.in-gold-500.mt-10= @book.price
+          %p.h1.in-gold-500.mt-10= "€#{@book.price}"
         .col-xs-5.col-md-3
           .input-group.general-position
-            %a.input-link{href: "#"}
+            .input-link#minus_books_price
               %i.fa.fa-minus.line-height-40
-            %input.form-control.quantity-input{type: "text"}
-            %a.input-link{href: "#"}
+            %input.form-control.quantity-input#books_price{type: "number", value: 1, min: 1, step: 1}
+            .input-link#plus_books_price
               %i.fa.fa-plus.line-height-40
         .col-xs-7.col-md-5
           %button.btn.btn-default.pull-right.general-position Add to Cart
