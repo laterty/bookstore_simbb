@@ -31,9 +31,14 @@
           %button.btn.btn-default.pull-right.general-position Add to Cart
       .general-info-wrap.divider-lg
         %p Description
-        %p.lead.small.line-height-2
-          = @book.description
-          %a.in-gold-500.ml-10{href: "#"} Read More
+        - if @book.description.length > 250
+          %p.lead.small.line-height-2#truncate_description
+            = @book.description.truncate(250)
+            %a.in-gold-500.ml-10#book_read_more{href: "#"} Read More
+          %p.lead.small.line-height-2.hidden#full_description= @book.description
+        - else
+          %p.lead.small.line-height-2
+            = @book.description
       .general-info-wrap.divider-lg
         .clearfix
           %p.pull-left Year of publication

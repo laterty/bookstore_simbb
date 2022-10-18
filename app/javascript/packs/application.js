@@ -9,7 +9,9 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import 'bootstrap'
 require('jquery')
-// import './src/application.scss'
+require('book_desc_listener')
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
