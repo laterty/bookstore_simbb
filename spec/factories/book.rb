@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :book do
     title { Faker::Book.unique.title }
-    description { Faker::Lorem.words(number: rand(20..50)).join(' ') }
+    description { Faker::Lorem.words(number: rand(50..70)).join(' ') }
     author { Faker::Book.unique.author }
     price { Faker::Number.decimal(l_digits: 2) }
     category { Book::CATEGORIES.values.sample }
