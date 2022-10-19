@@ -31,7 +31,6 @@ Metrics/BlockLength:
     - 'config/**/*.rb'
     - 'app/admin/**/*.rb'
 
-
 AllCops:
   NewCops: enable
   Exclude:
@@ -43,6 +42,7 @@ AllCops:
     - 'public/**/*'
     - 'log/**/*'
     - 'test/**/*'
+
 Style/MutableConstant:
   Enabled: false
 
@@ -73,3 +73,4 @@ AllCops:
     - 'public/**/*'
     - 'log/**/*'
     - 'test/**/*'
+    - 'spec/features/*'
