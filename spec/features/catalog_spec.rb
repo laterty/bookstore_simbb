@@ -17,17 +17,22 @@ RSpec.describe 'Catalog', type: :feature do
     expect(page).to have_current_path books_path, ignore_query: true
   end
 
-  it 'Change the order of displayed items' do
+  it 'Change the order of displayed items price: low to high' do
     visit books_path
     within('div.hidden-xs.clearfix') do
       find('a.dropdown-toggle.lead.small').click
       find('ul.dropdown-menu').click_link('Price: Low to high')
     end
+
     expect(page).to have_current_path books_path, ignore_query: true
 
     within('#books') do
       expect(all('.title')[5].text).to eq books_price_low_to_high[5].title
     end
+  end
+
+  it 'Change the order of displayed items price: high to low' do
+    visit books_path
 
     within('div.hidden-xs.clearfix') do
       find('a.dropdown-toggle.lead.small').click
