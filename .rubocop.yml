@@ -74,3 +74,4 @@ AllCops:
     - 'log/**/*'
     - 'test/**/*'
     - 'spec/features/*'
+    - 'config/initializers/devise.rb'
