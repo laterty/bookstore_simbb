@@ -32,6 +32,7 @@ gem 'mini_magick'
 gem 'net-smtp', require: false
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-rails_csrf_protection'
 gem 'pagy'
 gem 'pundit'
 gem 'sassc-rails', '>= 2.1.0'
@@ -45,6 +46,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'pry'
