@@ -4,14 +4,21 @@
     = link_to user_facebook_omniauth_authorize_path, class: "general-login-icon", method: :post do
       %i.fa-brands.fa-square-facebook.fa-2xl
     %p.general-login-text or
-  = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "general-form"}) do |f|
+  = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "general-form"}) do |f|
     = devise_error_messages!
     .form-group.mb-30
-      = f.label :email, class: "control-label input-label"
-      = f.email_field :email, placeholder: "Enter email", class: "form-control"
+      = f.input :email,
+        placeholder: "Enter email",
+        input_html: { class: "form-control" },
+        label: 'Email',
+        label_html: { class: 'control-label input-label' } 
     .form-group.mb-30
-      = f.label :password, class: "control-label input-label"
-      = f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control"
+      = f.input :password,
+        autocomplete: "off",
+        placeholder: "Password",
+        input_html: { class: "form-control" },
+        label: 'Password',
+        label_html: { class: 'control-label input-label' }
       = link_to "Forgot password?", new_user_password_path, class: "help-block in-gold-500"
     - if devise_mapping.rememberable?
       .field.form-group.checkbox.text-center.mb-30
