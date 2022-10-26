@@ -1,21 +1,19 @@
 %main.container.general-main-wrap
   .text-center
     %h3.general-login-title Sign Up
-    %i.fa.fa-facebook-official
+    = link_to user_facebook_omniauth_authorize_path, class: "general-login-icon", method: :post do
+      %i.fa-brands.fa-square-facebook.fa-2xl
     %p.general-login-text or
-  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "general-form"}) do |f|
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "general-form"}) do |f|
     = devise_error_messages!
     .form-group.mb-30
-      = f.label :email, class: "control-label input-label"
-      = f.email_field :email, placeholder: "Enter email", class: "form-control"
+      = f.input :email, placeholder: "Enter email", input_html: { class: "form-control" }, label: 'Email', label_html: { class: 'control-label input-label' } 
     .form-group.mb-30
-      = f.label :password, class: "control-label input-label"
-      = f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control"
+      = f.input :password, autocomplete: "off", placeholder: "Password", input_html: { class: "form-control" }, label: 'Password', label_html: { class: 'control-label input-label' }
     .form-group.mb-30
-      = f.label :password_confirmation, class: "control-label input-label"
-      = f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm password", class: "form-control"
+      = f.input :password_confirmation, autocomplete: "off", placeholder: "Confirm password", input_html: { class: "form-control" }, label: 'Confirm password', label_html: { class: 'control-label input-label' }
     .actions.text-center
-      = f.submit "Sign up", class: "button btn btn-default mb-20"
+      = f.button :submit, "Sign up", class: "button btn btn-default mb-20"
   %p.general-sign-text.text-center
     Have an Account?
     = link_to "Log in", new_user_session_path, class: "in-gold-500"

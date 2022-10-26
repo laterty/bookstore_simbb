@@ -4,7 +4,6 @@ module Users
     skip_before_action :verify_authenticity_token, only: :facebook
 
     def facebook
-      # You need to implement the method below in your model (e.g. app/models/user.rb)
       @user = User.from_omniauth(request.env['omniauth.auth'])
 
       if @user.persisted?
