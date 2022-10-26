@@ -10,14 +10,16 @@
         placeholder: "Enter email",
         input_html: { class: "form-control" },
         label: 'Email',
-        label_html: { class: 'control-label input-label' }
+        label_html: { class: 'control-label input-label' },
+        error_html: { class: 'has-error' }
     .form-group.mb-30
       = f.input :password,
         autocomplete: "off",
         placeholder: "Password",
         input_html: { class: "form-control" },
         label: 'Password',
-        label_html: { class: 'control-label input-label' }
+        label_html: { class: 'control-label input-label' },
+        error_html: { class: 'has-error' }
     .form-group.mb-30
       = f.input :password_confirmation, autocomplete: "off", placeholder: "Confirm password", input_html: { class: "form-control" }, label: 'Confirm password', label_html: { class: 'control-label input-label' }
     .actions.text-center
