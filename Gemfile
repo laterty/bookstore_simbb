@@ -56,6 +56,7 @@ group :development, :test do
   gem 'rubocop-performance'
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
+  gem 'simple_form'
 end
 
 group :production do
