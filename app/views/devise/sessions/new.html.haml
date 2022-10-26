@@ -5,7 +5,6 @@
       %i.fa-brands.fa-square-facebook.fa-2xl
     %p.general-login-text or
   = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "general-form"}) do |f|
-    = devise_error_messages!
     .form-group.mb-30
       = f.input :email,
         placeholder: "Enter email",
