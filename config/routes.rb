@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks',
     sessions: 'users/sessions'
   }
+
   resources :books
   root 'home#index'
 
