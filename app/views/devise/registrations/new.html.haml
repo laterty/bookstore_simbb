@@ -21,7 +21,12 @@
         label_html: { class: 'control-label input-label' },
         error_html: { class: 'has-error' }
     .form-group.mb-30
-      = f.input :password_confirmation, autocomplete: "off", placeholder: "Confirm password", input_html: { class: "form-control" }, label: 'Confirm password', label_html: { class: 'control-label input-label' }
+      = f.input :password_confirmation,
+        autocomplete: "off",
+        placeholder: "Confirm password",
+        input_html: { class: "form-control" },
+        label: 'Confirm password',
+        label_html: { class: 'control-label input-label' }
     .actions.text-center
       = f.button :submit, "Sign up", class: "button btn btn-default mb-20"
   %p.general-sign-text.text-center
