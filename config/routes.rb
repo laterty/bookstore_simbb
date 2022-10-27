@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { 
+  devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
     sessions: 'users/sessions'
   }
@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   root 'home#index'
 
   devise_scope :user do
-     get '/users', to: 'devise/registrations#new'
+    get '/users', to: 'devise/registrations#new'
   end
 end
