@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   }
   resources :books
   root 'home#index'
+
+  devise_scope :user do
+     get '/users', to: 'devise/registrations#new'
+  end
 end
