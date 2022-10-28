@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'addresses/index'
   root 'home#index'
   get 'settings/addresses', to: 'addresses#index'
   get 'settings/privacy', to: 'users#edit'

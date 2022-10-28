@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :billing_addresses, foreign_key: 'user_id', class_name: 'Address', dependent: :destroy
+  has_many :shipping_addresses, foreign_key: 'user_id', class_name: 'Address', dependent: :destroy 
+
   devise :omniauthable, omniauth_providers: %i[facebook]
 
   validates :email, :password, presence: true
