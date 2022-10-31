@@ -4,10 +4,10 @@ class AddressesController < ApplicationController
   end
 
   def create
-    address_params[:type] == 'billing' ? create_billing_address : create_shipping_address
+    params[:type] == 'billing' ? create_billing_address : create_shipping_address
     if @address.save
       flash[:notice] = "Successfully created an #{address_params[:type]} address"
-      redirect_to 'settings/addresses'
+      redirect_to '/settings/addresses'
     else
       render :index
     end
@@ -24,6 +24,6 @@ class AddressesController < ApplicationController
   end
 
   def address_params
-    params.require(:address).permit(:first_name, :last_name, :address, :city, :country, :type, :phone, :zip)
+    params.require(:address).permit(:first_name, :last_name, :address, :city, :country, :phone, :zip)
   end
 end
