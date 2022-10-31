@@ -1,1 +1,127 @@
-YOLO
+%main.container
+  %h1.general-title-margin Settings
+  %ul.nav.clearfix.mb-20{role: "tablist"}
+    %li.tab-item.active{role: "presentation"}
+      %a.tab-link{href: "#address", 'aria-controls': "address", role: "tab", 'data-toggle': "tab"} Address
+    %li.tab-item{role: "presentation"}
+      %a.tab-link{href: "#privacy", 'aria-controls': "privacy", role: "tab", 'data-toggle': "tab"} Privacy
+  .tab-content
+    .hidden-xs.hidden-sm
+      .row
+        .col-md-5
+          %h3.general-subtitle.mt-0 Billing Address
+        .col-md-5.col-md-offset-1
+          %h3.general-subtitle.mt-0 Shipping Address
+    .row
+      .col-md-5.mb-40
+        .visible-xs.visible-sm
+          %h3.general-subtitle.mt-0 Billing Address
+        = simple_form_for @address, url: 'settings/addresses', type: 'billing' do |f|
+          .form-group.has-error
+            = f.input :first_name,
+              placeholder: 'First Name',
+              input_html: { class: "form-control", id: 'firstName' },
+              label: 'First Name',
+              label_html: { class: 'control-label input-label' },
+              error_html: { class: 'has-error' }
+          .form-group
+            = f.input :last_name,
+              placeholder: 'Last Name',
+              input_html: { class: "form-control", id: 'lastName' },
+              label: 'Last Name',
+              label_html: { class: 'control-label input-label' },
+              error_html: { class: 'has-error' }
+          .form-group
+            = f.input :address,
+              placeholder: 'Address',
+              input_html: { class: "form-control", id: 'address' },
+              label: 'Address',
+              label_html: { class: 'control-label input-label' },
+              error_html: { class: 'has-error' }
+          .form-group
+            = f.input :city,
+              placeholder: 'City',
+              input_html: { class: "form-control", id: 'firstName' },
+              label: 'City',
+              label_html: { class: 'control-label input-label' },
+              error_html: { class: 'has-error' }
+          .form-group
+            = f.input :zip,
+              placeholder: 'Zip',
+              input_html: { class: "form-control", id: 'firstName' },
+              label: 'Zip',
+              label_html: { class: 'control-label input-label' },
+              error_html: { class: 'has-error' }
+          .form-group
+            = f.input :country,
+              collection: ['London', 'London', 'London'],
+              placeholder: 'Country',
+              input_html: { class: "form-control" },
+              label: 'Country',
+              label_html: { class: 'control-label input-label' },
+              error_html: { class: 'has-error' }
+          .form-group.mb-60
+            = f.input :phone,
+              placeholder: 'Example +355 66 123 4567',
+              input_html: { class: "form-control", id: 'firstName' },
+              label: 'Phone',
+              label_html: { class: 'control-label input-label' },
+              error_html: { class: 'has-error' }
+          .text-center.general-text-align
+            = f.button :submit, class: 'btn'
+      .col-md-5.col-md-offset-1.mb-25
+        .visible-xs.visible-sm
+          %h3.general-subtitle.mt-0 Shipping Address
+        = simple_form_for @address, url: 'settings/addresses', type: 'shipping' do |f|
+          .form-group.has-error
+            = f.input :first_name,
+              placeholder: 'First Name',
+              input_html: { class: "form-control", id: 'firstName' },
+              label: 'First Name',
+              label_html: { class: 'control-label input-label' },
+              error_html: { class: 'has-error' }
+          .form-group
+            = f.input :last_name,
+              placeholder: 'Last Name',
+              input_html: { class: "form-control", id: 'lastName' },
+              label: 'Last Name',
+              label_html: { class: 'control-label input-label' },
+              error_html: { class: 'has-error' }
+          .form-group
+            = f.input :address,
+              placeholder: 'Address',
+              input_html: { class: "form-control", id: 'address' },
+              label: 'Address',
+              label_html: { class: 'control-label input-label' },
+              error_html: { class: 'has-error' }
+          .form-group
+            = f.input :city,
+              placeholder: 'City',
+              input_html: { class: "form-control", id: 'firstName' },
+              label: 'City',
+              label_html: { class: 'control-label input-label' },
+              error_html: { class: 'has-error' }
+          .form-group
+            = f.input :zip,
+              placeholder: 'Zip',
+              input_html: { class: "form-control", id: 'firstName' },
+              label: 'Zip',
+              label_html: { class: 'control-label input-label' },
+              error_html: { class: 'has-error' }
+          .form-group
+            = f.input :country,
+              collection: ['London', 'London', 'London'],
+              placeholder: 'Country',
+              input_html: { class: "form-control" },
+              label: 'Country',
+              label_html: { class: 'control-label input-label' },
+              error_html: { class: 'has-error' }
+          .form-group.mb-60
+            = f.input :phone,
+              placeholder: 'Example +355 66 123 4567',
+              input_html: { class: "form-control", id: 'firstName' },
+              label: 'Phone',
+              label_html: { class: 'control-label input-label' },
+              error_html: { class: 'has-error' }
+          .text-center.general-text-align
+            = f.button :submit, class: 'btn'
