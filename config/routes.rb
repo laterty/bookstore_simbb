@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
   root 'home#index'
-  get 'settings/addresses', to: 'addresses#index'
-  get 'settings/privacy', to: 'users#edit'
-  post 'settings/addresses', to: 'addresses#create'
+  resource :settings, only: [] do
+    resources :addresses, only: :index
+    scope module: :addresses do
+      resource :billing_address, only: :create
+      resource :shipping_address, only: :create
+      #post '/billing', to: 'addresses/billing_addresses#create'
+      #post '/shipping', to: 'addresses/shipping_addresses#create'
+    end
+    get 'privacy', to: 'users#edit'
+  end
+  
   resources :books, only: %i[index show update]
 
   devise_for :users, controllers: {

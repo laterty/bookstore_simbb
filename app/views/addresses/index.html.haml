@@ -16,11 +16,11 @@
       .col-md-5.mb-40
         .visible-xs.visible-sm
           %h3.general-subtitle.mt-0 Billing Address
-        = simple_form_for @address, url: '/settings/addresses',
+        = simple_form_for @billing_address, url: settings_billing_address_path(@billing_address),
           defaults: { input_html: { class: 'form-control' },
                       label_html: { class: 'control-label input-label' },
                       error_html: { class: 'has-error' }} do |f|
-          = hidden_field_tag :type, 'billing'
+          = f.input :type, :as => :hidden, :input_html => { :value => @billing_address.type }
           .form-group
             = f.input :first_name,
               placeholder: 'First Name',
@@ -55,11 +55,11 @@
       .col-md-5.col-md-offset-1.mb-25
         .visible-xs.visible-sm
           %h3.general-subtitle.mt-0 Shipping Address
-        = simple_form_for @address, url: '/settings/addresses',
+        = simple_form_for @shipping_address, url: settings_shipping_address_path(@shipping_address),
           defaults: { input_html: { class: 'form-control' },
                       label_html: { class: 'control-label input-label' },
                       error_html: { class: 'has-error' }} do |f|
-          = hidden_field_tag :type, 'shipping'
+          = f.input :type, :as => :hidden, :input_html => { :value => @shipping_address.type }
           .form-group
             = f.input :first_name,
               placeholder: 'First Name',

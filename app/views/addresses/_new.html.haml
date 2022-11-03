@@ -1,0 +1,36 @@
+= simple_fields_for address, url: url,
+  defaults: { input_html: { class: 'form-control' },
+              label_html: { class: 'control-label input-label' },
+              error_html: { class: 'has-error' }} do |f|
+  = f.input :type, :as => :hidden, :input_html => { :value => address.type }
+  .form-group
+    = f.input :first_name,
+      placeholder: 'First Name',
+      label: 'First Name'
+  .form-group
+    = f.input :last_name,
+      placeholder: 'Last Name',
+      label: 'Last Name'
+  .form-group
+    = f.input :address,
+      placeholder: 'Address',
+      label: 'Address'
+  .form-group
+    = f.input :city,
+      placeholder: 'City',
+      label: 'City'
+  .form-group
+    = f.input :zip,
+      placeholder: 'Zip',
+      label: 'Zip'
+  .form-group
+    = f.input :country,
+      collection: ['London', 'London', 'London'],
+      placeholder: 'Country',
+      label: 'Country'
+  .form-group.mb-60
+    = f.input :phone,
+      placeholder: 'Example +355 66 123 4567',
+      label: 'Phone'
+  .text-center.general-text-align
+    = f.button :submit, class: 'btn'
