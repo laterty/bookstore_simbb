@@ -1,13 +1,10 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         :omniauthable, omniauth_providers: %i[facebook]
 
-  has_many :billing_addresses, foreign_key: 'user_id', class_name: 'Address', dependent: :destroy
-  has_many :shipping_addresses, foreign_key: 'user_id', class_name: 'Address', dependent: :destroy
-
-  devise :omniauthable, omniauth_providers: %i[facebook]
+  has_one :billing_address, dependent: :destroy
+  has_one :shipping_address, dependent: :destroy
 
   validates :email, :password, presence: true
 

@@ -25,8 +25,4 @@ class Address < ApplicationRecord
             format: { with: /\A\+[0-9]*\z/,
                       message: 'Consist of 0-9 only no special symbols' },
             length: { maximum: 15 }
-
-  def self.inheritance_column
-    'inheritance_type'
-  end
 end
