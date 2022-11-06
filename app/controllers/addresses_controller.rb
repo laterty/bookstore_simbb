@@ -20,22 +20,7 @@ class AddressesController < ApplicationController
       render :edit
     end
   end
-  #   def shipping_address_locals
-  #     if current_user.shipping_address
-  #       return { address: @shipping_address_form.nil? ? current_user.shipping_address : @shipping_address_form , type: 'ShippingAddress' }
-  #     else
-  #       return { address: @shipping_address_form.nil? ? AddressForm.new(Address.new(type: 'ShippingAddress')) : @shipping_address_form , type: 'ShippingAddress' }
-  #     end
-  #   end
-  #
-  #   def billing_address_locals
-  #     if current_user.billing_address
-  #       return { address: @billing_address_form.nil? ? current_user.billing_address : @billing_address_form , type: 'BillingAddress' }
-  #     else
-  #       return { address: @billing_address_form.nil? ? AddressForm.new(Address.new(type: 'BillingAddress')) : @billing_address_form , type: 'BillingAddress' }
-  #     end
-  #   end
-
+ 
   private
 
   def typed_form
