@@ -1,8 +1,5 @@
-= simple_fields_for address, url: url,
-  defaults: { input_html: { class: 'form-control' },
-              label_html: { class: 'control-label input-label' },
-              error_html: { class: 'has-error' }} do |f|
-  = f.input :type, :as => :hidden, :input_html => { :value => address.type }
+= simple_form_for address, url: settings_address_path, as: :address, method: address.persisted? ? :put : :post, defaults: { input_html: { class: 'form-control' }, label_html: { class: 'control-label input-label' }, error_html: { class: 'has-error' }} do |f|
+  = f.input :type, :as => :hidden, :input_html => { :value => type }
   .form-group
     = f.input :first_name,
       placeholder: 'First Name',

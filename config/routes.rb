@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'home#index'
   resource :settings, only: [] do
-    resources :addresses, only: %w[update create edit]
+    resource :address, only: %w[update create edit]
     get 'privacy', to: 'users#edit'
   end
 
