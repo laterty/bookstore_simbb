@@ -7,7 +7,6 @@ class AddressesController < ApplicationController
     if typed_form.save
       redirect_to edit_settings_address_path
     else
-      flash[:alert] = 'IT WORKS DAMN'
       render :edit
     end
   end
@@ -16,7 +15,6 @@ class AddressesController < ApplicationController
     if typed_form.save
       redirect_to edit_settings_address_path
     else
-      flash[:alert] = 'IT WORKS DAMN'
       render :edit
     end
   end
