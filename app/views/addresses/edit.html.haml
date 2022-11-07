@@ -20,7 +20,6 @@
           = render partial: 'addresses/partials/address_form', locals: { address: @billing_address_form.nil? ? current_user.billing_address : @billing_address_form , type: 'BillingAddress' }
         - else
           = render partial: 'addresses/partials/address_form', locals: { address: @billing_address_form.nil? ? AddressForm.new(Address.new(type: 'BillingAddress')) : @billing_address_form , type: 'BillingAddress' }
-
       .col-md-5.col-md-offset-1.mb-25
         .visible-xs.visible-sm
           %h3.general-subtitle.mt-0 Shipping Address
