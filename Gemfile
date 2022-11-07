@@ -23,11 +23,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'aasm', '~> 5.3.1'
-gem 'bootstrap-sass', '~> 3.4.1'
 gem 'devise', '~> 4.8.1'
-gem 'font-awesome-sass', '~> 6.2.0'
 gem 'haml-rails', '~> 2.1.0'
-gem 'i18n'
 gem 'mini_magick', '~> 4.11.0'
 gem 'net-smtp', '~> 0.3.2', require: false
 gem 'omniauth', '~> 2.1.0'
@@ -44,15 +41,14 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', '11.1.3', platforms: %i[mri mingw x64_mingw]
-  gem 'factory_bot_rails', '~> 6.2.0'
+  gem 'byebug', '~> 11.1.3', platforms: %i[mri mingw x64_mingw]
   gem 'faker', '~> 2.23.0'
   gem 'pry', '~> 0.14.1'
   gem 'rspec-rails', '~> 5.1.2'
   gem 'rubocop', '~> 1.36.0'
   gem 'rubocop-performance', '~> 1.15.0'
-  gem 'rubocop-rails', '2.16.1', require: false
-  gem 'rubocop-rspec', '2.13.2', require: false
+  gem 'rubocop-rails', '~> 2.16.1', require: false
+  gem 'rubocop-rspec', '~> 2.13.2', require: false
 end
 
 group :production do
