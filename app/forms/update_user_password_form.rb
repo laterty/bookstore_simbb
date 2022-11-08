@@ -1,4 +1,4 @@
 class UpdateUserPasswordForm < ApplicationForm
-    attr_accessor :old_password, :new_password, :new_password_confirmation
+    attr_accessor :current_password, :password, :password_confirmation
     
   end

@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_one :billing_address, dependent: :destroy
   has_one :shipping_address, dependent: :destroy
 
-  validates :email, :password, presence: true
+  validates :email, presence: true
 
   validate :password_complexity
 
