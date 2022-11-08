@@ -18,7 +18,7 @@ class AddressesController < ApplicationController
       render :edit
     end
   end
- 
+
   private
 
   def typed_form

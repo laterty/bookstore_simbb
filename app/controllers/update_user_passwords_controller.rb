@@ -1,5 +1,4 @@
 class UpdateUserPasswordsController < ApplicationController
-
   def update
     @password_form = UpdateUserPasswordForm.new(current_user, permitted_params)
     if @password_form.save
