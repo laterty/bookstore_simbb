@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   end
 
   resources :books, only: %i[index show update]
+  recource :update_user_email, only: %i[update]
+  recource :update_user_password, only: %i[update]
 
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
