@@ -6,13 +6,11 @@ document.addEventListener("turbolinks:load", function() {
   checkbox.on('click', function (e) {
     if (checkbox.is(':checked')){
       hidden_check.value = true;
-      console.log(hidden_check);
       delete_button.removeAttr('disabled');
       delete_button.removeClass('disabled');
     }
     else{
       hidden_check.value = false;
-      console.log(hidden_check);
       delete_button.attr('disabled', '');
       delete_button.addClass('disabled');
     }

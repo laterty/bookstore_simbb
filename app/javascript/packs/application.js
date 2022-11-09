@@ -9,9 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "bootstrap"
 require("jquery")
-require("book_desc_listener")
-require("book_price_calculator")
-require("delete_user")
+require('../scripts/app')
 
 Rails.start()
 Turbolinks.start()
