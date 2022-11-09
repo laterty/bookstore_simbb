@@ -11,6 +11,7 @@ import "bootstrap"
 require("jquery")
 require("book_desc_listener")
 require("book_price_calculator")
+require("delete_user")
 
 Rails.start()
 Turbolinks.start()
