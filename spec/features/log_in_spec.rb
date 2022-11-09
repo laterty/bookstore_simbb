@@ -4,12 +4,7 @@ feature 'log in' do
   end
 
   scenario 'Visitor logins successfully via log in form' do
-    visit new_user_session_path
-    within '#new_user' do
-      fill_in 'Email', with: @user.email
-      fill_in 'Password', with: @user.password
-      click_button('Log in')
-    end
+    log_in(@user)
     expect(page.current_path).to eq root_path
     expect(page).not_to have_content 'Log in'
     expect(page).to have_content 'Log out'
