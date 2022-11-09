@@ -5,8 +5,7 @@ class UpdateUserEmailsController < ApplicationController
       flash[:notice] = 'Email was successfully changed!'
       redirect_to privacy_settings_path
     else
-      flash[:notice] = 'Something went wrong'
-      render :edit
+      render 'users/edit'
     end
   end
 
