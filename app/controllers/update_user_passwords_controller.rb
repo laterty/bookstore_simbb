@@ -5,7 +5,7 @@ class UpdateUserPasswordsController < ApplicationController
       flash[:notice] = 'Password was successfully changed!'
       redirect_to new_user_session_path
     else
-      render :edit
+      render 'users/edit'
     end
   end
 
