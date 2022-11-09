@@ -42,6 +42,9 @@ RSpec.configure do |config|
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
 
+  # Include custom helpers
+  config.include UserActions
+
   config.include FactoryBot::Syntax::Methods
 
   # RSpec Rails can automatically mix in different behaviours to your tests
