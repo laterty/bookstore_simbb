@@ -23,6 +23,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'aasm'
+gem 'activeadmin', '~> 2.13.1'
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'devise'
 gem 'haml-rails'
