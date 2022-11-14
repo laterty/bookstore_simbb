@@ -314,7 +314,6 @@
   &:last-child:after {
     bottom: 0;
     top: unset;
-    @extend .divider-lg:before;
   }
 }
 .divider-lg-bottom {

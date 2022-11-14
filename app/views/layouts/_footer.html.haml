@@ -4,16 +4,16 @@
       .col-sm-9
         %ul.list-inline.general-align.mb-25
           %li
-            %a.nav-link{href: "#"} Home
+            %a.nav-link{href: "#"}= t('.navigation_home')
           %li
-            %a.nav-link{href: "#"} Shop
+            %a.nav-link{href: "#"}= t('.navigation_shop')
           %li
-            %a.nav-link{href: "#"} Orders
+            %a.nav-link{href: "#"}= t('.navigation_orders')
           %li
-            %a.nav-link{href: "#"} Settings
+            %a.nav-link{href: "#"}= t('.navigation_settings')
       .col-sm-3
-        %p.general-nav-mail support@bookstore.com
-        %p.general-nav-number (555)-555-5555
+        %p.general-nav-mail= t('.email_address')
+        %p.general-nav-number= t('.mobile_number')
         %ul.list-inline.general-align
           %li
             %a.nav-link{href: "#"}

@@ -7,8 +7,10 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-import "bootstrap"
-require("jquery")
+
+import 'jquery'
+import 'popper.js'
+import 'bootstrap-sass'
 require("book_desc_listener")
 require("book_price_calculator")
 
@@ -16,3 +18,4 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+import '../styles/application'
