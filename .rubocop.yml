@@ -46,4 +46,6 @@ AllCops:
     - 'log/**/*'
     - 'test/**/*'
     - 'spec/features/*'
+    - 'spec/factories/*'
+    - 'db/migrate/*'
     - 'config/environments/*'
