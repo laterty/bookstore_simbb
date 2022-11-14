@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BooksQuery
   attr_accessor :initial_scope, :category
 

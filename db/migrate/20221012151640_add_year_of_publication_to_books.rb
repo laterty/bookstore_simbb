@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddYearOfPublicationToBooks < ActiveRecord::Migration[6.1]
   def change
     add_column :books, :year_of_publication, :string
