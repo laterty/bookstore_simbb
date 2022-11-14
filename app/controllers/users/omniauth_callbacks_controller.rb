@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Users
   class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     # See https://github.com/omniauth/omniauth/wiki/FAQ#rails-session-is-clobbered-after-callback-on-developer-strategy
