@@ -1,4 +1,4 @@
-class FindBooks
+class BooksQuery
   attr_accessor :initial_scope, :category
 
   def initialize(initial_scope, category = 'All')
