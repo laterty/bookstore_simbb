@@ -8,6 +8,10 @@ class CreateBooks < ActiveRecord::Migration[6.1]
       t.string :author
       t.decimal :price
       t.string :img_url
+      t.string :year_of_publication
+      t.string :dimensions
+      t.string :materials
+      t.references :category
 
       t.timestamps
     end
