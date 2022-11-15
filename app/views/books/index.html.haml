@@ -21,17 +21,17 @@
           All
           %span.badge.general-badge= Book.count
       %li.mr-35
-        %a.filter-link{href: "#{books_path(category: 'Mobile Development')}"}
-          Mobile Development
-          %span.badge.general-badge= Book.category_count('Mobile Development')
+        %a.filter-link{href: "#{books_path(category: 'Mobile-Development')}"}
+          Mobile-Development
+          %span.badge.general-badge= Book.category_count('Mobile-Development')
       %li.mr-35
         %a.filter-link{href: "#{books_path(category: 'Photo')}"}
           Photo
           %span.badge.general-badge= Book.category_count('Photo')
       %li.mr-35
-        %a.filter-link{href: "#{books_path(category: 'Web Design')}"}
-          Web Design
-          %span.badge.general-badge= Book.category_count('Web Design')
+        %a.filter-link{href: "#{books_path(category: 'Web-Design')}"}
+          Web-Design
+          %span.badge.general-badge= Book.category_count('Web-Design')
   .dropdowns.mb-25.visible-xs
     %p.lead.small.mb-10 Filter by category
     .dropdown
@@ -66,4 +66,4 @@
       #books
         = render @books
     #paginator.text-center
-      = link_to 'View More', books_path(page: (@books.current_page ? @books.current_page + 1 : 1)), remote: true, id: 'view_more', class: "btn btn-primary" 
+      = link_to 'View More', books_path(page: (@books.object.current_page ? @books.object.current_page + 1 : 1)), remote: true, id: 'view_more', class: "btn btn-primary" 
