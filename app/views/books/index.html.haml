@@ -1,5 +1,5 @@
 %main.container
-  %h1.general-title-margin Сatalog
+  %h1.general-title-margin= t('.title')
   .hidden-xs.clearfix
     = render partial: 'books/partials/desktop/sort', locals: { current_sort_type: @current_sort_type }
     = render partial: 'books/partials/desktop/categories', locals: { books_count: @books_count, categories: @categories }
@@ -11,4 +11,4 @@
       #books
         = render @books
     #paginator.text-center
-      = link_to 'View More', books_path(page: (@books.object.current_page ? @books.object.current_page + 1 : 1)), remote: true, id: 'view_more', class: "btn btn-primary" 
+      = link_to t('.view_more'), books_path(page: (@books.object.current_page ? @books.object.current_page + 1 : 1)), remote: true, id: 'view_more', class: "btn btn-primary" 
