@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class BookDecorator < Draper::Decorator
   delegate_all
 
   def authors_names
-    authors.map{ _1.name }.join(',')
+    authors.map(&:name).join(',')
   end
 
   # Define presentation-specific methods here. Helpers are accessed through
@@ -13,5 +15,4 @@ class BookDecorator < Draper::Decorator
   #       object.created_at.strftime("%a %m/%d/%y")
   #     end
   #   end
-  
 end

@@ -5,5 +5,4 @@ class Category < ApplicationRecord
   validates :name, presence: true
 
   NAMES = %w[Photo Mobile-development Web-design].freeze
-  
 end

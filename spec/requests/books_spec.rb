@@ -12,9 +12,12 @@ RSpec.describe 'Books', type: :request do
   end
 
   describe 'GET /show' do
-    let(:book) { create(:book) }
+    before do
+      Category::NAMES.each { Category.create(name: _1) }
+      get "/books/#{book.id}"
+    end
 
-    before { get "/books/#{book.id}" }
+    let(:book) { create(:book) }
 
     it { is_expected.to render_template :show }
 

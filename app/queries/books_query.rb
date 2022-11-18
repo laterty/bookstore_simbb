@@ -10,7 +10,7 @@ class BooksQuery
   ORDERS_TYPE = {
     price_asc: PRICE_ASC,
     price_desc: PRICE_DESC,
-    year_of_publication_desc: YEAR_OF_PUBLICATION_DESC,
+    year_of_publication_desc: YEAR_OF_PUBLICATION_DESC
   }.freeze
 
   DEFAULT_ORDERS_TYPE = YEAR_OF_PUBLICATION_DESC
@@ -23,14 +23,13 @@ class BooksQuery
   def query
     scope = base_scope
     scope = filtered_scope(scope)
-    scope = sorted_scope(scope)
-    scope
+    sorted_scope(scope)
   end
 
   private
 
   def filtered_scope(scope)
-    valid_category? ? scope.where(category:) : scope 
+    valid_category? ? scope.where(category:) : scope
   end
 
   def sorted_scope(scope)
