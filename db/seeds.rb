@@ -7,6 +7,6 @@ Category.destroy_all
 Author.destroy_all
 AuthorsBook.destroy_all
 
-%w[Photo Mobile-development Web-design].each { Category.create(name: _1) }
+Category::NAMES.each { Category.create(name: _1) }
 
 FactoryBot.create_list(:authors_book, 40)
