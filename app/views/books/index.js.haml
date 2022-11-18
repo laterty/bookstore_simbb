@@ -1,3 +1,4 @@
 $('#books').append("#{escape_javascript(render @books)}");
-$('#paginator').html("#{escape_javascript(link_to_next_page(@books.object,'View More', id: 'load_more', class: 'btn btn-primary', remote: true))}");
-if ($('#load_more').length < 1 ) { $('#paginator').remove(); }
+$('#paginator').html("#{escape_javascript(link_to_next_page(@books.object,'View More', id: 'view_more', class: 'btn btn-primary', remote: true))}");
+if ($('#view_more').length < 1 ) { $('#paginator').remove(); };
+

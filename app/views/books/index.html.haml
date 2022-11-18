@@ -1,66 +1,11 @@
 %main.container
   %h1.general-title-margin Сatalog
   .hidden-xs.clearfix
-    .dropdowns.pull-right
-      .dropdown.width-240
-        %a.dropdown-toggle.lead.small{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}
-          Newest first
-          %i.fa.fa-angle-down.dropdown-icon.pull-right
-        %ul.dropdown-menu
-          %li
-            = link_to 'Newest first', books_path(sort_type: 'created_at', sort_direction: :desc)
-          %li
-            = link_to 'Popular first', books_path(sort_type: 'created_at', sort_direction: :desc)
-          %li
-            = link_to 'Price: Low to high', books_path(sort_type: 'price', sort_direction: :asc)
-          %li
-            = link_to 'Price: High to low', books_path(sort_type: 'price', sort_direction: :desc)
-    %ul.list-inline.pt-10.mb-25.mr-240
-      %li.mr-35
-        %a.filter-link{href: "#{books_path(category: 'All')}"}
-          All
-          %span.badge.general-badge= Book.count
-      %li.mr-35
-        %a.filter-link{href: "#{books_path(category: 'Mobile-Development')}"}
-          Mobile-Development
-          %span.badge.general-badge= Book.category_count('Mobile-Development')
-      %li.mr-35
-        %a.filter-link{href: "#{books_path(category: 'Photo')}"}
-          Photo
-          %span.badge.general-badge= Book.category_count('Photo')
-      %li.mr-35
-        %a.filter-link{href: "#{books_path(category: 'Web-Design')}"}
-          Web-Design
-          %span.badge.general-badge= Book.category_count('Web-Design')
+    = render partial: 'books/partials/desktop/sort', locals: { current_sort_type: @current_sort_type }
+    = render partial: 'books/partials/desktop/categories', locals: { books_count: @books_count, categories: @categories }
   .dropdowns.mb-25.visible-xs
-    %p.lead.small.mb-10 Filter by category
-    .dropdown
-      %a.dropdown-toggle.lead.small{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}
-        Newest first
-        %i.fa.fa-angle-down.dropdown-icon.pull-right
-      %ul.dropdown-menu
-        %li
-          = link_to 'Newest first', books_path(sort_type: 'created_at', sort_direction: :desc)
-        %li
-          = link_to 'Popular first', books_path(sort_type: 'created_at', sort_direction: :desc)
-        %li
-          = link_to 'Price: Low to high', books_path(sort_type: 'price', sort_direction: :asc)
-        %li
-          = link_to 'Price: High to low', books_path(sort_type: 'price', sort_direction: :desc)
-    %p.lead.small.mb-10 Sort by
-    .dropdown
-      %a.dropdown-toggle.lead.small{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}
-        Newest first
-        %i.fa.fa-angle-down.dropdown-icon.pull-right
-      %ul.dropdown-menu
-        %li
-          %a{href: "#"} Newest first
-        %li
-          %a{href: "#"} Popular first
-        %li
-          %a{href: "#"} Price: Low to hight
-        %li
-          %a{href: "#"} Price: Hight to low
+    = render partial: 'books/partials/mobile/categories', locals: { books_count: @books_count, categories: @categories }
+    = render partial: 'books/partials/mobile/sort', locals: { current_sort_type: @current_sort_type }
   .mb-120
     .row
       #books
