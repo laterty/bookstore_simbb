@@ -1,5 +1,5 @@
 %main.container
-  %h1.general-title-margin Settings
+  %h1.general-title-margin= t('.title')
   %ul.nav.clearfix.mb-20
     %li.tab-item.active
       = link_to 'Address', edit_settings_address_path, class: 'tab-link'
@@ -9,20 +9,20 @@
     .hidden-xs.hidden-sm
       .row
         .col-md-5
-          %h3.general-subtitle.mt-0 Billing Address
+          %h3.general-subtitle.mt-0= t('.billing_address')
         .col-md-5.col-md-offset-1
-          %h3.general-subtitle.mt-0 Shipping Address
+          %h3.general-subtitle.mt-0= t('.shipping_address')
     .row
       .col-md-5.mb-40
         .visible-xs.visible-sm
-          %h3.general-subtitle.mt-0 Billing Address
+          %h3.general-subtitle.mt-0= t('.billing_address')
         - if current_user.billing_address
           = render partial: 'addresses/partials/address_form', locals: { address: @billing_address_form.nil? ? current_user.billing_address : @billing_address_form , type: 'BillingAddress' }
         - else
           = render partial: 'addresses/partials/address_form', locals: { address: @billing_address_form.nil? ? AddressForm.new(Address.new(type: 'BillingAddress')) : @billing_address_form , type: 'BillingAddress' }
       .col-md-5.col-md-offset-1.mb-25
         .visible-xs.visible-sm
-          %h3.general-subtitle.mt-0 Shipping Address
+          %h3.general-subtitle.mt-0= t('.shipping_address')
         - if current_user.shipping_address
           = render partial: 'addresses/partials/address_form', locals: { address: @shipping_address_form.nil? ? current_user.shipping_address : @shipping_address_form , type: 'ShippingAddress' }
         - else

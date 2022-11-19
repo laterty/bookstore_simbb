@@ -48,5 +48,36 @@ en:
     index:
       title: 'Catalog'
       view_more: 'View more'
+  addresses:
+    partials:
+      address_form:
+        label:
+          first_name: 'First Name'
+          last_name: 'Last Name'
+          address: 'Address'
+          zip: 'Zip'
+          city: 'City'
+          country: 'Country'
+          phone: 'Phone'
+        placeholder:
+          first_name: 'First Name'
+          last_name: 'Last Name'
+          address: 'Address'
+          zip: 'Zip'
+          city: 'City'
+          country: 'Country'
+          phone: 'Example +355 66 123 4567'
+    edit:
+      title: 'Settings'
+      billing_address: 'Billing Address'
+      shipping_address: 'Shipping Address'
+    show:
+      back_to_result: 'Back to results'
+      add_to_cart: 'Add to Cart'
+      description: 'Description'
+      read_more: 'Read more'
+      year_of_publication: 'Year of publication'
+      dimensions: 'Dimensions'
+      material: 'Material'
 
           
