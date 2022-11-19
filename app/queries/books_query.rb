@@ -1,25 +1,49 @@
 # frozen_string_literal: true
-
 class BooksQuery
-  attr_accessor :initial_scope, :category
+  attr_reader :category, :sort_type
 
-  def initialize(initial_scope, category = 'All')
-    @initial_scope = initial_scope
-    @category = category
+  PRICE_ASC = 'price ASC'
+  PRICE_DESC = 'price DESC'
+  YEAR_OF_PUBLICATION_DESC = 'year_of_publication DESC'
+
+  ORDERS_TYPE = {
+    price_asc: PRICE_ASC,
+    price_desc: PRICE_DESC,
+    year_of_publication_desc: YEAR_OF_PUBLICATION_DESC
+  }.freeze
+
+  DEFAULT_ORDERS_TYPE = YEAR_OF_PUBLICATION_DESC
+
+  def initialize(params)
+    @category = params[:category]
+    @sort_type = generate_order(params[:sort_type]&.to_sym)
   end
 
-  def call(params)
-    scoped = category == 'All' ? initial_scope : filter_by_category(initial_scope, category)
-    sort(scoped, params[:sort_type] || :price, params[:sort_direction] || :desc)
+  def query
+    scope = base_scope
+    scope = filtered_scope(scope)
+    sorted_scope(scope)
   end
 
   private
 
-  def filter_by_category(scoped, category = nil)
-    category ? scoped.where(category:) : scoped
+  def filtered_scope(scope)
+    valid_category? ? scope.where(category:) : scope
   end
 
-  def sort(scoped, sort_type, sort_direction)
-    scoped.order(sort_type => sort_direction)
+  def sorted_scope(scope)
+    scope.order(sort_type)
+  end
+
+  def valid_category?
+    category && Category.exists?(category)
+  end
+
+  def base_scope
+    Book.all
+  end
+
+  def generate_order(sort_type)
+    ORDERS_TYPE[sort_type] || DEFAULT_ORDERS_TYPE
   end
 end
