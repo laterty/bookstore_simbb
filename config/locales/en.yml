@@ -1,33 +1,52 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  home: 
+    index:
+      hello: 'Hello world'
+      previous: 'Previous'
+      next: 'Next'
+      welcome: 'Welcome to our amazing Bookstore!'
+      bestsellers: 'Best Sellers'
+      bestsellers_desc: 'We pore through hundreds of new books each month and select the five best we can find to share with our members.'
+      get_started: 'Get Started'
+    latest_books_item:
+      buy_now_button: 'Buy Now'
+  layouts:
+    application:
+      app_name: 'BookstoreSimb'
+    header:
+      app_name: 'BookStore'
+      navigation_home: 'Home'
+      navigation_shop: 'Shop'
+      navigation_account: 'My account'
+    footer:
+      mobile_number: '(555)-555-5555'
+      email_address: 'support@bookstore.com'
+      navigation_home: 'Home'
+      navigation_shop: 'Shop'
+      navigation_orders:  'Orders'
+      navigation_settings: 'Settings'
+      navigation_account: 'My account'
+  books:
+    partials:
+      desktop:
+        sort:
+          year_of_publication_desc: 'Newest first'
+          price_asc: 'Price: Low to high'
+          price_desc: 'Price: High to low'
+        categories: 
+          all: 'All'
+      mobile:
+        sort:
+          sort_by: 'Sort by'
+          year_of_publication_desc: 'Newest first'
+          price_asc: 'Price: Low to high'
+          price_desc: 'Price: High to low'
+        categories:
+          all: 'All'
+          filter_by_categories: 'Filter by category'
+    book:
+    index:
+      title: 'Catalog'
+      view_more: 'View more'
+
+          

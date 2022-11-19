@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Book page', type: :feature do
+  before { Category::NAMES.each { Category.create(name: _1) } }
   let(:book) { create(:book) }
 
   it 'truncate books description', js: true do

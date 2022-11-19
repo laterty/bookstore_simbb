@@ -1,8 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe 'Catalog', type: :feature do
-  before { create_list(:book, 12) }
-
+  before do
+    Category::NAMES.each { Category.create(name: _1) }
+    create_list(:book, 12)
+  end
   let(:books_price_low_to_high) { Book.order('price') }
   let(:books_price_high_to_low) { Book.order('price DESC') }
 
