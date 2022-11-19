@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class BooksQuery
   attr_reader :category, :sort_type
 
