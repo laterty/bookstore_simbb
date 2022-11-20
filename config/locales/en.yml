@@ -79,5 +79,25 @@ en:
       year_of_publication: 'Year of publication'
       dimensions: 'Dimensions'
       material: 'Material'
-
+  validation:
+    address:
+        names_city_country: 'Consist of a-z, A-Z only, no special symbols'
+        zip: 'Consist of 0-9 only,’-’ no special symbols'
+        address: 'Consist of a-z, A-Z, 0-9, -, / only, \
+                  no special symbols'
+        phone: 'Consist of 0-9 only no special symbols'
+    password:
+      complexity: 'Complexity requirement not met. Please use: 1 uppercase, 1 lowercase, 1 digit and 1 special character'
+      confirmation: 'Password confirmation should be the same with new password'
+      current: 'Wrong current password'
+    email:
+      invalid: 'Invalid email'
+  users:
+    edit:
+      settings: 'Settings'
+    successful:
+      update_email: 'Email was successfully changed!'
+      update_password: 'Password was successfully changed!'
+      delete_user: 'User was successfully deleted'
+  
           
