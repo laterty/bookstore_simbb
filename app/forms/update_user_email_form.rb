@@ -8,5 +8,5 @@ class UpdateUserEmailForm < ApplicationForm
   validates :email,
             presence: true,
             length: { minimum: 3, maximum: 63 },
-            format: { with: EMAIL_REGEXP, message: I18n.t('validation.email.invlid') }
+            format: { with: EMAIL_REGEXP, message: I18n.t('validation.email.invalid') }
 end
