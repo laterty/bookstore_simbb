@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 RSpec.describe 'Homes', type: :request do
-  before { Category::NAMES.each { Category.create(name: _1) } }
-
   describe 'GET /' do
     before do
+      create_list(:category, 3)
       create_list(:book, 4)
       get '/'
     end

@@ -13,7 +13,7 @@ RSpec.describe 'Books', type: :request do
 
   describe 'GET /show' do
     before do
-      Category::NAMES.each { Category.create(name: _1) }
+      create_list(:category, 3)
       get "/books/#{book.id}"
     end
 
