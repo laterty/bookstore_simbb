@@ -21,7 +21,7 @@ class BooksController < ApplicationController
 
   def current_category
     session[:current_category] = permitted_params[:category] if permitted_params[:category]
-    session[:current_category] || 'All'
+    session[:current_category] || BooksQuery::DEFAULT_CATEGORY
   end
 
   def current_sort_type

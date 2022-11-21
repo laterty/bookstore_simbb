@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 RSpec.describe 'Homes', type: :request do
-
   describe 'GET /' do
     before do
       create_list(:category, 3)

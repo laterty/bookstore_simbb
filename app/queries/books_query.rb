@@ -6,6 +6,7 @@ class BooksQuery
   PRICE_ASC = 'price ASC'
   PRICE_DESC = 'price DESC'
   YEAR_OF_PUBLICATION_DESC = 'year_of_publication DESC'
+  DEFAULT_CATEGORY = 'All'
 
   ORDERS_TYPE = {
     price_asc: PRICE_ASC,
