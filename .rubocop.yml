@@ -15,15 +15,6 @@ Style/Documentation:
 Layout/LineLength:
   Max: 120
 
-Style/MutableConstant:
-  Enabled: false
-
-Style/Documentation: 
-  Enabled: false
-
-Layout/LineLength:
-  Max: 120
-
 Metrics/BlockLength:
   Exclude:
     - 'Rakefile'
