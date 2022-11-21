@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class BooksController < ApplicationController
-  protect_from_forgery except: :index
-
   def index
     @current_category = current_category
     @current_sort_type = current_sort_type

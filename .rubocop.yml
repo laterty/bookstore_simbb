@@ -12,14 +12,9 @@ Style/MutableConstant:
 Style/Documentation: 
   Enabled: false
 
-Layout/LineLength:
-  Max: 120
-
-Style/MutableConstant:
-  Enabled: false
-
-Style/Documentation: 
-  Enabled: false
+Rails/FilePath:
+  Exclude:
+    - 'spec/rails_helper.rb'
 
 Layout/LineLength:
   Max: 120
@@ -45,8 +40,8 @@ AllCops:
     - 'public/**/*'
     - 'log/**/*'
     - 'test/**/*'
+    - 'config/**/*'
     - 'spec/features/*'
     - 'spec/factories/*'
     - 'config/initializers/devise.rb'
     - 'db/migrate/*'
-    - 'config/environments/*'

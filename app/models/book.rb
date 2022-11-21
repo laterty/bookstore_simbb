@@ -10,18 +10,4 @@ class Book < ApplicationRecord
   validates :price, presence: true, numericality: true
 
   paginates_per 12
-
-  CATEGORIES = { mobile_development: 'Mobile Development', photo: 'Photo', web_design: 'Web Design' }.freeze
-
-  def self.bestsellers
-    Book.all
-  end
-
-  def self.category_count(category)
-    categorized_books(category).count
-  end
-
-  def self.categorized_books(category)
-    Book.where(category:)
-  end
 end

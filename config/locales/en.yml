@@ -48,5 +48,12 @@ en:
     index:
       title: 'Catalog'
       view_more: 'View more'
-
-          
+    show:
+      back_to_results: 'Back to results'
+      add_to_cart: 'Add to cart'
+      description: 'Description'
+      read_more: 'Read More'
+      year_of_publication: 'Year of publication'
+      dimensions: 'Dimensions'
+      materials: 'Materials'
+      
