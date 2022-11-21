@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   def edit; end
 
   def destroy
     current_user.destroy if permmit_params[:check_delete_user]
-    redirect_to root_path, notice: 'User was successfully deleted'
+    redirect_to root_path, notice: I18n.t('users.successful.delete_user')
   end
 
   private

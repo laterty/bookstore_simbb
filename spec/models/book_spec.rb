@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Book, type: :model do
+  before { Category::NAMES.each { Category.create(name: _1) } }
+
   context 'when create book' do
-    let(:book) do
-      described_class.new(title: 'Ruby is for fun', description: 'yolo polo colo', price: 99.99, author: 'Walter White')
-    end
+    let(:book) { create(:book) }
 
     it 'is valid with valid attributes' do
       expect(book).to be_valid
@@ -17,11 +19,6 @@ RSpec.describe Book, type: :model do
 
     it 'is not valid without a description' do
       book.description = nil
-      expect(book).not_to be_valid
-    end
-
-    it 'is not valid without a author' do
-      book.author = nil
       expect(book).not_to be_valid
     end
 

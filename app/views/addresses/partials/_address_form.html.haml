@@ -8,32 +8,32 @@
   = f.input :type, :as => :hidden, :input_html => { :value => type }
   .form-group
     = f.input :first_name,
-      placeholder: 'First Name',
-      label: 'First Name'
+      placeholder: t('.placeholder.first_name'),
+      label: t('.label.first_name')
   .form-group
     = f.input :last_name,
-      placeholder: 'Last Name',
-      label: 'Last Name'
+      placeholder: t('.placeholder.last_name'),
+      label: t('.label.last_name')
   .form-group
     = f.input :address,
-      placeholder: 'Address',
-      label: 'Address'
+      placeholder: t('.placeholder.address'),
+      label: t('.label.address_label')
   .form-group
     = f.input :city,
-      placeholder: 'City',
-      label: 'City'
+      placeholder: t('.placeholder.city'),
+      label: t('.label.city')
   .form-group
     = f.input :zip,
-      placeholder: 'Zip',
-      label: 'Zip'
+      placeholder: t('.placeholder.zip'),
+      label: t('.label.zip')
   .form-group
     = f.input :country,
       collection: ['London', 'London', 'London'],
-      placeholder: 'Country',
-      label: 'Country'
+      placeholder: t('.placeholder.country'),
+      label: t('.label.country')
   .form-group.mb-60
     = f.input :phone,
-      placeholder: 'Example +355 66 123 4567',
-      label: 'Phone'
+      placeholder: t('.placeholder.phone'),
+      label: t('.label.phone')
   .text-center.general-text-align
     = f.button :submit, class: 'btn'

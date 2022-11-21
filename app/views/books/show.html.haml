@@ -1,7 +1,7 @@
 %main.container
   %a.general-back-link{href: url_for(:back)}
     %i.fa.fa-long-arrow-left.mr-15
-    Back to results
+    = t('.back_to_results ')
   .row
     .col-sm-6
       .product-gallery
@@ -16,7 +16,7 @@
             %img{src: "https://www.smashingmagazine.com/wp-content/uploads/2015/09/smashing-book-5-2-large.jpg"}
     .col-sm-6
       %h1.mt-res-0= @book.title
-      %p.lead.small= @book.author
+      %p.lead.small= @book.authors_names
       .row
         .col-xs-12.col-md-4
           %p.h1.in-gold-500.mt-10= "€#{@book.price}"
@@ -28,28 +28,28 @@
             %a.input-link#plus_books_price
               %i.fa.fa-plus.line-height-40
         .col-xs-7.col-md-5
-          %button.btn.btn-default.pull-right.general-position Add to Cart
+          %button.btn.btn-default.pull-right.general-position= t('.add_to_cart')
       .general-info-wrap.divider-lg
-        %p Description
+        %p= t('.description')
         - if @book.description.length > 250
           %p.lead.small.line-height-2#truncate_description
             = @book.description.truncate(250)
-            %a.in-gold-500.ml-10#book_read_more{href: "#"} Read More
+            %a.in-gold-500.ml-10#book_read_more{href: "#"}= t('.read_more')
           %p.lead.small.line-height-2.hidden#full_description= @book.description
         - else
           %p.lead.small.line-height-2
             = @book.description
       .general-info-wrap.divider-lg
         .clearfix
-          %p.pull-left Year of publication
+          %p.pull-left= t('.year_of_publication')
           %p.lead.small.pull-right= @book.year_of_publication
       .general-info-wrap.divider-lg
         .clearfix
-          %p.pull-left Dimensions
+          %p.pull-left= t('.dimensions')
           %p.lead.small.pull-right= @book.dimensions
       .general-info-wrap.divider-lg
         .clearfix
-          %p.pull-left Materials
+          %p.pull-left= t('.materials')
           %p.lead.small.pull-right= @book.materials
   .mb-80
     %h3 Write a Review

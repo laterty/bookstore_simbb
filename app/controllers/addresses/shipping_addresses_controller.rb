@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Addresses
   class ShippingAddressesController < ApplicationController
     def create

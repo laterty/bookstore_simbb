@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UpdateUserPasswordForm < ApplicationForm
   attr_accessor :current_password, :password, :password_confirmation
 
@@ -8,7 +10,7 @@ class UpdateUserPasswordForm < ApplicationForm
 
   def save
     return unless valid?
- 
+
     @model.update(password: @params[:password])
     @model
   end
@@ -18,15 +20,18 @@ class UpdateUserPasswordForm < ApplicationForm
   def password_complexity
     return if password.blank? || password =~ /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,70}$/
 
-    errors.add :password,
-               'Complexity requirement not met. Please use: 1 uppercase, 1 lowercase, 1 digit and 1 special character'
+    errors.add :password, I18n.t('validation.password.complexity')
   end
 
   def new_password_confirmation
-    errors.add :password_confirmation, 'Password confirmation should be the same with new password' unless password == password_confirmation
+    return if password == password_confirmation
+
+    errors.add :password_confirmation, I18n.t('validation.password.confirmation')
   end
 
   def old_password_validation
-    errors.add :current_password, 'Wrong current password' unless @model.valid_password?(current_password)
+    return if @model.valid_password?(current_password)
+
+    errors.add :current_password, I18n.t('validation.password.current')
   end
 end

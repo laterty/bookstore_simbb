@@ -4,13 +4,7 @@ require:
   - rubocop-rails
 
 Style/FrozenStringLiteralComment:
-  Enabled: false
-require:
-  - rubocop-performance
-  - rubocop-rspec
-
-Style/FrozenStringLiteralComment:
-  Enabled: false
+  Enabled: true
 
 Style/MutableConstant:
   Enabled: false
@@ -20,28 +14,6 @@ Style/Documentation:
 
 Layout/LineLength:
   Max: 120
-
-Metrics/BlockLength:
-  Exclude:
-    - 'Rakefile'
-    - '**/*.rake'
-    - 'test/**/*.rb'
-    - 'spec/**/*.rb'
-    - 'db/**/*.rb'
-    - 'config/**/*.rb'
-    - 'app/admin/**/*.rb'
-
-AllCops:
-  NewCops: enable
-  Exclude:
-    - 'tmp/**/*'
-    - 'bin/**/*'
-    - 'vendor/**/*'
-    - '.circleci/**/*'
-    - 'node_modules/**/*'
-    - 'public/**/*'
-    - 'log/**/*'
-    - 'test/**/*'
 
 Style/MutableConstant:
   Enabled: false
@@ -74,4 +46,7 @@ AllCops:
     - 'log/**/*'
     - 'test/**/*'
     - 'spec/features/*'
+    - 'spec/factories/*'
     - 'config/initializers/devise.rb'
+    - 'db/migrate/*'
+    - 'config/environments/*'
