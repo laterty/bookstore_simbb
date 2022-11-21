@@ -2,7 +2,7 @@
 
 RSpec.describe BookDecorator do
   describe '#all_authors' do
-    before { Category::NAMES.each { Category.create(name: _1) } }
+    before { create_list(:category, 3) }
 
     let(:author1) { create(:author) }
     let(:author2) { create(:author) }
