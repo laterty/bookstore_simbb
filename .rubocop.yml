@@ -45,3 +45,4 @@ AllCops:
     - 'spec/factories/*'
     - 'config/initializers/devise.rb'
     - 'db/migrate/*'
+    - 'db/schema.rb'
