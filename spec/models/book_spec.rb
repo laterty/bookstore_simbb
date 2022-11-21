@@ -1,40 +1,11 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 RSpec.describe Book, type: :model do
-  context 'when create book' do
+  describe 'validations' do
     let(:book) { create(:book) }
 
-    # described_class.new(title: 'Ruby is for fun', description: 'yolo polo colo', price: 99.99, author: 'Walter White')
-
-    it 'is valid with valid attributes' do
-      expect(book).to be_valid
-    end
-
-    it 'is not valid without a title' do
-      book.title = nil
-      expect(book).not_to be_valid
-    end
-
-    it 'is not valid without a description' do
-      book.description = nil
-      expect(book).not_to be_valid
-    end
-
-    it 'is not valid without a author' do
-      book.author = nil
-      expect(book).not_to be_valid
-    end
-
-    it 'is not valid without a price' do
-      book.price = nil
-      expect(book).not_to be_valid
-    end
-
-    it 'is not valid with a text price' do
-      book.price = 'text_price'
-      expect(book).not_to be_valid
-    end
+    it { is_expected.to validate_presence_of(:title) }
+    it { is_expected.to validate_presence_of(:description) }
+    it { is_expected.to validate_presence_of(:price) }
   end
 end
