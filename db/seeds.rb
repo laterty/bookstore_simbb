@@ -6,6 +6,7 @@ Book.destroy_all
 Category.destroy_all
 Author.destroy_all
 AuthorsBook.destroy_all
+AdminUser.destroy_all
 
 Category::NAMES.each { Category.create(name: _1) }
 
