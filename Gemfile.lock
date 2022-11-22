@@ -394,6 +394,8 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   capybara (>= 3.26)
   devise (~> 4.8.1)
+  dotenv-rails (~> 2.8.1)
+  draper (~> 4.0.2)
   factory_bot_rails (~> 6.2.0)
   faker (~> 2.23.0)
   ffaker (~> 2.20.0)
