@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :book do
-    title { Faker::Book.unique.title }
+    title { FFaker::Book.title }
   end
 end

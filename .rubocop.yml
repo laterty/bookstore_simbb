@@ -6,6 +6,9 @@ require:
 Style/MutableConstant:
   Enabled: false
 
+RSpec/MultipleExpectations:
+  Max: 5
+
 Style/Documentation: 
   Enabled: false
 

@@ -5,7 +5,7 @@
   .col-sm-7
     .mb-60
       %h1= book.title
-      %p.lead= book.description
-      %p.lead.small= book.author
+      %p.lead book.description
+      %p.lead.small book.author
       .general-align
         %button.disabled.btn= t('.buy_now_button')

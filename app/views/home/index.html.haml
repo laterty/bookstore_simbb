@@ -6,7 +6,7 @@
       %li{'data-target': "#slider", 'data-slide-to': "2"}
     .carousel-inner{role: "listbox"}
       - @latest_books.each_with_index do |book, index|
-        - if index == 0
+        - if index.zero?
           .item.active
             = render 'home/latest_books_item', book: book
         - else
@@ -27,5 +27,5 @@
   .mb-35
     %h3= t('.bestsellers')
     .row
-      - @books.first(4).each do |book|
+      - @books.first(Constants::Shared::BEST_BOOKS_COUNT).each do |book|
         = render 'home/book', book: book

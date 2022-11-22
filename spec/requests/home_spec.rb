@@ -7,8 +7,10 @@ RSpec.describe 'Homes', type: :request do
       get '/'
     end
 
-    it { expect(response).to render_template :index }
-    it { expect(response).to render_template(partial: 'home/_latest_books_item') }
-    it { expect(response).to render_template(partial: 'home/_book') }
+    it do
+      expect(response).to render_template :index
+      expect(response).to render_template(partial: 'home/_latest_books_item')
+      expect(response).to render_template(partial: 'home/_book')
+    end
   end
 end
