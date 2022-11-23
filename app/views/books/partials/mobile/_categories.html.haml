@@ -1,7 +1,7 @@
 %p.lead.small.mb-10= t('.filter_by_categories')
 .dropdown
   %a.dropdown-toggle.lead.small{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}
-    = @current_category
+    = @current_category.name
     %i.fa.fa-angle-down.dropdown-icon.pull-right
   %ul.dropdown-menu
     %li

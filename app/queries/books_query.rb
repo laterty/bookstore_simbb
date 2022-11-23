@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class BooksQuery
-  attr_reader :category, :sort_type
 
   PRICE_ASC = 'price ASC'
   PRICE_DESC = 'price DESC'
@@ -22,12 +21,13 @@ class BooksQuery
   end
 
   def query
-    scope = base_scope
-    scope = filtered_scope(scope)
-    sorted_scope(scope)
+    filtered_scope = filtered_scope(base_scope)
+    sorted_scope(filtered_scope)
   end
 
   private
+
+  attr_reader :category, :sort_type
 
   def filtered_scope(scope)
     valid_category? ? scope.where(category:) : scope
@@ -42,7 +42,7 @@ class BooksQuery
   end
 
   def base_scope
-    Book.all
+    @base_scope ||= Book.all
   end
 
   def generate_order(sort_type)

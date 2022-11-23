@@ -5,8 +5,8 @@ class BooksController < ApplicationController
     @current_category = current_category
     @current_sort_type = current_sort_type
     @books = BooksQuery.new(query_params).query.includes(:authors).page(permitted_params[:page]).decorate
-    @books_count = Book.count
     @categories = Category.all
+    @books_count = Book.count
     respond_to do |format|
       format.html
       format.js

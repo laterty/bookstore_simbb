@@ -5,7 +5,6 @@ class AddFieldsToBook < ActiveRecord::Migration[6.1]
     change_table :books do |t|
       t.text :description, null: false
       t.decimal :price, null: false
-      t.string :img_url
       t.string :year_of_publication, null: false
       t.string :dimensions, null: false
       t.string :materials, null: false
