@@ -44,3 +44,4 @@ AllCops:
     - 'spec/features/*'
     - 'spec/factories/*'
     - 'db/migrate/*'
+    - 'db/schema.rb'
