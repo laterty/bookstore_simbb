@@ -41,3 +41,4 @@ AllCops:
     - 'log/**/*'
     - 'test/**/*'
     - 'config/**/*'
+    - 'db/schema.rb'
