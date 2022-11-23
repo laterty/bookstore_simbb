@@ -1,9 +1,6 @@
-require 'rails_helper'
-
 RSpec.describe 'Catalog', type: :feature do
   before do
-    create_list(:category, 3)
-    create_list(:book, 12)
+    create_list(:book, 6)
   end
   let(:books_price_low_to_high) { Book.order('price') }
   let(:books_price_high_to_low) { Book.order('price DESC') }
@@ -42,7 +39,7 @@ RSpec.describe 'Catalog', type: :feature do
     end
 
     within('#books') do
-      expect(all('.title')[8].text).to eq books_price_high_to_low[8].title
+      expect(all('.title')[3].text).to eq books_price_high_to_low[3].title
     end
   end
 end

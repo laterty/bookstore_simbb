@@ -5,7 +5,7 @@ FactoryBot.define do
     title { FFaker::Book.title }
     description { "#{FFaker::CheesyLingo.paragraph} #{FFaker::CheesyLingo.paragraph}" }
     price { rand(0..100.0).round(2) }
-    category { Category.all.sample }
+    category
     year_of_publication { rand(1980..2022) }
     dimensions { 'H:6.4\" x W: 0.9\" x D: 5.0' }
     materials { FFaker::BaconIpsum.word  }

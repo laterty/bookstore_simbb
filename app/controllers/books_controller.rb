@@ -2,10 +2,11 @@
 
 class BooksController < ApplicationController
   def index
-    @current_category = current_category
+    @categories = Category.all
+    @current_category_id = current_category_id
     @current_sort_type = current_sort_type
     @books = BooksQuery.new(query_params).query.includes(:authors).page(permitted_params[:page]).decorate
-    @categories = Category.all
+    @current_category_name = current_category_name
     @books_count = Book.count
     respond_to do |format|
       format.html
@@ -19,9 +20,13 @@ class BooksController < ApplicationController
 
   private
 
-  def current_category
-    session[:current_category] = permitted_params[:category] if permitted_params[:category]
-    session[:current_category] || BooksQuery::DEFAULT_CATEGORY
+  def current_category_id
+    session[:current_category_id] = permitted_params[:category_id] if permitted_params[:category_id]
+    session[:current_category_id] || BooksQuery::DEFAULT_CATEGORY_ID
+  end
+
+  def current_category_name
+    @categories.where(id: @current_category_id).name || Constants::Shared::DEFAULT_CATEGORY_NAME
   end
 
   def current_sort_type
@@ -30,10 +35,10 @@ class BooksController < ApplicationController
   end
 
   def query_params
-    { category: @current_category, sort_type: @current_sort_type }
+    { category_id: @current_category_id, sort_type: @current_sort_type }
   end
 
   def permitted_params
-    params.permit(:category, :sort_type, :page)
+    params.permit(:category_id, :sort_type, :page)
   end
 end

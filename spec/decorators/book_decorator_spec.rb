@@ -2,8 +2,6 @@
 
 RSpec.describe BookDecorator do
   describe '#all_authors' do
-    before { create_list(:category, 3) }
-
     let(:author1) { create(:author) }
     let(:author2) { create(:author) }
     let(:book) { create(:book, authors: [author1, author2]) }
