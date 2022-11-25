@@ -1,20 +1,16 @@
-require 'rails_helper'
-
 RSpec.describe 'Book page', type: :feature do
-  before { create_list(:category, 3) }
   let(:book) { create(:book) }
+  before { visit book_path(book) }
 
-  it 'truncate books description', js: true do
-    visit book_path(book)
-
-    expect(page).to have_css('#truncate_description')
-    expect(page).to have_no_css('#full_description')
+  describe 'truncatable description', js: true do
+    it 'truncate books description' do
+      expect(page).to have_css('#truncate_description')
+      expect(page).to have_no_css('#full_description')
+    end
   end
 
-  it 'show full description after click link', js: true do
-    visit book_path(book)
-
-    find_by_id('book_read_more').click
-    expect(page).to have_no_css('#truncate_description')
+  describe 'show full description after click link', js: true do
+    before { find_by_id('book_read_more').click }
+    it { expect(page).to have_no_css('#truncate_description') }
   end
 end

@@ -5,6 +5,9 @@ JS_DRIVER = :selenium_chrome_headless
 Capybara.default_driver = :rack_test
 Capybara.javascript_driver = JS_DRIVER
 Capybara.default_max_wait_time = 2
+Capybara.configure do |config|
+  config.ignore_hidden_elements = true
+end
 
 RSpec.configure do |config|
   config.before do |example|

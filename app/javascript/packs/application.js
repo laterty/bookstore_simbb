@@ -11,8 +11,7 @@ import "channels"
 import 'jquery'
 import 'popper.js'
 import 'bootstrap-sass'
-require("book_desc_listener")
-require("book_price_calculator")
+require("../scripts/app")
 
 Rails.start()
 Turbolinks.start()
