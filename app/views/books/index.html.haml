@@ -12,4 +12,4 @@
         = render @books
     #paginator.text-center
       - if @pagy.next
-        = pagy_next_link(@pagy, text: t('.view_more'), link_extra: "class='btn btn-primary'").html_safe
+        = pagy_next_link(@pagy, text: t('.view_more'), link_extra: "class='btn btn-primary' id='view_more'").html_safe
