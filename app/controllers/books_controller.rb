@@ -17,7 +17,7 @@ class BooksController < ApplicationController
   private
 
   def books_query
-    BooksQuery.new(query_params).query
+    @books_query ||= BooksQuery.new(query_params).query
   end
 
   def current_category_id
