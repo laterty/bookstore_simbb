@@ -47,7 +47,6 @@ AllCops:
     - 'log/**/*'
     - 'test/**/*'
     - 'config/**/*'
-    - 'spec/features/*'
     - 'spec/factories/*'
     - 'config/initializers/devise.rb'
     - 'db/migrate/*'
