@@ -2,13 +2,17 @@
 
 RSpec.describe AuthorBook, type: :model do
   describe 'associations' do
-    it { is_expected.to belong_to(:author) }
-    it { is_expected.to belong_to(:book) }
+    it do
+      is_expected.to belong_to(:author)
+      is_expected.to belong_to(:book)
+    end
   end
 
   describe 'columns' do
-    it { is_expected.to have_db_column(:book_id).of_type(:integer).with_options(null: false) }
-    it { is_expected.to have_db_column(:author_id).of_type(:integer).with_options(null: false) }
+    it do
+      is_expected.to have_db_column(:book_id).of_type(:integer).with_options(null: false)
+      is_expected.to have_db_column(:author_id).of_type(:integer).with_options(null: false)
+    end
   end
 
   describe 'table index' do
