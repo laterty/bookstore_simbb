@@ -37,7 +37,7 @@ class BooksQuery
   end
 
   def valid_category?
-    category_id && Category.exists?(id: category_id)
+    category_id.present? && Category.exists?(id: category_id)
   end
 
   def base_scope
