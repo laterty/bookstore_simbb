@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,45 +10,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_221_121_163_715) do
+ActiveRecord::Schema.define(version: 2022_11_21_163715) do
+
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'authors', force: :cascade do |t|
-    t.string 'name', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "author_books", force: :cascade do |t|
+    t.bigint "book_id", null: false
+    t.bigint "author_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_id", "book_id"], name: "index_author_books_on_author_id_and_book_id", unique: true
   end
 
-  create_table 'authors_books', force: :cascade do |t|
-    t.bigint 'book_id', null: false
-    t.bigint 'author_id', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['author_id'], name: 'index_authors_books_on_author_id'
-    t.index ['book_id'], name: 'index_authors_books_on_book_id'
+  create_table "authors", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table 'books', force: :cascade do |t|
-    t.string 'title', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.text 'description', null: false
-    t.decimal 'price', null: false
-    t.string 'img_url'
-    t.string 'year_of_publication', null: false
-    t.string 'dimensions', null: false
-    t.string 'materials', null: false
-    t.bigint 'category_id', null: false
-    t.index ['category_id'], name: 'index_books_on_category_id'
+  create_table "books", force: :cascade do |t|
+    t.string "title", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.text "description", null: false
+    t.decimal "price", null: false
+    t.string "year_of_publication", null: false
+    t.string "dimensions", null: false
+    t.string "materials", null: false
+    t.bigint "category_id", null: false
+    t.index ["category_id"], name: "index_books_on_category_id"
   end
 
-  create_table 'categories', force: :cascade do |t|
-    t.string 'name', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "categories", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key 'authors_books', 'authors'
-  add_foreign_key 'authors_books', 'books'
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "provider"
+    t.string "uid"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "author_books", "authors"
+  add_foreign_key "author_books", "books"
 end
