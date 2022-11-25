@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  def index
-    @categories = Category.all
+  include Pagy::Backend
+  before_action :categories
+
+  def categories
+    @categories ||= Category.all
   end
 end

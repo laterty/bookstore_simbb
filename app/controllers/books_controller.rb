@@ -2,16 +2,12 @@
 
 class BooksController < ApplicationController
   def index
-    @categories = Category.all
     @current_category_id = current_category_id
     @current_sort_type = current_sort_type
-    @books = BooksQuery.new(query_params).query.includes(:authors).page(permitted_params[:page]).decorate
+    @pagy, books = pagy(books_query)
+    @books = books.includes(:authors).decorate
     @current_category_name = current_category_name
     @books_count = Book.count
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def show
@@ -19,6 +15,10 @@ class BooksController < ApplicationController
   end
 
   private
+
+  def books_query
+    BooksQuery.new(query_params).query
+  end
 
   def current_category_id
     session[:current_category_id] = permitted_params[:category_id] if permitted_params[:category_id]

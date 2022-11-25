@@ -8,6 +8,4 @@ class Book < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
   validates :price, presence: true, numericality: true
-
-  paginates_per 12
 end
