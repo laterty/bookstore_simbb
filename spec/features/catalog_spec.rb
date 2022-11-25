@@ -7,7 +7,7 @@ RSpec.describe 'Catalog', type: :feature do
     before do  
       visit root_path
       within('div.hidden-xs') do
-        find('.nav.navbar-nav').click_link('Shop')
+        find('.nav.navbar-nav').click_link(I18n.t('layouts.header.navigation_shop'))
         find('ul.dropdown-menu').all('a').first.click
       end
     end
