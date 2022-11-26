@@ -1,34 +1,34 @@
 %main.container.general-main-wrap
   .text-center
-    %h3.general-login-title Log In
+    %h3.general-login-title= t('.log_in')
     = link_to user_facebook_omniauth_authorize_path, class: "general-login-icon", method: :post do
       %i.fa-brands.fa-square-facebook.fa-2xl
-    %p.general-login-text or
+    %p.general-login-text= t('.or')
   = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "general-form"}) do |f|
     .form-group.mb-30
       = f.input :email,
-        placeholder: "Enter email",
+        placeholder: t('.placeholder.email'),
         input_html: { class: "form-control" },
-        label: 'Email',
+        label: t('.label.email'),
         label_html: { class: 'control-label input-label' },
         error_html: { class: 'has-error' }
     .form-group.mb-30
       = f.input :password,
         autocomplete: "off",
-        placeholder: "Password",
+        placeholder: t('.placeholder.password'),
         input_html: { class: "form-control" },
-        label: 'Password',
+        label: t('.label.password'),
         label_html: { class: 'control-label input-label' }
-      = link_to "Forgot password?", new_user_password_path, class: "help-block in-gold-500"
+      = link_to t('.forgot_password'), new_user_password_path, class: "help-block in-gold-500"
     - if devise_mapping.rememberable?
       .field.form-group.checkbox.text-center.mb-30
         %label.checkbox-label
           = f.check_box :remember_me, class: "checkbox-input", hidden: "true"
           %span.checkbox-icon
             %i.fa.fa-check
-          %span.checkbox-text Remember me
+          %span.checkbox-text= t('.remember_me')
     .actions.text-center
-      = f.submit "Log in", class: "btn btn-default mb-20"
+      = f.submit t('.log_in_button'), class: "btn btn-default mb-20"
   %p.general-sign-text.text-center
-    Don’t have an Account?
-    = link_to "Sign up", new_user_registration_path, class: "in-gold-500"
+    = t('.dont_have_account')
+    = link_to t('.sign_up'), new_user_registration_path, class: "in-gold-500"

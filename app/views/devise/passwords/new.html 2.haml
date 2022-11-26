@@ -1,13 +1,13 @@
 %main.container.general-main-wrap
   .text-center
-    %h1.mb-30= t('.forgot')
-    %p.general-password-text= t('.email_instructions')
+    %h1.mb-30 Forgot your password?
+    %p.general-password-text We'll email you instructions on how to reset it
   = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { class: "general-form" }) do |f|
     .form-group.mb-25
-      = f.input :email, placeholder: t('.email_placeholder'),
+      = f.input :email, placeholder: 'Enter your email',
         input_html: { class: 'form-control' },
         label_html: { class: 'control-label input-label' }
     .actions
-      = f.button :submit, t('.submit_button'), class: "btn btn-default center-block mb-20"
+      = f.button :submit, "Email Instructions", class: "btn btn-default center-block mb-20"
     .text-center
-      %a.in-gold-500.mb-20{href: root_path}= t('.cancel')
+      %a.in-gold-500.mb-20{href: root_path} Cancel
