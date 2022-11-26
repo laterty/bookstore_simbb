@@ -61,6 +61,7 @@ en:
       materials: 'Materials'
   devise:
     passwords:
+      complexity_error: 'Complexity requirement not met. Please use: 1 uppercase, 1 lowercase, 1 digit and 1 special character'
       new:
         forgot: 'Forgot your password?'
         email_instructions: "We'll email you instructions on how to reset it"

@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -12,11 +10,12 @@ class User < ApplicationRecord
 
   validate :password_complexity
 
-  def password_complexity
-    return if password.blank? || password =~ /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,70}$/
+  PASSWORD_REGEX = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,70}$/
 
-    errors.add :password,
-               'Complexity requirement not met. Please use: 1 uppercase, 1 lowercase, 1 digit and 1 special character'
+  def password_complexity
+    return if password.blank? || password =~ PASSWORD_REGEX
+
+    errors.add :password, I18n.t('devise.passwords.complexity_error')
   end
 
   def self.from_omniauth(auth)
