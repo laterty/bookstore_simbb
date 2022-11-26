@@ -86,6 +86,7 @@ en:
           email: 'Email'
           password: 'Password'
           password_confirmation: 'Confirm password'
+        submit_button: 'Sign up'
         sign_up: 'Sign up'
         log_in: 'Log in'
         have_account: 'Have an Account?'
