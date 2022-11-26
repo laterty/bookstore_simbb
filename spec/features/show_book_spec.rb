@@ -1,20 +1,20 @@
-require 'rails_helper'
+# frozen_string_literal: true
 
 RSpec.describe 'Book page', type: :feature do
-  before { Category::NAMES.each { Category.create(name: _1) } }
   let(:book) { create(:book) }
 
-  it 'truncate books description', js: true do
-    visit book_path(book)
+  before { visit book_path(book) }
 
-    expect(page).to have_css('#truncate_description')
-    expect(page).to have_no_css('#full_description')
+  describe 'truncatable description', js: true do
+    it 'truncate books description' do
+      expect(page).to have_css('#truncate_description')
+      expect(page).to have_no_css('#full_description')
+    end
   end
 
-  it 'show full description after click link', js: true do
-    visit book_path(book)
+  describe 'show full description after click link', js: true do
+    before { find_by_id('book_read_more').click }
 
-    find_by_id('book_read_more').click
-    expect(page).to have_no_css('#truncate_description')
+    it { expect(page).to have_no_css('#truncate_description') }
   end
 end

@@ -18,6 +18,9 @@ en:
       navigation_home: 'Home'
       navigation_shop: 'Shop'
       navigation_account: 'My account'
+      log_in: 'Log in'
+      sign_up: 'Sign up'
+      log_out: 'Log out'
     footer:
       mobile_number: '(555)-555-5555'
       email_address: 'support@bookstore.com'
@@ -48,6 +51,62 @@ en:
     index:
       title: 'Catalog'
       view_more: 'View more'
+    show:
+      back_to_results: 'Back to results'
+      add_to_cart: 'Add to cart'
+      description: 'Description'
+      read_more: 'Read More'
+      year_of_publication: 'Year of publication'
+      dimensions: 'Dimensions'
+      materials: 'Materials'
+  devise:
+    passwords:
+      complexity_error: 'Complexity requirement not met. Please use: 1 uppercase, 1 lowercase, 1 digit and 1 special character'
+      new:
+        forgot: 'Forgot your password?'
+        email_instructions: "We'll email you instructions on how to reset it"
+        email_placeholder: 'Enter your email'
+        submit_button: 'Email Instructions'
+        cancel: 'Cancel'
+      edit:
+        title: 'Set new password'
+        submit_button: 'Change'
+        placeholder:
+          password: 'Type a new Password'
+          password_confirmation: 'Type a new Password'
+        label:
+          password: 'Confirm Password'
+          password_confirmation: 'Confirm Password'
+    registrations:
+      new:
+        placeholder:
+          email: 'Enter email'
+          password: 'Password'
+          password_confirmation: 'Confirm password'
+        label:
+          email: 'Email'
+          password: 'Password'
+          password_confirmation: 'Confirm password'
+        submit_button: 'Sign up'
+        sign_up: 'Sign up'
+        log_in: 'Log in'
+        have_account: 'Have an Account?'
+        or: 'or'
+    sessions:
+      new:
+        label:
+          email: 'Email'
+          password: 'Password'
+        placeholder:
+          email: 'Enter email'
+          password: 'Password'
+        log_in: 'Log in'
+        or: 'or'
+        forgot_password: 'Forgot password?'
+        remember_me: 'Remember me'
+        dont_have_account: 'Don’t have an Account?'
+        sign_up: 'Sign up'
+        log_in_button: 'Log in'
   addresses:
     partials:
       address_form:
@@ -100,4 +159,5 @@ en:
       update_password: 'Password was successfully changed!'
       delete_user: 'User was successfully deleted'
   
+
           

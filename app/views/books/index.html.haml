@@ -11,4 +11,5 @@
       #books
         = render @books
     #paginator.text-center
-      = link_to t('.view_more'), books_path(page: (@books.object.current_page ? @books.object.current_page + 1 : 1)), remote: true, id: 'view_more', class: "btn btn-primary" 
+      - if @pagy.next
+        = pagy_next_link(@pagy, text: t('.view_more'), link_extra: "class='btn btn-primary' id='view_more'").html_safe
