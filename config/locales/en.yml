@@ -152,7 +152,30 @@ en:
     email:
       invalid: 'Invalid email'
   users:
+    partials:
+      change_email_form:
+        title: 'Email'
+        label: 'Enter email'
+        placeholder: 'Enter your email'
+        submit_button: 'Save'
+      change_password_form:
+        title: 'Password'
+        label:
+          password: 'New password'
+          current_password: 'Old password'
+          password_confirmation: 'Confirm password'
+        placeholder:
+          password: 'New password'
+          current_password: 'Old password'
+          password_confirmation: 'Confirm password'
+        submit_button: 'Save'
+      delete_account_form:
+        title: 'Remove account'
+        submit_button: 'Please Remove My Account'
+        confirmation: 'I understand that all data will be lost'
     edit:
+      address_link: 'Address'
+      privacy_link: 'Privacy'
       settings: 'Settings'
     successful:
       update_email: 'Email was successfully changed!'

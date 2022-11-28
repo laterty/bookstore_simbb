@@ -2,9 +2,9 @@
   %h1.general-title-margin= t('.settings')
   %ul.nav.clearfix.mb-20
     %li.tab-item.active
-      = link_to 'Address', edit_settings_address_path, class: 'tab-link'
+      = link_to t('.address_link'), edit_settings_address_path, class: 'tab-link'
     %li.tab-item
-      = link_to 'Privacy', privacy_settings_path, class: 'tab-link'
+      = link_to t('.privacy_link'), privacy_settings_path, class: 'tab-link'
   .tab-pane
     .row.mb-60
       #change_email_form

@@ -1,12 +1,12 @@
 .col-sm-12
-  %p.in-gold-500.font-18.mb-25 Remove account
+  %p.in-gold-500.font-18.mb-25= t('.title')
   = simple_form_for(current_user, url: user_path, method: :delete) do |f|
     .general-settings-btn
       = f.hidden_field :check_delete_user, value: false, id: 'delete_user_check'
-      = f.button :submit, 'Please Remove My Account', disabled: true, class: 'btn disabled btn-default mb-20', id: 'button_for_delete_account'
+      = f.button :submit, t('.submit_button') , disabled: true, class: 'btn disabled btn-default mb-20', id: 'button_for_delete_account'
     .form-group.checkbox.general-settings-checkbox
       %label.checkbox-label
         %input.checkbox-input#remove_account{type: "checkbox", hidden: "true"}
         %span.checkbox-icon
           %i.fa.fa-check
-        %span.checkbox-text 'I understand that all data will be lost'
+        %span.checkbox-text= t('.confirmation') 
