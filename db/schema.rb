@@ -15,10 +15,27 @@ ActiveRecord::Schema.define(version: 2022_11_21_163715) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table 'authors', force: :cascade do |t|
-    t.string 'name', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "addresses", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "address"
+    t.string "city"
+    t.string "country"
+    t.string "zip"
+    t.string "phone"
+    t.string "type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
+  create_table "author_books", force: :cascade do |t|
+    t.bigint "book_id", null: false
+    t.bigint "author_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_id", "book_id"], name: "index_author_books_on_author_id_and_book_id", unique: true
   end
 
   create_table "authors", force: :cascade do |t|
@@ -60,6 +77,7 @@ ActiveRecord::Schema.define(version: 2022_11_21_163715) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key 'authors_books', 'authors'
-  add_foreign_key 'authors_books', 'books'
+  add_foreign_key "addresses", "users"
+  add_foreign_key "author_books", "authors"
+  add_foreign_key "author_books", "books"
 end
