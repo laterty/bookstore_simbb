@@ -139,6 +139,7 @@ en:
       dimensions: 'Dimensions'
       material: 'Material'
   validation:
+    blank: "Can't be blank"
     address:
         names_city_country: 'Consist of a-z, A-Z only, no special symbols'
         zip: 'Consist of 0-9 only,’-’ no special symbols'

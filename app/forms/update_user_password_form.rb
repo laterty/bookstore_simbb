@@ -3,7 +3,7 @@
 class UpdateUserPasswordForm < ApplicationForm
   attr_accessor :current_password, :password, :password_confirmation
 
-  validates :password, :password_confirmation, :current_password, presence: true
+  validates_presence_of :password, :password_confirmation, :current_password, message: I18n.t('validation.blank')
   validate :old_password_validation
   validate :new_password_confirmation
   validate :password_complexity

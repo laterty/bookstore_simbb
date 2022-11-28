@@ -21,7 +21,7 @@ describe 'Change password' do
 
     it do
       expect(page).to have_current_path update_user_password_path
-      expect(page).to have_content "can't be blank"
+      expect(page).to have_content I18n.t('validation.blank')
     end
   end
 
@@ -39,7 +39,7 @@ describe 'Change password' do
 
     it do
       expect(page).to have_current_path update_user_password_path
-      expect(page).to have_content "can't be blank"
+      expect(page).to have_content I18n.t('validation.blank')
     end
   end
 
