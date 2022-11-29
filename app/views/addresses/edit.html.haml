@@ -2,9 +2,9 @@
   %h1.general-title-margin= t('.title')
   %ul.nav.clearfix.mb-20
     %li.tab-item.active
-      = link_to 'Address', edit_settings_address_path, class: 'tab-link'
+      = link_to I18n.t('.address_link'), edit_settings_address_path, class: 'tab-link'
     %li.tab-item
-      = link_to 'Privacy', privacy_settings_path, class: 'tab-link'
+      = link_to I18n.t('.privacy_link'), privacy_settings_path, class: 'tab-link'
   .tab-content
     .hidden-xs.hidden-sm
       .row

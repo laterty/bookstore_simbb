@@ -108,6 +108,8 @@ en:
         sign_up: 'Sign up'
         log_in_button: 'Log in'
   addresses:
+    successful:
+      create_address: "Successfully created an %{type} address"
     partials:
       address_form:
         label:
@@ -130,6 +132,8 @@ en:
       title: 'Settings'
       billing_address: 'Billing Address'
       shipping_address: 'Shipping Address'
+      address_link: 'Address'
+      privacy_link: 'Privacy'
     show:
       back_to_result: 'Back to results'
       add_to_cart: 'Add to Cart'
