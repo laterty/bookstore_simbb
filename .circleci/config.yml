@@ -49,7 +49,7 @@ jobs:
           command: |
             curl -o- -L https://yarnpkg.com/install.sh | bash
             yarn global add sass
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
+            bundle install --jobs=4 --retry=3 --local path vendor/bundle
             yarn
       - save_cache:
           paths:
