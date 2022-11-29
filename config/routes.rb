@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   resources :categories, only: %I[show] do
     resources :books, only: %I[index]
   end
-  root 'home#index'
 
   resource :update_user_email, only: :update
   resource :update_user_password, only: :update
