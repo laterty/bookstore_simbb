@@ -33,7 +33,7 @@ RSpec.describe AddressForm, type: :model do
       end
 
       it 'return address with correct type' do
-        expect(saved_address).to be_kind_of(expected_class)
+        expect(saved_address).to be_a(expected_class)
       end
     end
 
