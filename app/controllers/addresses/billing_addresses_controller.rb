@@ -5,7 +5,7 @@ module Addresses
     def create
       @billing_address = current_user.billing_addresses.new(address_params)
       if @billing_address.save
-        flash[:notice] = "Successfully created an #{address_params[:type]} address"
+        flash[:notice] = I18n.t('addresses.successful.create_address', type: address_params[:type])
         redirect_to '/settings/addresses'
       else
         render 'addresses/index'

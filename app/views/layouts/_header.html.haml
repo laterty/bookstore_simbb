@@ -23,35 +23,31 @@
           %li
             %a{type: "button", 'data-toggle': "collapse", href: "#menu", 'aria-expanded': "false", 'aria-controls': "menu"}= t('.navigation_shop')
             %ul#menu.collapse.list-unstyled.pl-30.mb-10{'aria-expanded': "false"}
+            -@categories.each do |category|
               %li
-                %a.collapse-link{href: "#"} Mobile development
-              %li
-                %a.collapse-link{href: "#"} Photo
-              %li
-                %a.collapse-link{href: "#"} Web design
+                = link_to category.name, category_books_path(category_id: category.id), class: "collapse-link"
           %li
-            %a{href: "#"} My account
+            = link_to t('.navigation_account'), edit_settings_address_path
       .hidden-xs
         %ul.nav.navbar-nav
           %li
-            %a{href: "#"} Home
+            = link_to t('.navigation_home'), root_path
           %li.dropdown
             %a.dropdown-toggle{href: books_path, 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}= t('.navigation_shop')
             %ul.dropdown-menu
               %li
-                %a{href: "#"} Mobile development
-              %li
-                %a{href: "#"} Photo
-              %li
-                %a{href: "#"} Web design
+                = link_to I18n.t('books.partials.desktop.categories.all'), books_path, class: "collapse-link"
+              -@categories.each do |category|
+                %li
+                  = link_to category.name, category_books_path(category_id: category.id), class: "collapse-link"
               %li.divider{role: "separator"}
               %li
-                = link_to 'Log out', destroy_user_session_path, method: :delete
+                = link_to t('.log_out'), destroy_user_session_path, method: :delete
           - if current_user
             %li
-              %a{href: "#"} My account
+              = link_to t('.navigation_account'), edit_settings_address_path
           - else
             %li
-              = link_to 'Sign in', new_user_session_path
+              = link_to t('.log_in'), new_user_session_path
             %li
-              = link_to 'Sign up', new_user_registration_path
+              = link_to t('.sign_up'), new_user_registration_path

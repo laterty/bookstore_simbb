@@ -2,12 +2,12 @@
 
 FactoryBot.define do
   factory :book do
-    title { Faker::Book.unique.title }
-    description { Faker::Lorem.words(number: rand(50..70)).join(' ') }
-    price { Faker::Number.decimal(l_digits: 2) }
-    category { Category.all.sample }
+    title { FFaker::Book.title }
+    description { "#{FFaker::CheesyLingo.paragraph} #{FFaker::CheesyLingo.paragraph}" }
+    price { rand(0..100.0).round(2) }
+    category
     year_of_publication { rand(1980..2022) }
     dimensions { 'H:6.4\" x W: 0.9\" x D: 5.0' }
-    materials { Faker::Commerce.material }
+    materials { FFaker::BaconIpsum.word  }
   end
 end

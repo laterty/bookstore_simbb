@@ -1,16 +1,22 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  root 'home#index'
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  root 'home#index'
   resource :settings, only: [] do
     resource :address, only: %w[create edit]
     get 'privacy', to: 'users#edit'
     get 'address', to: redirect('settings/address/edit')
   end
+  
+  resources :books, only: %I[index show]
+  resources :categories, only: %I[show] do
+    resources :books, only: %I[index]
+  end
+  root 'home#index'
 
-  resources :books, only: %i[index show update]
   resource :update_user_email, only: :update
   resource :update_user_password, only: :update
   resource :user, only: %i[edit destroy]
@@ -19,7 +25,7 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks',
     sessions: 'users/sessions'
   }
-
+  
   devise_scope :user do
     get '/users', to: 'devise/registrations#new'
   end

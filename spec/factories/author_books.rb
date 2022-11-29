@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :category do
-    name { Faker::Book.genre }
+  factory :author_book do
+    book
+    author
   end
 end

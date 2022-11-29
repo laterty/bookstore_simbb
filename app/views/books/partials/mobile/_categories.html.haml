@@ -1,15 +1,15 @@
 %p.lead.small.mb-10= t('.filter_by_categories')
 .dropdown
   %a.dropdown-toggle.lead.small{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}
-    = @current_category
+    = @current_category_name
     %i.fa.fa-angle-down.dropdown-icon.pull-right
   %ul.dropdown-menu
     %li
-      = link_to books_path(category: 'All'), class: 'filter-link' do
+      = link_to books_path(category_id: BooksQuery::DEFAULT_CATEGORY_ID), class: 'filter-link' do
         = t('.all')
         %span.badge.general-badge= books_count
     -categories.each do |category|
       %li
-        = link_to books_path(category: category), class: 'filter-link' do
+        = link_to category_books_path(category_id: category.id), class: 'filter-link' do
           = category.name
-          %span.badge.general-badge= category.books.count
+          %span.badge.general-badge= category.books_count

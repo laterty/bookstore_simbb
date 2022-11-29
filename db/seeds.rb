@@ -1,15 +1,8 @@
 # frozen_string_literal: true
 
-require 'factory_bot_rails'
-
-Book.destroy_all
-Category.destroy_all
-Author.destroy_all
-AuthorsBook.destroy_all
-AdminUser.destroy_all
-
-Category::NAMES.each { Category.create(name: _1) }
-
-FactoryBot.create_list(:authors_book, 40)
+categories = FactoryBot.create_list(:category, 3) unless Category.exists?
+authors = FactoryBot.create_list(:author, 20) unless Author.exists?
+categories.each { |category| rand(10..20).times { FactoryBot.create(:book, category:) } } unless Book.exists?
+Book.all.each { FactoryBot.create(:author_book, author: authors.sample, book: _1) }
 
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

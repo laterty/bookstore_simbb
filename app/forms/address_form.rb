@@ -23,7 +23,7 @@ class AddressForm < ApplicationForm
 
   validates :phone,
             presence: true,
-            format: { with: /\A\+[0-9]*\z/,
+            format: { with: /\+[1-9]{1}[0-9]{3,13}/,
                       message: I18n.t('validation.address.phone') },
             length: { maximum: 15 }
 end
