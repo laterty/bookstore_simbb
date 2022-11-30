@@ -9,6 +9,9 @@ Style/MutableConstant:
 RSpec/MultipleExpectations:
   Enabled: false
 
+Lint/MissingSuper:
+  Enabled: false
+
 RSpec/ExampleLength:
   Max: 20
 
