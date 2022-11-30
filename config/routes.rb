@@ -2,9 +2,9 @@
 
 Rails.application.routes.draw do
 
-  resources :books, only: %I[index show]
-  resources :categories, only: %I[show] do
-    resources :books, only: %I[index]
+  resources :books, only: %i[index show]
+  resources :categories, only: %i[show] do
+    resources :books, only: %i[index]
   end
   
   root 'home#index'
