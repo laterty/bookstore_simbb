@@ -6,7 +6,7 @@ class UpdateUserPasswordForm < ApplicationForm
   validates_presence_of :password, :password_confirmation, :current_password, message: I18n.t('validation.blank')
   validate :old_password_validation
   validate :new_password_confirmation
-  validate :password_complexity
+  validates :password, complexity_format: true
 
   def save
     return unless valid?
@@ -16,12 +16,6 @@ class UpdateUserPasswordForm < ApplicationForm
   end
 
   private
-
-  def password_complexity
-    return if password.blank? || password =~ /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,70}$/
-
-    errors.add :password, I18n.t('validation.password.complexity')
-  end
 
   def new_password_confirmation
     return if password == password_confirmation
