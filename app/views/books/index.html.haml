@@ -1,10 +1,10 @@
 %main.container
   %h1.general-title-margin= t('.title')
   .hidden-xs.clearfix
-    = render partial: 'books/partials/desktop/sort', locals: { current_sort_type: @current_sort_type }
+    = render partial: 'books/partials/desktop/sort', locals: { current_sort_type: @current_sort_type, sort_types: BooksQuery::ORDERS_TYPE }
     = render partial: 'books/partials/desktop/categories', locals: { books_count: @books_count, categories: @categories }
   .dropdowns.mb-25.visible-xs
-    = render partial: 'books/partials/mobile/categories', locals: { books_count: @books_count, categories: @categories }
+    = render partial: 'books/partials/mobile/categories', locals: { books_count: @books_count, categories: @categories, current_category_name: @current_category_name }
     = render partial: 'books/partials/mobile/sort', locals: { current_sort_type: @current_sort_type }
   .mb-120
     .row

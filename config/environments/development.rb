@@ -45,15 +45,8 @@ Rails.application.configure do
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    user_name: '18b3855d59726c',
-    password: '59db1da612c644',
-    address: 'smtp.mailtrap.io',
-    domain: 'smtp.mailtrap.io',
-    port: '2525',
-    authentication: :cram_md5
-  }
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.perform_deliveries = true
   # Raise exceptions for disallowed deprecations.
   config.active_support.disallowed_deprecation = :raise
 

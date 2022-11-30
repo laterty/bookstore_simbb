@@ -26,7 +26,7 @@ RSpec.describe User, type: :model do
 
   describe '.from_omniauth' do
     let(:auth) { OmniAuth::AuthHash.new(Faker::Omniauth.facebook) }
-    let(:user) { described_class.from_omniauth(auth) }
+    let(:user) { UserFromOmniauthCreator.call(auth) }
 
     let(:user_uid) { user.uid }
     let(:auth_uid) { auth.uid }
