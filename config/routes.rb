@@ -24,8 +24,8 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   resource :settings, only: [] do
     resource :address, only: %w[create edit]
-    get ‘privacy’, to: ‘users#edit’
-    get ‘address’, to: redirect(‘settings/address/edit’)
+    get 'privacy', to: 'users#edit'
+    get 'address', to: redirect('settings/address/edit')
   end
 
   devise_scope :user do
