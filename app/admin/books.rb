@@ -43,7 +43,7 @@ ActiveAdmin.register Book do
       f.input :year_of_publication
       f.input :dimensions
       f.input :materials
-      f.input :price, :min => Book::MIN_PRICE_VALUE
+      f.input :price, min: Book::MIN_PRICE_VALUE
     end
     actions
   end
