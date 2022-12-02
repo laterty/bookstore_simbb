@@ -26,7 +26,7 @@ class BooksController < ApplicationController
   end
 
   def current_category_name
-    @categories.find_by(id: @current_category_id)&.name || Constants::Shared::DEFAULT_CATEGORY_NAME
+    @categories_all.find_by(id: @current_category_id)&.name || Constants::Shared::DEFAULT_CATEGORY_NAME
   end
 
   def current_sort_type
