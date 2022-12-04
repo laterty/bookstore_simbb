@@ -145,8 +145,12 @@ en:
   validation:
     blank: "Can't be blank"
     review:
-      title: Should not be not empty, consist of a-z, A-Z, 0-9, or one of !#$%&'*+-/=?^_`{|}~. Must be less than 80 characters.
-      content: Should not be not empty, consist of a-z, A-Z, 0-9, or one of !#$%&'*+-/=?^_`{|}~. Must be less than 500 characters.
+      length:
+        title: "Must be less than 80 characters."
+        content: "Must be less than 500 characters."
+      format:
+        title: "Should not be not empty, consist of a-z, A-Z, 0-9, or one of !#$%&'*+-/=?^_`{|}~."
+        content: "Should not be not empty, consist of a-z, A-Z, 0-9, or one of !#$%&'*+-/=?^_`{|}~."
     address:
         names_city_country: 'Consist of a-z, A-Z only, no special symbols'
         zip: 'Consist of 0-9 only,’-’ no special symbols'

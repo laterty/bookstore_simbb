@@ -11,11 +11,13 @@ class ReviewForm < ApplicationForm
   attr_accessor :title, :content, :rating, :book_id, :user_id
 
   validates :title, :content, :rating, presence: true
-  validates :rating, numericality: { in: MIN_RATING..MAX_RATING }
-  validates :title, length: { maximum: MAX_LENGTH_TITLE },
+  validates :rating, numericality: { in: RATING_RANGE }
+  validates :title, length: { maximum: MAX_LENGTH_TITLE,
+                              message: I18n.t('validation.review.length.title') },
                     format: { with: TITLE_CONTENT_REGEX,
-                              message: I18n.t('validation.review.title') }
-  validates :content, length: { maximum: MAX_LENGTH_CONTENT },
+                              message: I18n.t('validation.review.format.title') }
+  validates :content, length: { maximum: MAX_LENGTH_CONTENT,
+                                message: I18n.t('validation.review.length.content') },
                       format: { with: TITLE_CONTENT_REGEX,
-                                message: I18n.t('validation.review.content') }
+                                message: I18n.t('validation.review.format.content') }
 end
