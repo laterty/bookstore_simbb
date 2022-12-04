@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :books, only: %i[index show]
+  resources :books, only: %i[index show] do
+    resource :review, only: %i[create]
+  end
   resources :categories, only: %i[show] do
     resources :books, only: %i[index]
   end
