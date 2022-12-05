@@ -31,6 +31,15 @@ en:
       navigation_account: 'My account'
   books:
     partials:
+      reviews:
+        successful: Thanks for Review. It will be published as soon as Admin will approve it.
+        verified_reviewer: Verified Reviewer
+        count_reviews_title: Reviews (%{count_reviews})
+      reviews_form:
+        score: Score
+        form_title: Title
+        form_review: Text
+        submit_button: Post
       desktop:
         sort:
           year_of_publication_desc: 'Newest first'
@@ -59,6 +68,7 @@ en:
       year_of_publication: 'Year of publication'
       dimensions: 'Dimensions'
       materials: 'Materials'
+      message_review_for_not_authorized: 'If you want to write your review, you need to be authorized'
   devise:
     passwords:
       complexity_error: 'Complexity requirement not met. Please use: 1 uppercase, 1 lowercase, 1 digit and 1 special character'

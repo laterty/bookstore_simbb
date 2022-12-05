@@ -51,3 +51,11 @@
         .clearfix
           %p.pull-left= t('.materials')
           %p.lead.small.pull-right= @book.materials
+  .mb-80
+    = render partial: 'books/partials/reviews', locals: { reviews: @reviews, max_rating: ReviewForm::MAX_RATING, reviews_count: @reviews_count }
+  - if current_user
+    .mb-80
+      = render partial: 'books/partials/reviews_form', locals: { book: @book, rating_range: ReviewForm::RATING_RANGE }
+  - else 
+    %h3.in-gold-500.mb-25= t('.message_review_for_not_authorized')
+    = link_to t('devise.default.log_in'), new_user_session_path

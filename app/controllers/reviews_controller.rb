@@ -3,7 +3,7 @@
 class ReviewsController < ApplicationController
   def create
     if review_form.save
-      redirect_to_book(type: :notice, message: 'YOLOOOO')
+      redirect_to_book(type: :notice, message: I18n.t('books.partials.reviews.successful'))
     else
       redirect_to_book(type: :alert, message: review_form.errors.full_messages.join('; '))
     end
@@ -25,6 +25,6 @@ class ReviewsController < ApplicationController
   end
 
   def permitted_params
-    params.require(:review).permit(:title, :text, :rating, :book_id).merge(user_id: current_user.id)
+    params.require(:review).permit(:title, :content, :rating, :book_id).merge(user_id: current_user.id)
   end
 end
