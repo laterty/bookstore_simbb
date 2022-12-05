@@ -7,7 +7,7 @@
           = review.user.email.capitalize.first
         .ml-70
           %div
-            .general-message-date.hidden-xs=review.created_at.strftime('%m/%d/%Y')
+            .general-message-date.hidden-xs=review.created_at.strftime('%d/%m/%Y')
             .max-240
               .general-message-name= review.user.email.capitalize
               .general-message-verified= t('.verified_reviewer')
