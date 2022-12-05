@@ -2,8 +2,8 @@
 
 ActiveAdmin.register Review do
   scope :unprocessed, default: true
-  scope :approved
-  scope :rejected
+  scope :approved, group: :processed
+  scope :rejected, group: :processed
 
   index do
     selectable_column
