@@ -1,0 +1,9 @@
+.dropdowns.pull-right
+  .dropdown.width-240
+    %a.dropdown-toggle.lead.small{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}
+      = t(".#{current_sort_type}")
+      %i.fa.fa-angle-down.dropdown-icon.pull-right
+    %ul.dropdown-menu
+      - sort_types.each_key do |sort_type|
+        %li
+          = link_to t(".#{sort_type}"), books_path(sort_type: "#{sort_type}")

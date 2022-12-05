@@ -5,7 +5,7 @@ jobs:
     working_directory: ~/repo
     
     docker:
-      - image: cimg/ruby:3.1-browsers
+      - image: cimg/ruby:3.1.2-browsers
       - image: cimg/postgres:14.5
         environment:
           POSTGRES_USER: postgres
@@ -28,6 +28,11 @@ jobs:
             sudo rm -rf /usr/local/bin/dockerize
             sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-v0.6.0.tar.gz
             rm dockerize-linux-amd64-v0.6.0.tar.gz
+      - run: 
+          name: Setup Chrome
+          command: |
+            wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+            sudo apt install ./google-chrome-stable_current_amd64.deb
       - run:
           name: Wait for PG
           command: dockerize -wait tcp://127.0.0.1:5432 -timeout 1m

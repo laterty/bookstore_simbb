@@ -2,7 +2,7 @@
 
 class HomeController < ApplicationController
   def index
-    @books = Book.all
-    @latest_books = Book.first(Constants::Shared::LATEST_BOOK_QUANTITY)
+    @books = Book.decorate
+    @latest_books = Book.limit(Constants::Shared::LATEST_BOOK_QUANTITY).decorate
   end
 end

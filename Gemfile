@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'aasm', '~> 5.3.1'
 gem 'devise', '~> 4.8.1'
+gem 'draper', '~> 4.0.2'
 gem 'haml-rails', '~> 2.1.0'
 gem 'mini_magick', '~> 4.11.0'
 gem 'net-smtp', '~> 0.3.2', require: false
@@ -35,6 +36,7 @@ gem 'pagy', '~> 5.10.1'
 gem 'pundit', '~> 2.2.0'
 gem 'sassc-rails', '2.1.2'
 gem 'shrine', '~> 3.4.0'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

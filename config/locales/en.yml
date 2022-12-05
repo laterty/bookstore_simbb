@@ -26,3 +26,34 @@ en:
       navigation_orders:  'Orders'
       navigation_settings: 'Settings'
       navigation_account: 'My account'
+  books:
+    partials:
+      desktop:
+        sort:
+          year_of_publication_desc: 'Newest first'
+          price_asc: 'Price: Low to high'
+          price_desc: 'Price: High to low'
+        categories: 
+          all: 'All'
+      mobile:
+        sort:
+          sort_by: 'Sort by'
+          year_of_publication_desc: 'Newest first'
+          price_asc: 'Price: Low to high'
+          price_desc: 'Price: High to low'
+        categories:
+          all: 'All'
+          filter_by_categories: 'Filter by category'
+    book:
+    index:
+      title: 'Catalog'
+      view_more: 'View more'
+    show:
+      back_to_results: 'Back to results'
+      add_to_cart: 'Add to cart'
+      description: 'Description'
+      read_more: 'Read More'
+      year_of_publication: 'Year of publication'
+      dimensions: 'Dimensions'
+      materials: 'Materials'
+      

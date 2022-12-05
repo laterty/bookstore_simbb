@@ -11,6 +11,7 @@ import "channels"
 import 'jquery'
 import 'popper.js'
 import 'bootstrap-sass'
+require("../scripts/app")
 
 Rails.start()
 Turbolinks.start()

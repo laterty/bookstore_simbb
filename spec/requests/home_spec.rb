@@ -3,6 +3,7 @@
 RSpec.describe 'Homes', type: :request do
   describe 'GET /' do
     before do
+      create_list(:category, 3)
       create_list(:book, 4)
       get '/'
     end
