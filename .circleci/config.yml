@@ -1,0 +1,65 @@
+version: 2
+jobs:
+  build:
+    
+    working_directory: ~/repo
+    
+    docker:
+      - image: cimg/ruby:3.1-browsers
+      - image: cimg/postgres:14.5
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: bookstore_simbb_test
+
+    environment:
+      RAILS_ENV: test
+      PGHOST: 127.0.0.1
+      PGUSER: postgres
+      DATABASE_URL: postgres://postgres:postgres@localhost/bookstore_simbb_test
+
+    steps:
+      - checkout
+
+      - run:
+          name: Dockerize v0.6.0
+          command: |
+            wget https://github.com/jwilder/dockerize/releases/download/v0.6.0/dockerize-linux-amd64-v0.6.0.tar.gz
+            sudo rm -rf /usr/local/bin/dockerize
+            sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-v0.6.0.tar.gz
+            rm dockerize-linux-amd64-v0.6.0.tar.gz
+      - run:
+          name: Wait for PG
+          command: dockerize -wait tcp://127.0.0.1:5432 -timeout 1m
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "yarn.lock" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run:
+          name: install dependencies
+          command: |
+            curl -o- -L https://yarnpkg.com/install.sh | bash
+            yarn global add sass
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+            yarn
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+            - ~/.cache/yarn
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "yarn.lock" }}
+
+      # Database setup
+      - run: bundle exec rails db:schema:load --trace
+
+      - run:
+          name: Rubocop
+          command: bundle exec rubocop
+
+      - run:
+          name: Rails Test
+          command: bundle exec rspec
+

@@ -1,0 +1,44 @@
+require:
+  - rubocop-performance
+  - rubocop-rspec
+  - rubocop-rails
+
+Style/MutableConstant:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Max: 5
+
+Style/Documentation: 
+  Enabled: false
+
+Rails/FilePath:
+  Exclude:
+    - 'spec/rails_helper.rb'
+
+Layout/LineLength:
+  Max: 120
+
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'test/**/*.rb'
+    - 'spec/**/*.rb'
+    - 'db/**/*.rb'
+    - 'config/**/*.rb'
+    - 'app/admin/**/*.rb'
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'tmp/**/*'
+    - 'bin/**/*'
+    - 'vendor/**/*'
+    - '.circleci/**/*'
+    - 'node_modules/**/*'
+    - 'public/**/*'
+    - 'log/**/*'
+    - 'test/**/*'
+    - 'config/**/*'
+    - 'db/schema.rb'
