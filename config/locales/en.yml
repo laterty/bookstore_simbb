@@ -203,6 +203,11 @@ en:
       update_email: 'Email was successfully changed!'
       update_password: 'Password was successfully changed!'
       delete_user: 'User was successfully deleted'
-  
-
-          
+  active_admin:
+    reviews:
+      notice:
+        approved: 'You approved this review'
+        rejected: 'You rejected this review'
+      buttons:
+        approve: 'Approve'
+        reject: 'Reject'
