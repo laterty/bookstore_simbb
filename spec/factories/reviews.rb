@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :review do
     title { FFaker::HealthcareIpsum.words(2).join('') }
     content { FFaker::CheesyLingo.paragraph }
-    rating { rand(0..5) }
+    rating { rand(ReviewForm::RATING_RANGE) }
     status { 0 }
     book
     user
