@@ -36,8 +36,8 @@ RSpec.describe 'review', type: :feature do
   context 'when admin click scopes links' do
     let(:result_current_path) { page.current_path }
     let(:unprocessed_link) { within('.scopes') { find('.unprocessed') } }
-    let(:approve_button) { within('.action_items') { find_link('Approve') } }
-    let(:reject_button) { within('.action_items') { find_link('Reject') } }
+    let(:approve_button) { within('.action_items') { find_link(I18n.t('active_admin.reviews.buttons.approve')) } }
+    let(:reject_button) { within('.action_items') { find_link(I18n.t('active_admin.reviews.buttons.reject')) } }
 
     context 'when click approve' do
       before do
