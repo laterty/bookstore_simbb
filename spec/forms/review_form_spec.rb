@@ -73,7 +73,7 @@ RSpec.describe ReviewForm, type: :model do
     end
 
     context 'when invalid length title' do
-      let!(:invalid_length_title) { "#{'title' * 20}" }
+      let!(:invalid_length_title) { ('title' * 20).to_s }
       let!(:params_invalid_length_title) { { title: invalid_length_title } }
       let!(:review_form) { described_class.new(initialized_review, params_invalid_length_title) }
       let(:has_error) { review_form.errors[:title].include?(I18n.t('validation.review.length.title')) }
@@ -84,7 +84,7 @@ RSpec.describe ReviewForm, type: :model do
     end
 
     context 'when invalid length content' do
-      let!(:invalid_length_content) { "#{'length is too big' * 30}" }
+      let!(:invalid_length_content) { ('length is too big' * 30).to_s }
       let!(:params_invalid_length_content) { { content: invalid_length_content } }
       let!(:review_form) { described_class.new(initialized_review, params_invalid_length_content) }
       let(:has_error) { review_form.errors[:content].include?(I18n.t('validation.review.length.content')) }
@@ -95,7 +95,7 @@ RSpec.describe ReviewForm, type: :model do
     end
 
     context 'when invalid format content' do
-      let!(:invalid_format_content) { "contentinvalid**##.._#@!@#@." }
+      let!(:invalid_format_content) { "contentinvalid**##.._\#@!@\#@." }
       let!(:params_invalid_format_content) { { content: invalid_format_content } }
       let!(:review_form) { described_class.new(initialized_review, params_invalid_format_content) }
       let(:has_error) { review_form.errors[:content].include?(I18n.t('validation.review.format.content')) }

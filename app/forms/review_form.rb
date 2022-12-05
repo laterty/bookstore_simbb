@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class ReviewForm < ApplicationForm
   MIN_RATING = 1
   MAX_RATING = 5
-  RATING_RANGE = (MIN_RATING..MAX_RATING).freeze
+  RATING_RANGE = (MIN_RATING..MAX_RATING)
 
   TITLE_CONTENT_REGEX = /\A[a-zA-Z0-9\W]+\Z/
 
