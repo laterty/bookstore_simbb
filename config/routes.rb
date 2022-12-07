@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   resources :categories, only: %i[show] do
     resources :books, only: %i[index]
   end
-
+  
+  resource :update_user_email, only: :update
+  resource :update_user_password, only: :update
+  resource :user, only: %i[edit destroy]
   resource :settings, only: [] do
     resource :address, only: %w[create edit]
     get 'privacy', to: 'users#edit'
@@ -20,13 +23,6 @@ Rails.application.routes.draw do
   end
   
   root 'home#index'
-
-  resource :update_user_email, only: :update
-  resource :update_user_password, only: :update
-  resource :user, only: %i[edit destroy]
-
-
-
 
 
   # CHECK: to avoid app error when refresh forms page after failing validation:
