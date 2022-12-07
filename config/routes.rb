@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   end
   
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_scope :user do
+    get '/users', to: 'devise/registrations#new'
+  end
   
   root 'home#index'
 
@@ -20,9 +23,6 @@ Rails.application.routes.draw do
   resource :update_user_password, only: :update
   resource :user, only: %i[edit destroy]
 
-  devise_scope :user do
-    get '/users', to: 'devise/registrations#new'
-  end
 
   # CHECK: to avoid app error when refresh forms page after failing validation:
   # alternative way: https://fullstackheroes.com/tutorials/rails/wrong-url-validation-error/
