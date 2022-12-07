@@ -32,6 +32,7 @@ gem 'mini_magick', '~> 4.11.0'
 gem 'net-smtp', '~> 0.3.2', require: false
 gem 'omniauth', '~> 2.1.0'
 gem 'omniauth-facebook', '~> 9.0.0'
+gem 'omniauth-rails_csrf_protection', '~> 1.0.1'
 gem 'pagy', '~> 5.10.1'
 gem 'pundit', '~> 2.2.0'
 gem 'sassc-rails', '2.1.2'
@@ -56,6 +57,7 @@ group :development, :test do
   gem 'rubocop-performance', '~> 1.15.0'
   gem 'rubocop-rails', '~> 2.16.1', require: false
   gem 'rubocop-rspec', '~> 2.13.2', require: false
+  gem 'simple_form', '~> 5.1.0'
 end
 
 group :production do
@@ -68,6 +70,7 @@ group :development do
   gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
+  gem 'letter_opener', '~> 1.8.1'
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring

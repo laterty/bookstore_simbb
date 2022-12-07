@@ -42,6 +42,12 @@
                   = link_to category.name, category_books_path(category_id: category.id), class: "collapse-link"
               %li.divider{role: "separator"}
               %li
-                %a{href: "#"} Log out
-          %li
-            %a{href: "#"}= t('.navigation_account')
+                = link_to t('.log_out'), destroy_user_session_path, method: :delete
+          - if current_user
+            %li
+              %a{href: "#"}= t('.navigation_account')
+          - else
+            %li
+              = link_to t('.log_in'), new_user_session_path
+            %li
+              = link_to t('.sign_up'), new_user_registration_path
