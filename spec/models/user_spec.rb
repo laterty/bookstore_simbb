@@ -23,14 +23,4 @@ RSpec.describe User, type: :model do
       is_expected.to have_db_index(:reset_password_token)
     end
   end
-
-  describe '.from_omniauth' do
-    let(:auth) { OmniAuth::AuthHash.new(Faker::Omniauth.facebook) }
-    let(:user) { UserFromOmniauthCreator.call(auth) }
-
-    let(:user_uid) { user.uid }
-    let(:auth_uid) { auth.uid }
-
-    it { expect(user_uid).to eq auth_uid }
-  end
 end
