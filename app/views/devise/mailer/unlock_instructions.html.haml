@@ -1,0 +1,4 @@
+%p= t('.hello', user: @resource.email)
+%p= t('.account_locked')
+%p= t('.click_link')
+%p= link_to t('.link_unlock_account'), unlock_url(@resource, unlock_token: @token)
