@@ -5,8 +5,8 @@ ActiveAdmin.register Book do
   decorate_with BookDecorator
 
   permit_params :title, :description, :year_of_publication, :price,
-                :dimensions, :materials, :category_id,
-                author_ids: []
+                :dimensions, :materials, :category_id, :cover_image,
+                author_ids: [], images: []
 
   index do
     selectable_column
@@ -17,6 +17,9 @@ ActiveAdmin.register Book do
     column :price
     column :category
     column :authors, :authors_names
+    column :cover_image do |book|
+      image_tag(book.cover_image.url, class: 'admin_image')
+    end
     actions
   end
 
@@ -31,6 +34,11 @@ ActiveAdmin.register Book do
       row :price
       row :created_at
       row :updated_at
+      book.images.each do |image|
+        row image do
+          image_tag(image.url, class: 'admin_image')
+        end
+      end
     end
   end
 
@@ -44,6 +52,8 @@ ActiveAdmin.register Book do
       f.input :dimensions
       f.input :materials
       f.input :price, min: Book::MIN_PRICE_VALUE
+      f.input :main_image, as: :file
+      f.input :images, as: :file, input_html: { multiple: true }
     end
     actions
   end
