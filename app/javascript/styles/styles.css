@@ -8549,7 +8549,8 @@ img {
 }
 
 .general-thumbnail .general-thumbnail-img {
-  max-width: 60%;
+  min-width: 100%;
+  height: 100%;
   position: absolute;
   top: 50%;
   left: 50%;

@@ -8,6 +8,14 @@ FactoryBot.define do
     category
     year_of_publication { rand(1980..2022) }
     dimensions { 'H:6.4\" x W: 0.9\" x D: 5.0' }
-    materials { FFaker::BaconIpsum.word  }
+    materials { FFaker::BaconIpsum.word }
+    cover_image do
+      path = Rails.root.join('spec/images/cover_image.jpg')
+      Rack::Test::UploadedFile.new(path, 'image/jpg')
+    end
+    images do
+      path = Rails.root.join('spec/images/images.jpg')
+      [Rack::Test::UploadedFile.new(path, 'image/jpg')] * rand(1..3)
+    end
   end
 end

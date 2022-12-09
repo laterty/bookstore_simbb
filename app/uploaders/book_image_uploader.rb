@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class BookImageUploader < ApplicationUploader
+  ALLOWED_IMAGE_FORMATS = %w[jpg jpeg gif png].freeze
+
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
   #   # For Rails 3.1+ asset pipeline compatibility:
@@ -23,8 +25,9 @@ class BookImageUploader < ApplicationUploader
 
   # Add an allowlist of extensions which are allowed to be uploaded.
   # For images you might use something like this:
+
   def extension_allowlist
-    %w(jpg jpeg gif png)
+    ALLOWED_IMAGE_FORMATS
   end
 
   # Override the filename of the uploaded files:
