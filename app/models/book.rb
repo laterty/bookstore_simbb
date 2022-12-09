@@ -10,4 +10,7 @@ class Book < ApplicationRecord
 
   validates :title, :description, :price, :year_of_publication, :materials, :dimensions, presence: true
   validates :price, numericality: { greater_than: MIN_PRICE_VALUE }
+
+  mount_uploaders :images, BookImageUploader
+  mount_uploader :cover_image, BookImageUploader
 end
