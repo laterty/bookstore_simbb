@@ -52,7 +52,7 @@ ActiveAdmin.register Book do
       f.input :dimensions
       f.input :materials
       f.input :price, min: Book::MIN_PRICE_VALUE
-      f.input :main_image, as: :file
+      f.input :cover_image, as: :file
       f.input :images, as: :file, input_html: { multiple: true }
     end
     actions
