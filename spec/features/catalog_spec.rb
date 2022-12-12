@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 RSpec.describe 'Catalog', type: :feature do
-#  before { create_list(:book, 6) }
   describe 'link to catalog from menu' do
     before do
       create_list(:book, 6)
@@ -65,7 +64,7 @@ RSpec.describe 'Catalog', type: :feature do
     end
 
     context 'when book without cover_image' do
-      let(:book_image_default) { /#{BookImageUploader::DEFAULT_IMAGE_URL[0..-5]}/ }
+      let(:book_image_default) { /#{default_book_image}/ }
       let(:book_image) { page.find('img', class: 'img-shadow general-thumbnail-img')['src'] }
 
       before do

@@ -46,6 +46,7 @@ RSpec.configure do |config|
 
   # Include custom helpers
   config.include Helpers::UserActions, type: :feature
+  config.include Helper::DefaultBookImageHelper, type: :feature
 
   config.include FactoryBot::Syntax::Methods
 
