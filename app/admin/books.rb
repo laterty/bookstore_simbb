@@ -37,7 +37,7 @@ ActiveAdmin.register Book do
     f.inputs do
       f.input :category
       f.input :title
-      f.input :authors, collection: Author.all, as: :check_boxes
+      f.input :authors, collection: Author.all
       f.input :description
       f.input :year_of_publication
       f.input :dimensions

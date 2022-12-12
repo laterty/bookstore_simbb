@@ -25,7 +25,7 @@ RSpec.describe 'Create', type: :feature do
         fill_in 'book[dimensions]', with: attributes_for(:book)[:dimensions]
         fill_in 'book[year_of_publication]', with: attributes_for(:book)[:year_of_publication]
         fill_in 'book[materials]', with: attributes_for(:book)[:materials]
-        check(author.name)
+        select author.name
         select category.name, from: 'book[category_id]'
         find('#book_submit_action input').click
       end
@@ -51,7 +51,7 @@ RSpec.describe 'Create', type: :feature do
         fill_in 'book[dimensions]', with: attributes_for(:book)[:dimensions]
         fill_in 'book[year_of_publication]', with: attributes_for(:book)[:year_of_publication]
         fill_in 'book[materials]', with: attributes_for(:book)[:materials]
-        check(author.name)
+        select author.name
         select category.name, from: 'book[category_id]'
         find('.cancel a').click
       end
