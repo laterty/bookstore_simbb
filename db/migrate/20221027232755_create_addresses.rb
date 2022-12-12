@@ -10,7 +10,9 @@ class CreateAddresses < ActiveRecord::Migration[6.1]
       t.string :phone, null: false
       t.string :type, null: false
       t.timestamps
-      t.references :user, foreign_key: true
+      t.references :user, foreign_key: true, index: false
     end
+
+    add_index :addresses, %i[user_id type], unique: true
   end
 end

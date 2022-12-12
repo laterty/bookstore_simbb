@@ -110,6 +110,7 @@ en:
   addresses:
     successful:
       create_address: "Successfully created an %{type} address"
+      update_address: "Successfully updated an %{type} address"
     partials:
       address_form:
         label:
