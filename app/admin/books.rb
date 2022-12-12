@@ -11,7 +11,6 @@ ActiveAdmin.register Book do
   index do
     selectable_column
     id_column
-
     column :title
     column :description, :short_description
     column :price
