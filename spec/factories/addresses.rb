@@ -12,11 +12,11 @@ FactoryBot.define do
     user
 
     trait :shipping_address do
-      type { 'ShippingAddress' }
+      type { ShippingAddress.name }
     end
 
     trait :billing_address do
-      type { 'BillingAddress' }
+      type { BillingAddress.name }
     end
   end
 end

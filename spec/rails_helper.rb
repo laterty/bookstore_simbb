@@ -45,7 +45,7 @@ RSpec.configure do |config|
   # config.use_active_record = false
 
   # Include custom helpers
-  config.include Helpers::UserActions
+  config.include Helpers::UserActions, type: :feature
 
   config.include FactoryBot::Syntax::Methods
 
