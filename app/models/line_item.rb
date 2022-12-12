@@ -5,6 +5,7 @@ class LineItem < ApplicationRecord
 
   belongs_to :order
   belongs_to :book
+  belongs_to :cart
 
   validates :quantity, numericality: { greater_than_or_equal_to: MIN_QUANTITY }
 end
