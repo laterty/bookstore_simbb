@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe OrderItem, type: :model do
+RSpec.describe LineItem, type: :model do
   describe 'columns' do
     it { is_expected.to have_db_column(:book_id).of_type(:integer).with_options(null: false) }
     it { is_expected.to have_db_column(:order_id).of_type(:integer).with_options(null: false) }

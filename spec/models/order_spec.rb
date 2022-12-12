@@ -7,7 +7,7 @@ RSpec.describe Order, type: :model do
 
   describe 'associations' do
     it do
-      is_expected.to have_many(:order_items).dependent(:destroy)
+      is_expected.to have_many(:line_items).dependent(:destroy)
       is_expected.to belong_to(:user)
     end
   end

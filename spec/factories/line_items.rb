@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :order_item do
+  factory :line_item do
     order
     book
     quantity { rand(1..10) }
