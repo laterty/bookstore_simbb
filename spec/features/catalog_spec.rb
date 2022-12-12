@@ -54,13 +54,13 @@ RSpec.describe 'Catalog', type: :feature do
   describe 'cover_image' do
     context 'when book has cover_image' do
       let!(:book) { create(:book) }
-      let(:expected_result) { /#{book.cover_image}/ }
-      let(:result) { page.find('img', class: 'img-shadow general-thumbnail-img')['src'] }
+      let(:book_image) { /#{book.cover_image}/ }
+      let(:showed_book_image) { page.find('img', class: 'img-shadow general-thumbnail-img')['src'] }
 
       before { visit books_path }
 
       it 'user can see cover_image on page' do
-        expect(result).to match(expected_result)
+        expect(showed_book_image).to match(book_image)
       end
     end
 
