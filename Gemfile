@@ -32,7 +32,6 @@ gem 'draper', '~> 4.0.2'
 gem 'figaro', '~> 1.2.0'
 gem 'fog-aws', '~> 3.15.0'
 gem 'haml-rails', '~> 2.1.0'
-gem 'i18n', '~> 1.12.0'
 gem 'mini_magick', '~> 4.11.0'
 gem 'net-smtp', '~> 0.3.2', require: false
 gem 'omniauth', '~> 2.1.0'

@@ -2,7 +2,7 @@
 
 RSpec.describe 'create', type: :feature do
   let!(:admin_user) { create(:admin_user) }
-  let(:category) { 'Yolo' }
+  let(:category) { attributes_for(:category)[:name] }
 
   before do
     admin_log_in(admin_user)

@@ -27,7 +27,7 @@ RSpec.describe 'Create', type: :feature do
         fill_in 'book[materials]', with: attributes_for(:book)[:materials]
         attach_file('book[cover_image]', 'spec/images/cover_image.jpg')
         attach_file('book[images][]', 'spec/images/images.jpg')
-        check(author.name)
+        select author.name
         select category.name, from: 'book[category_id]'
         find('#book_submit_action input').click
       end
@@ -55,7 +55,7 @@ RSpec.describe 'Create', type: :feature do
         fill_in 'book[materials]', with: attributes_for(:book)[:materials]
         attach_file('book[cover_image]', 'spec/images/cover_image.jpg')
         attach_file('book[images][]', 'spec/images/images.jpg')
-        check(author.name)
+        select author.name
         select category.name, from: 'book[category_id]'
         find('.cancel a').click
       end
