@@ -17,13 +17,13 @@
         .visible-xs.visible-sm
           %h3.general-subtitle.mt-0= t('.billing_address')
         - if current_user.billing_address
-          = render partial: 'addresses/partials/address_form', locals: { address: @billing_address_form.nil? ? current_user.billing_address : @billing_address_form , type: 'BillingAddress' }
+          = render partial: 'addresses/partials/address_form', locals: { address: @billing_address_form ? @billing_address_form : current_user.billing_address, type: 'BillingAddress' }
         - else
-          = render partial: 'addresses/partials/address_form', locals: { address: @billing_address_form.nil? ? AddressForm.new(Address.new(type: 'BillingAddress')) : @billing_address_form , type: 'BillingAddress' }
+          = render partial: 'addresses/partials/address_form', locals: { address: @billing_address_form ? @billing_address_form : AddressForm.new(Address.new(type: 'BillingAddress')), type: 'BillingAddress' }
       .col-md-5.col-md-offset-1.mb-25
         .visible-xs.visible-sm
           %h3.general-subtitle.mt-0= t('.shipping_address')
         - if current_user.shipping_address
-          = render partial: 'addresses/partials/address_form', locals: { address: @shipping_address_form.nil? ? current_user.shipping_address : @shipping_address_form , type: 'ShippingAddress' }
+          = render partial: 'addresses/partials/address_form', locals: { address: @shipping_address_form ? @shipping_address_form : current_user.shipping_address, type: 'ShippingAddress' }
         - else
-          = render partial: 'addresses/partials/address_form', locals: { address: @shipping_address_form.nil? ? AddressForm.new(Address.new(type: 'ShippingAddress')) : @shipping_address_form , type: 'ShippingAddress' }
+          = render partial: 'addresses/partials/address_form', locals: { address: @shipping_address_form ? @shipping_address_form : AddressForm.new(Address.new(type: 'ShippingAddress')), type: 'ShippingAddress' }

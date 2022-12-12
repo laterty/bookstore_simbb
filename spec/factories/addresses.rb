@@ -2,13 +2,13 @@
 
 FactoryBot.define do
   factory :address do
-    first_name { 'yolo' } # FFaker::Name.first_name }
-    last_name { 'polo' } # FFaker::Name.last_name }
-    address { 'colo' } # FFaker::Address.street_name }
-    city { 'tolo' } # FFaker::Address.city }
-    zip { 123456 } # FFaker::Address.zip_code }
-    country { 'UA' }
-    phone { '+380671234567' }
+    first_name { FFaker::Name.first_name.gsub(/[.,'\-]/, '') }
+    last_name { FFaker::Name.last_name.gsub(/[.,'\-]/, '') }
+    address { FFaker::Address.street_address }
+    city { FFaker::Address.city.gsub(/[.,'\-]/, '') }
+    zip { FFaker::AddressUA.zip_code }
+    country { FFaker::Address.country.gsub(/[.,'\-]/, '') }
+    phone { FFaker::PhoneNumberUA.international_mobile_phone_number.gsub(/[ \-]/, '') }
     user
 
     trait :shipping_address do

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
 
   resource :settings, only: [] do
-    resource :address, only: %w[create edit]
+    resource :address, only: %w[create edit update]
     get 'privacy', to: 'users#edit'
     get 'address', to: redirect('settings/address/edit')
   end
@@ -23,9 +23,6 @@ Rails.application.routes.draw do
   resource :update_user_password, only: :update
   resource :user, only: %i[edit destroy]
 
-
-  # CHECK: to avoid app error when refresh forms page after failing validation:
-  # alternative way: https://fullstackheroes.com/tutorials/rails/wrong-url-validation-error/
   get 'update_user_email', to: redirect('/user/edit')
   get 'update_user_password', to: redirect('/user/edit')
 end
