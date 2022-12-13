@@ -9,6 +9,6 @@ class CartDecorator < Draper::Decorator
   end
 
   def total_price
-    subtotal_price - discount
+    subtotal_price
   end
 end

@@ -24,7 +24,7 @@
               %td
                 %p.font-16 Subtotal:
               %td
-                %p.font-16 €117.69
+                %p.font-16= @cart.subtotal_price
             %tr
               %td
                 %p.font-16 Coupon:
@@ -34,6 +34,6 @@
               %td
                 %strong.font-18 Order Total:
               %td
-                %strong.font-18 €117.69
+                %strong.font-18= @cart.total_price
           %button.btn.btn-default.mb-20.visible-xs-inline-block Checkout
   %button.btn.btn-default.mb-20.hidden-xs.center-block Checkout
