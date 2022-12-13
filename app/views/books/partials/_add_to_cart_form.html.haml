@@ -7,7 +7,7 @@
       .input-group.general-position
         %a.input-link#minus_books_price
           %i.fa.fa-minus.line-height-40
-        = f.number_field :quantity, class: 'form-control quantity-input', id: 'books_price'
+        = f.number_field :quantity, class: 'form-control quantity-input', id: 'books_price', min: 1, value: 1
         %a.input-link#plus_books_price
           %i.fa.fa-plus.line-height-40
     .col-xs-7.col-md-5
