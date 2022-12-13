@@ -2,6 +2,7 @@
 
 class LineItem < ApplicationRecord
   MIN_QUANTITY = 1
+  QUANTITY_STEP = 1
 
   belongs_to :book
   belongs_to :cart

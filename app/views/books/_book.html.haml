@@ -4,9 +4,9 @@
       = image_tag(book.cover_image.url, class: 'img-shadow general-thumbnail-img')
       .thumb-hover
         .general-thumb-link-wrap
-          %a.thumb-hover-link{href: book_path(book)}
+          = link_to book_path(book), class: 'thumb-hover-link' do
             %i.fa.fa-eye.thumb-icon{'aria-hidden': "true"}
-          %a.thumb-hover-link{href: "#"}
+          = link_to line_items_path(line_item: { book_id: book.id }), class: 'thumb-hover-link', method: :post do
             %i.fa.fa-shopping-cart.thumb-icon
   .general-thumb-info
     %p.title= book.title
