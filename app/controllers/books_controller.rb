@@ -14,7 +14,6 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id]).decorate
     @reviews = @book.reviews.includes(:user).approved
     @reviews_count = @reviews.count
-    @quantity = 1
   end
 
   private

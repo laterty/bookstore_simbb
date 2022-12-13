@@ -1,0 +1,14 @@
+.row
+  = form_for :line_item, url: line_items_path, method: :post do |f|
+    = hidden_field_tag :book_id, book.id
+    .col-xs-12.col-md-4
+      %p.h1.in-gold-500.mt-10= "€#{book.price}"
+    .col-xs-5.col-md-3
+      .input-group.general-position
+        %a.input-link#minus_books_price
+          %i.fa.fa-minus.line-height-40
+        = f.number_field :quantity, class: 'form-control quantity-input', id: 'books_price'
+        %a.input-link#plus_books_price
+          %i.fa.fa-plus.line-height-40
+    .col-xs-7.col-md-5
+      = f.submit t('.add_to_cart'), class: 'btn btn-default pull-right general-position'
