@@ -3,7 +3,6 @@
 class LineItem < ApplicationRecord
   MIN_QUANTITY = 1
 
-  belongs_to :order
   belongs_to :book
   belongs_to :cart
 
