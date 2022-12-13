@@ -15,17 +15,22 @@
       %h1.mt-res-0= @book.title
       %p.lead.small= @book.authors_names
       .row
-        .col-xs-12.col-md-4
-          %p.h1.in-gold-500.mt-10= "€#{@book.price}"
-        .col-xs-5.col-md-3
-          .input-group.general-position
-            %a.input-link#minus_books_price
-              %i.fa.fa-minus.line-height-40
-            %input.form-control.quantity-input#books_price{type: "number", value: 1, min: 1, step: 1}
-            %a.input-link#plus_books_price
-              %i.fa.fa-plus.line-height-40
-        .col-xs-7.col-md-5
-          %button.btn.btn-default.pull-right.general-position= t('.add_to_cart')
+        = form_for :line_item, url: line_items_path, method: :post do |f|
+          = hidden_field_tag :book_id, @book.id
+          .col-xs-12.col-md-4
+            %p.h1.in-gold-500.mt-10= "€#{@book.price}"
+          .col-xs-5.col-md-3
+            .input-group.general-position
+              %a.input-link#minus_books_price
+                %i.fa.fa-minus.line-height-40
+              = f.number_field :quantity, class: 'form-control quantity-input', id: 'books_price'
+              - # %input.form-control.quantity-input#books_price{type: "number", value: 1, min: 1, step: 1}
+              %a.input-link#plus_books_price
+                %i.fa.fa-plus.line-height-40
+          .col-xs-7.col-md-5
+            = f.submit t('.add_to_cart'), class: 'btn btn-default pull-right general-position'
+            -# link_to t('.add_to_cart'), line_items_path(book_id: @book.id, quantity: @quantity )
+            -#%button.btn.btn-default.pull-right.general-position= t('.add_to_cart')
       .general-info-wrap.divider-lg
         %p= t('.description')
         - if @book.description.length > 250
