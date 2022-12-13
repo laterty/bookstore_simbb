@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'carts/show'
   resources :books, only: %i[index show] do
     resource :review, only: %i[create]
   end
