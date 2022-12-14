@@ -18,7 +18,7 @@ class CouponsController < ApplicationController
   end
 
   def redirect_with_flash(notice: nil, alert: nil)
-    flash_options =  { notice: notice, alert: alert }.compact_blank
+    flash_options =  { notice:, alert: }.compact_blank
     redirect_to cart_path(@current_cart), **flash_options
   end
 
@@ -31,7 +31,6 @@ class CouponsController < ApplicationController
   end
 
   def permitted_params
-    binding.pry
     params.require(:coupon).permit(:code).merge(cart_id: @current_cart.id)
   end
 end
