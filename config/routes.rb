@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :books, only: %i[index]
   end
 
+  resource :coupon, only: %i[update]
   resource :update_user_email, only: :update
   resource :update_user_password, only: :update
   resource :user, only: %i[edit destroy]
@@ -38,6 +39,4 @@ Rails.application.routes.draw do
   post 'line_items', to: "line_items#create"
   get 'line_items/:id', to: "line_items#show", as: "line_item"
   delete 'line_items/:id', to: "line_items#destroy"
-
-  resources :orders
 end
