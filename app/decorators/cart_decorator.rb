@@ -8,7 +8,11 @@ class CartDecorator < Draper::Decorator
     line_items.sum { |item| item.quantity * item.book_price }
   end
 
+  def discount
+    coupon ? (subtotal_price * coupon.discount).round(2) : Coupon::MIN_DISCOUNT
+  end
+
   def total_price
-    subtotal_price
+    subtotal_price - discount
   end
 end

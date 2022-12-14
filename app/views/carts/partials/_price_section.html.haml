@@ -1,5 +1,5 @@
 .row
   .col-sm-4
-    = render partial: 'carts/partials/coupon_form'
+    = render partial: 'carts/partials/coupon_form', locals: { current_cart: @current_cart }
   .col-sm-8
     = render partial: 'carts/partials/order_summary', locals: { cart: cart }
