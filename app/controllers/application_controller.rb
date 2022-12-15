@@ -12,16 +12,16 @@ class ApplicationController < ActionController::Base
 
   def current_cart
     if session[:cart_id]
-      cart = Cart.find_by(id: session[:cart_id])
+      cart = Cart.joins(:line_items).where(id: session[:cart_id]).select('carts.*, COUNT(line_items.id) as line_items_count').group(:id)
       if cart.present?
-        @current_cart = cart
+        @current_cart = cart.first.decorate
       else
         session[:cart_id] = nil
       end
     end
     return unless session[:cart_id].nil?
 
-    @current_cart = Cart.create
+    @current_cart = Cart.create.decorate
     session[:cart_id] = @current_cart.id
   end
 end
