@@ -2,7 +2,7 @@
   = form_for :line_item, url: line_items_path, method: :post do |f|
     = f.hidden_field :book_id, value: book.id
     .col-xs-12.col-md-4
-      %p.h1.in-gold-500.mt-10= number_to_euro(book.price)
+      %p.h1.in-gold-500.mt-10= number_to_price(book.price)
     .col-xs-5.col-md-3
       .input-group.general-position
         %a.input-link#minus_books_price

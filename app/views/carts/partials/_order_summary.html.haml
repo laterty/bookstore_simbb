@@ -5,14 +5,14 @@
       %td
         %p.font-16= t('.subtotal')
       %td
-        %p.font-16#cart-subtotal= number_to_euro(cart.subtotal_price)
+        %p.font-16#cart-subtotal= number_to_price(cart.subtotal_price)
     %tr
       %td
         %p.font-16= t('.coupon')
       %td
-        %p.font-16#cart-discount= number_to_euro(cart.discount)
+        %p.font-16#cart-discount= number_to_price(cart.discount)
     %tr
       %td
         %strong.font-18= t('.total')
       %td
-        %strong.font-18#cart-total= number_to_euro(cart.total_price)
+        %strong.font-18#cart-total= number_to_price(cart.total_price)
