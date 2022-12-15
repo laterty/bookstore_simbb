@@ -8,8 +8,6 @@ class ApplicationController < ActionController::Base
     @categories_all ||= Category.joins(:books).select('categories.*, COUNT(books.id) as books_count').group(:id)
   end
 
-  private
-
   def current_cart
     if session[:cart_id]
       cart = Cart.joins(:line_items).where(id: session[:cart_id]).select('carts.*, COUNT(line_items.id) as line_items_count').group(:id)

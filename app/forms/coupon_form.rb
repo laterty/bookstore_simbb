@@ -8,6 +8,6 @@ class CouponForm < ApplicationForm
   private
 
   def carts_uniqueness
-    errors.add(:cart_id, message: 'coupon has been already takken!!!') if @model.cart
+    errors.add(:cart_id, message: I18n.t('validation.coupon.uniqueness')) if @model.cart
   end
 end

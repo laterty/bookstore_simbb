@@ -5,7 +5,7 @@ class CouponsController < ApplicationController
 
   def update
     if coupon_form.save
-      redirect_with_flash(notice: 'goddamn, okay, you will get your discount')
+      redirect_with_flash(notice: I18n.t('carts.coupon.valid_coupon'))
     else
       redirect_with_flash(alert: coupon_form.errors[:cart_id].to_sentence)
     end
@@ -27,7 +27,7 @@ class CouponsController < ApplicationController
   end
 
   def undefined_coupon
-    redirect_with_flash(alert: 'did you really think that you can trick with me, motherfucker?')
+    redirect_with_flash(alert: I18n.t('carts.coupon.undefined_coupon'))
   end
 
   def permitted_params

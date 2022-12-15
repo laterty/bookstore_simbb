@@ -7,12 +7,12 @@
   %table.table
     %tr
       %td
-        %span.in-grey-600 Price
+        %span.in-grey-600= t('.price')
       %td
         %span.font-16.in-gold-500= book.price
     %tr
       %td.vertical-middle
-        %span.in-grey-600 Quantity
+        %span.in-grey-600= t('.quantity')
       %td
         .input-group
           %a.input-link{href: line_item_reduce_path(id: line_item), method: :post}
@@ -22,6 +22,6 @@
             %i.fa.fa-plus.line-heaght-40
     %tr
       %td
-        %span.in-grey-600 SubTotal
+        %span.in-grey-600= t('.subtotal')
       %td
         %span.font-16.in-gold-500= line_item.subtotal_price
