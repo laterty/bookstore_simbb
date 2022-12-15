@@ -9,7 +9,7 @@
       %td
         %span.in-grey-600= t('.price')
       %td
-        %span.font-16.in-gold-500= book.price
+        %span.font-16.in-gold-500= number_to_euro(book.price)
     %tr
       %td.vertical-middle
         %span.in-grey-600= t('.quantity')
@@ -24,4 +24,4 @@
       %td
         %span.in-grey-600= t('.subtotal')
       %td
-        %span.font-16.in-gold-500= line_item.subtotal_price
+        %span.font-16.in-gold-500= number_to_euro(line_item.subtotal_price)

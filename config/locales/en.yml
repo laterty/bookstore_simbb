@@ -245,3 +245,4 @@ en:
       buttons:
         approve: 'Approve'
         reject: 'Reject'
+  unit_for_number_euro: '€'
