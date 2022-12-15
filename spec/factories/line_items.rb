@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :line_item do
-    order
+    cart
     book
     quantity { rand(1..10) }
   end

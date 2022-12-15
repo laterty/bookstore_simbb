@@ -5,14 +5,14 @@
       %td
         %p.font-16= t('.subtotal')
       %td
-        %p.font-16= cart.subtotal_price
+        %p.font-16#cart-subtotal= cart.subtotal_price
     %tr
       %td
         %p.font-16= t('.coupon')
       %td
-        %p.font-16= cart.discount
+        %p.font-16#cart-discount= cart.discount
     %tr
       %td
         %strong.font-18= t('.total')
       %td
-        %strong.font-18= cart.total_price
+        %strong.font-18#cart-total= cart.total_price
