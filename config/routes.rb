@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   resources :categories, only: %i[show] do
     resources :books, only: %i[index]
   end
-
+  resources :line_items, only: %i[create show destroy]
+  
   resource :coupon, only: %i[update]
   resource :update_user_email, only: :update
   resource :update_user_password, only: :update
@@ -28,7 +29,6 @@ Rails.application.routes.draw do
   
   root 'home#index'
 
-
   get 'update_user_email', to: redirect('/user/edit')
   get 'update_user_password', to: redirect('/user/edit')
 
@@ -36,7 +36,4 @@ Rails.application.routes.draw do
 
   post 'line_items/:id/add', to: "line_items#add_quantity", as: "line_item_add"
   post 'line_items/:id/reduce', to: "line_items#reduce_quantity", as: "line_item_reduce"
-  post 'line_items', to: "line_items#create"
-  get 'line_items/:id', to: "line_items#show", as: "line_item"
-  delete 'line_items/:id', to: "line_items#destroy"
 end
