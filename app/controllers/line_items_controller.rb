@@ -5,7 +5,7 @@ class LineItemsController < ApplicationController
 
   def create
     @chosen_book = Book.find(permitted_params[:book_id])
-    line_item.save
+    LineItemService.call(line_item_params).save
     redirect_to cart_path(@current_cart)
   end
 
@@ -32,19 +32,8 @@ class LineItemsController < ApplicationController
     @line_item = LineItem.find(params[:id])
   end
 
-  def line_item
-    return @line_item = LineItem.new(cart: @current_cart, book: @chosen_book, quantity:) unless book_already_in_cart?
-
-    @line_item = @current_cart.line_items.find_by(book_id: @chosen_book)
-    @line_item.quantity += permitted_params[:quantity].to_i
-  end
-
-  def book_already_in_cart?
-    @current_cart.books.include?(@chosen_book)
-  end
-
-  def quantity
-    permitted_params[:quantity] || LineItem::MIN_QUANTITY
+  def line_item_params
+    { cart: @current_cart, book: @chosen_book, quantity: permitted_params[:quantity] }
   end
 
   def permitted_params
