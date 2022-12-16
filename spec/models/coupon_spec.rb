@@ -4,7 +4,7 @@ RSpec.describe Coupon, type: :model do
   describe 'table' do
     it do
       is_expected.to have_db_column(:code).of_type(:string).with_options(null: false)
-      is_expected.to have_db_column(:discount).of_type(:float).with_options(null: false)
+      is_expected.to have_db_column(:discount).of_type(:integer).with_options(null: false)
       is_expected.to have_db_column(:cart_id).of_type(:integer)
     end
   end

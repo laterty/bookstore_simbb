@@ -2,7 +2,7 @@
 
 RSpec.describe 'Cart page', type: :feature do
   let!(:cart) { create(:cart).decorate }
-  let!(:line_item) { create(:line_item, cart:).decorate }
+  let(:line_item) { create(:line_item, cart:).decorate }
   let(:total_price) do
     within('table.general-summary-table') do
       find_by_id('cart-total').text.gsub(I18n.t('unit_for_price'), '').to_f
