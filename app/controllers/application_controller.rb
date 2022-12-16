@@ -2,7 +2,7 @@
 
 class ApplicationController < ActionController::Base
   include Pagy::Backend
-  before_action :categories_all, :current_cart
+  before_action :categories_all, :current_cart, :cart_count
 
   def categories_all
     @categories_all ||= Category.joins(:books)
@@ -13,26 +13,13 @@ class ApplicationController < ActionController::Base
   private
 
   def current_cart
-    restore_cart_from_session if session[:cart_id]
-
-    new_cart unless session[:cart_id]
-  end
-
-  def restore_cart_from_session
-    return session[:cart_id] = nil if cart.blank?
-
-    @current_cart = cart.first.decorate
-  end
-
-  def new_cart
+    @current_cart ||= Cart.find(session[:cart_id]).decorate
+  rescue ActiveRecord::RecordNotFound
     @current_cart = Cart.create.decorate
     session[:cart_id] = @current_cart.id
   end
 
-  def cart
-    Cart.joins(:line_items)
-        .where(id: session[:cart_id])
-        .select('carts.*, COUNT(line_items.id) as line_items_count')
-        .group(:id)
+  def cart_count
+    @cart_count ||= @current_cart ? @current_cart.line_items.sum(&:quantity) : Constants::Shared::EMPTY_CART_ITEMS_COUNT
   end
 end
