@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 2022_12_14_144833) do
   end
 
   create_table "coupons", force: :cascade do |t|
-    t.float "discount", null: false
+    t.integer "discount", null: false
     t.string "code", null: false
     t.bigint "cart_id"
     t.datetime "created_at", precision: 6, null: false

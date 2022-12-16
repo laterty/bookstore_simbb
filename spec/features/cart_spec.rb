@@ -10,7 +10,7 @@ RSpec.describe 'Cart page', type: :feature do
     let(:book_count) { find("input.quantity-input#line-item-#{line_item.id}").value.to_i }
     let(:total_price) do
       within('table.general-summary-table') do
-        find_by_id('cart-total').text.to_d
+        find_by_id('cart-total').text.to_i
       end
     end
 

@@ -13,7 +13,7 @@ class CartDecorator < Draper::Decorator
   end
 
   def discount
-    coupon ? (subtotal_price * coupon.discount).round(2) : Coupon::MIN_DISCOUNT
+    coupon ? (subtotal_price * coupon.discount / Coupon::MAX_DISCOUNT).round(2) : Coupon::MIN_DISCOUNT
   end
 
   def total_price

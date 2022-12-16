@@ -5,18 +5,7 @@ RSpec.describe 'Cart page', type: :feature do
   let!(:line_item) { create(:line_item, cart:).decorate }
   let(:total_price) do
     within('table.general-summary-table') do
-      find_by_id('cart-total').text.to_d
-    end
-  end
-
-  context 'without coupon' do
-    before do
-      page.set_rack_session(cart_id: cart.id)
-      visit cart_path(cart)
-    end
-
-    it 'shows total price' do
-      expect(total_price).to eq(line_item.subtotal_price)
+      find_by_id('cart-total').text.gsub(I18n.t('unit_for_price'), '').to_f
     end
   end
 
@@ -25,7 +14,7 @@ RSpec.describe 'Cart page', type: :feature do
     let(:coupon_code) { coupon.code }
     let(:discount) do
       within('table.general-summary-table') do
-        find_by_id('cart-discount').text.to_d
+        find_by_id('cart-discount').text.gsub(I18n.t('unit_for_price'), '').to_f
       end
     end
 
@@ -52,7 +41,7 @@ RSpec.describe 'Cart page', type: :feature do
     let(:invalid_coupon_code) { FFaker::BaconIpsum.word }
     let(:discount) do
       within('table.general-summary-table') do
-        find_by_id('cart-discount').text.to_d
+        find_by_id('cart-discount').text.to_f
       end
     end
 
@@ -73,7 +62,7 @@ RSpec.describe 'Cart page', type: :feature do
     let(:coupon_code) { coupon.code }
     let(:discount) do
       within('table.general-summary-table') do
-        find_by_id('cart-discount').text.to_d
+        find_by_id('cart-discount').text.to_f
       end
     end
 
