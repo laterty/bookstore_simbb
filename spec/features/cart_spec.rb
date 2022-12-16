@@ -24,4 +24,20 @@ RSpec.describe 'Cart page', type: :feature do
       expect(book_count).to eq(book_quantity)
     end
   end
+
+  context 'when user is going to delete line_item', hidden: false do
+    before do
+      page.set_rack_session(cart_id: cart.id)
+      visit cart_path(cart)
+      find('a.close', match: :first).click
+    end
+
+    it 'redirect ro cart page' do
+      expect(page).to have_current_path(cart_path(cart))
+    end
+
+    it 'deleted line item' do
+      expect(page).to have_no_content(line_item.book.title)
+    end
+  end
 end
