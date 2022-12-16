@@ -4,6 +4,8 @@ RSpec.describe 'Cart page', type: :feature do
   let!(:cart) { create(:cart).decorate }
   let!(:line_item) { create(:line_item, cart:).decorate }
 
+  before { page.set_rack_session(cart_id: cart.id) }
+
   context 'when cart isnt empty' do
     let(:book_title) { cart.books.first.title }
     let(:book_quantity) { line_item.quantity }
@@ -15,7 +17,6 @@ RSpec.describe 'Cart page', type: :feature do
     end
 
     before do
-      page.set_rack_session(cart_id: cart.id)
       visit cart_path(cart)
     end
 
@@ -25,9 +26,8 @@ RSpec.describe 'Cart page', type: :feature do
     end
   end
 
-  context 'when user is going to delete line_item', hidden: false do
+  context 'when user delete line_item', hidden: false do
     before do
-      page.set_rack_session(cart_id: cart.id)
       visit cart_path(cart)
       find('a.close', match: :first).click
     end
@@ -38,6 +38,36 @@ RSpec.describe 'Cart page', type: :feature do
 
     it 'deleted line item' do
       expect(page).to have_no_content(line_item.book.title)
+    end
+  end
+
+  context 'when user change line item quantity', js: true do
+    describe 'increment quantity' do
+      before do
+        visit cart_path(cart)
+        find('i.fa.fa-plus').click
+      end
+
+      let(:line_item_quantity) { find("input.quantity-input#line-item-#{line_item.id}").value.to_i }
+      let(:expected_line_item_quantity) { line_item.quantity + LineItem::QUANTITY_STEP }
+
+      it 'increase line item quantity' do
+        expect(line_item_quantity).to eq(expected_line_item_quantity)
+      end
+    end
+
+    describe 'reduce quantity' do
+      before do
+        visit cart_path(cart)
+        find('i.fa.fa-minus').click
+      end
+
+      let!(:expected_line_item_quantity) { line_item.quantity - LineItem::QUANTITY_STEP }
+      let(:line_item_quantity) { find("input.quantity-input#line-item-#{line_item.id}").value.to_i }
+
+      it 'increase line item quantity' do
+        expect(line_item_quantity).to eq(expected_line_item_quantity)
+      end
     end
   end
 end
