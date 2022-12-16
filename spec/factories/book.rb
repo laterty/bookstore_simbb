@@ -17,5 +17,6 @@ FactoryBot.define do
       path = Rails.root.join('spec/images/images.jpg')
       [Rack::Test::UploadedFile.new(path, 'image/jpg')] * rand(1..3)
     end
+    quantity { rand(3..50) }
   end
 end

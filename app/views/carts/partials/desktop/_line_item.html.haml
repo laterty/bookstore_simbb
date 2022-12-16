@@ -1,0 +1,20 @@
+%tr
+  %td
+    = link_to book_path(book), class: 'general-img-wrap-table' do
+      = image_tag(book.cover_image.url, class: 'cart-img-shadow pull-left')
+  %td
+    %p.title= book.title
+  %td
+    %span.font-16.in-gold-500= number_to_price(book.price)
+  %td
+    .input-group
+      = link_to line_item_reduce_path(:id => line_item), method: :post, class: 'input-link' do
+        %i.fa.fa-minus.line-heaght-40
+      %input.form-control.quantity-input{type: "text", value: line_item.quantity, id: "line-item-#{line_item.id}"}
+      = link_to line_item_add_path(:id => line_item), method: :post, class: 'input-link' do
+        %i.fa.fa-plus.line-heaght-40
+  %td
+    %span.font-16.in-gold-500= number_to_price(line_item.subtotal_price)
+  %td
+    = link_to line_item_path(line_item), method: :delete, class: 'close general-cart-close' do
+      %span{'aria-hidden': "true"} &times;

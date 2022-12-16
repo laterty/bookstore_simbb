@@ -9,6 +9,7 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'capybara/rails'
+require 'rack_session_access/capybara'
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
@@ -46,7 +47,8 @@ RSpec.configure do |config|
 
   # Include custom helpers
   config.include Helpers::UserActions, type: :feature
-  config.include Helper::DefaultBookImageHelper, type: :feature
+  config.include Helpers::DefaultBookImageHelper, type: :feature
+  config.include Helpers::ApplyCoupon, type: :feature
 
   config.include FactoryBot::Syntax::Methods
 

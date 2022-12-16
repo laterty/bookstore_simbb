@@ -1,0 +1,27 @@
+.general-cart-item.divider-lg-bottom
+  = link_to line_item_path(line_item), method: :delete, class: 'close general-cart-close' do
+    %span{'aria-hidden': "true"} &times;
+  .general-img-wrap-table
+    = image_tag(book.cover_image.url, class: 'cart-img-shadow')
+  %p.title= book.title
+  %table.table
+    %tr
+      %td
+        %span.in-grey-600= t('.price')
+      %td
+        %span.font-16.in-gold-500= number_to_price(book.price)
+    %tr
+      %td.vertical-middle
+        %span.in-grey-600= t('.quantity')
+      %td
+        .input-group
+          %a.input-link{href: line_item_reduce_path(id: line_item), method: :post}
+            %i.fa.fa-minus.line-heaght-40
+          %input.form-control.quantity-input{type: "text"}
+          %a.input-link{href: line_item_add_path(id: line_item), method: :post}
+            %i.fa.fa-plus.line-heaght-40
+    %tr
+      %td
+        %span.in-grey-600= t('.subtotal')
+      %td
+        %span.font-16.in-gold-500= number_to_price(line_item.subtotal_price)

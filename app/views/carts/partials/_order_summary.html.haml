@@ -1,0 +1,18 @@
+.res-mr-200.text-center.general-text-right
+  %p.in-gold-500.font-18= t('.title')
+  %table.general-summary-table.general-summary-table-right.general-text-right
+    %tr
+      %td
+        %p.font-16= t('.subtotal')
+      %td
+        %p.font-16#cart-subtotal= number_to_price(cart.subtotal_price)
+    %tr
+      %td
+        %p.font-16= t('.coupon')
+      %td
+        %p.font-16#cart-discount= number_to_price(cart.discount)
+    %tr
+      %td
+        %strong.font-18= t('.total')
+      %td
+        %strong.font-18#cart-total= number_to_price(cart.total_price)

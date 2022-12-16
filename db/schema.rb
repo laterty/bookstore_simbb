@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_08_015901) do
+ActiveRecord::Schema.define(version: 2022_12_14_144833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,13 +68,38 @@ ActiveRecord::Schema.define(version: 2022_12_08_015901) do
     t.bigint "category_id", null: false
     t.json "images"
     t.json "cover_image"
+    t.integer "quantity", null: false
     t.index ["category_id"], name: "index_books_on_category_id"
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "coupons", force: :cascade do |t|
+    t.integer "discount", null: false
+    t.string "code", null: false
+    t.bigint "cart_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cart_id"], name: "index_coupons_on_cart_id", unique: true
+  end
+
+  create_table "line_items", force: :cascade do |t|
+    t.bigint "book_id", null: false
+    t.bigint "cart_id", null: false
+    t.integer "quantity", default: 1, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_line_items_on_book_id"
+    t.index ["cart_id"], name: "index_line_items_on_cart_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -107,6 +132,9 @@ ActiveRecord::Schema.define(version: 2022_12_08_015901) do
   add_foreign_key "addresses", "users"
   add_foreign_key "author_books", "authors"
   add_foreign_key "author_books", "books"
+  add_foreign_key "coupons", "carts"
+  add_foreign_key "line_items", "books"
+  add_foreign_key "line_items", "carts"
   add_foreign_key "reviews", "books"
   add_foreign_key "reviews", "users"
 end

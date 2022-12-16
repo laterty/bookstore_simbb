@@ -10,6 +10,35 @@ en:
       get_started: 'Get Started'
     latest_books_item:
       buy_now_button: 'Buy Now'
+  carts:
+    coupon:
+      valid_coupon: 'Coupon was applied'
+      undefined_coupon: 'Undefined coupon'
+    show:
+      title: 'Cart'
+      checkout_button: 'Checkout'
+    partials:
+      coupon_form:
+        coupon_passed: 'Already passed'
+        label: 'Enter your coupon'
+        placeholder: 'Enter your coupon code'
+        submit_button: 'Apply coupon'
+      order_summary:
+        title: 'Order summary'
+        subtotal: 'Subtotal:'
+        total: 'Order Total:'
+        coupon: 'Coupon'
+      desktop:
+        head_table:
+          product: 'Product'
+          price: 'Price'
+          quantity: 'Quantity'
+          subtotal: 'SubTotal'
+      mobile:
+        line_item:
+          price: 'Price'
+          quantity: 'Quantity'
+          subtotal: 'SubTotal'
   layouts:
     application:
       app_name: 'BookstoreSimb'
@@ -56,6 +85,8 @@ en:
         categories:
           all: 'All'
           filter_by_categories: 'Filter by category'
+      add_to_cart_form:
+        add_to_cart: 'Add to cart'
     book:
     index:
       title: 'Catalog'
@@ -174,6 +205,8 @@ en:
       current: 'Wrong current password'
     email:
       invalid: 'Invalid email'
+    coupon:
+      uniqueness: 'Coupon has been already takken'
   users:
     partials:
       change_email_form:
@@ -212,3 +245,4 @@ en:
       buttons:
         approve: 'Approve'
         reject: 'Reject'
+  unit_for_price: '€'

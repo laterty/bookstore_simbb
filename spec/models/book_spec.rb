@@ -10,6 +10,7 @@ RSpec.describe Book, type: :model do
       is_expected.to have_db_column(:materials).of_type(:string).with_options(null: false)
       is_expected.to have_db_column(:dimensions).of_type(:string).with_options(null: false)
       is_expected.to have_db_column(:category_id).of_type(:integer).with_options(null: false)
+      is_expected.to have_db_column(:quantity).of_type(:integer).with_options(null: false)
     end
   end
 
@@ -21,6 +22,7 @@ RSpec.describe Book, type: :model do
       is_expected.to validate_presence_of(:year_of_publication)
       is_expected.to validate_presence_of(:materials)
       is_expected.to validate_presence_of(:dimensions)
+      is_expected.to validate_presence_of(:quantity)
     end
   end
 

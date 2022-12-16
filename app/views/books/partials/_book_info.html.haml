@@ -1,0 +1,22 @@
+.general-info-wrap.divider-lg
+  %p= t('.description')
+  - if book.description.length > 250
+    %p.lead.small.line-height-2#truncate_description
+      = book.description.truncate(250)
+      %a.in-gold-500.ml-10#book_read_more{href: "#"}= t('.read_more')
+    %p.lead.small.line-height-2.hidden#full_description= book.description
+  - else
+    %p.lead.small.line-height-2
+      = book.description
+.general-info-wrap.divider-lg
+  .clearfix
+    %p.pull-left= t('.year_of_publication')
+    %p.lead.small.pull-right= book.year_of_publication
+.general-info-wrap.divider-lg
+  .clearfix
+    %p.pull-left= t('.dimensions')
+    %p.lead.small.pull-right= book.dimensions
+.general-info-wrap.divider-lg
+  .clearfix
+    %p.pull-left= t('.materials')
+    %p.lead.small.pull-right= book.materials

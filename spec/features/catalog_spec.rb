@@ -77,4 +77,55 @@ RSpec.describe 'Catalog', type: :feature do
       end
     end
   end
+
+  describe 'add to cart' do
+    let(:add_to_card_link) do
+      within('.thumb-hover') do
+        page.all('a', class: 'thumb-hover-link').last
+      end
+    end
+
+    context 'when cart doesnt have choosen book' do
+      let!(:book) { create(:book) }
+      let!(:current_cart) { create(:cart) }
+      let!(:book_title) { book.title }
+
+      before do
+        page.set_rack_session(cart_id: current_cart.id)
+        visit books_path
+        add_to_card_link.click
+      end
+
+      it 'redirect to cart page' do
+        expect(page).to have_current_path cart_path(current_cart)
+      end
+
+      it 'create line item with choosen book' do
+        expect(page).to have_text(book_title)
+      end
+    end
+
+    context 'when cart has choosen book' do
+      let!(:book) { create(:book) }
+      let!(:current_cart) { create(:cart) }
+      let!(:line_item_with_book) do
+        create(:line_item, book:, cart: current_cart, quantity: 1)
+      end
+      let(:line_item_quantity) { find("input.quantity-input#line-item-#{line_item_with_book.id}").value.to_i }
+
+      before do
+        page.set_rack_session(cart_id: current_cart.id)
+        visit books_path
+        add_to_card_link.click
+      end
+
+      it 'redirect to cart page' do
+        expect(page).to have_current_path cart_path(current_cart)
+      end
+
+      it 'increment line item quantity' do
+        expect(line_item_quantity).to eq(2)
+      end
+    end
+  end
 end

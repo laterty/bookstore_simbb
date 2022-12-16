@@ -1,0 +1,7 @@
+.product-gallery
+  .mb-20
+    =image_tag book.cover_image.url, class: "img-responsive book-main-image"
+  .images.clearfix
+    -book.images.each do |image|
+      %a.img-link{href: image.url}
+        = image_tag image.url

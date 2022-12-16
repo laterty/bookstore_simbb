@@ -4,50 +4,12 @@
     = t('.back_to_results')
   .row
     .col-sm-6
-      .product-gallery
-        .mb-20
-          =image_tag @book.cover_image.url, class: "img-responsive book-main-image"
-        .images.clearfix
-          -@book.images.each do |image|
-            %a.img-link{href: image.url}
-              = image_tag image.url
+      = render partial: 'books/partials/images_collection', locals: { book: @book }
     .col-sm-6
       %h1.mt-res-0= @book.title
       %p.lead.small= @book.authors_names
-      .row
-        .col-xs-12.col-md-4
-          %p.h1.in-gold-500.mt-10= "€#{@book.price}"
-        .col-xs-5.col-md-3
-          .input-group.general-position
-            %a.input-link#minus_books_price
-              %i.fa.fa-minus.line-height-40
-            %input.form-control.quantity-input#books_price{type: "number", value: 1, min: 1, step: 1}
-            %a.input-link#plus_books_price
-              %i.fa.fa-plus.line-height-40
-        .col-xs-7.col-md-5
-          %button.btn.btn-default.pull-right.general-position= t('.add_to_cart')
-      .general-info-wrap.divider-lg
-        %p= t('.description')
-        - if @book.description.length > 250
-          %p.lead.small.line-height-2#truncate_description
-            = @book.description.truncate(250)
-            %a.in-gold-500.ml-10#book_read_more{href: "#"}= t('.read_more')
-          %p.lead.small.line-height-2.hidden#full_description= @book.description
-        - else
-          %p.lead.small.line-height-2
-            = @book.description
-      .general-info-wrap.divider-lg
-        .clearfix
-          %p.pull-left= t('.year_of_publication')
-          %p.lead.small.pull-right= @book.year_of_publication
-      .general-info-wrap.divider-lg
-        .clearfix
-          %p.pull-left= t('.dimensions')
-          %p.lead.small.pull-right= @book.dimensions
-      .general-info-wrap.divider-lg
-        .clearfix
-          %p.pull-left= t('.materials')
-          %p.lead.small.pull-right= @book.materials
+      = render partial: 'books/partials/add_to_cart_form', locals: { book: @book }
+      = render partial: 'books/partials/book_info', locals: { book: @book }
   .mb-80
     = render partial: 'books/partials/reviews', locals: { reviews: @reviews, max_rating: ReviewForm::MAX_RATING, reviews_count: @reviews_count }
   - if current_user

@@ -1,13 +1,16 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'carts/show'
   resources :books, only: %i[index show] do
     resource :review, only: %i[create]
   end
   resources :categories, only: %i[show] do
     resources :books, only: %i[index]
   end
-
+  resources :line_items, only: %i[create show destroy]
+  
+  resource :coupon, only: %i[update]
   resource :update_user_email, only: :update
   resource :update_user_password, only: :update
   resource :user, only: %i[edit destroy]
@@ -26,7 +29,11 @@ Rails.application.routes.draw do
   
   root 'home#index'
 
-
   get 'update_user_email', to: redirect('/user/edit')
   get 'update_user_password', to: redirect('/user/edit')
+
+  get 'carts/:id', to: "carts#show", as: "cart"
+
+  post 'line_items/:id/add', to: "line_items#add_quantity", as: "line_item_add"
+  post 'line_items/:id/reduce', to: "line_items#reduce_quantity", as: "line_item_reduce"
 end
