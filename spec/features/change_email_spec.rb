@@ -37,7 +37,5 @@ describe 'Change email' do
       expect(page).not_to have_content valid_email
       expect(page).to have_content I18n.t('users.successful.update_email')
     end
-    # CHECK how to check updating attributes while testing
-    # expect(user.email).to eq valid_email # => false
   end
 end

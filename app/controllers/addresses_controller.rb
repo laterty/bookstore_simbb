@@ -5,7 +5,8 @@ class AddressesController < ApplicationController
 
   def create
     if typed_form.save
-      redirect_to edit_settings_address_path
+      redirect_to edit_settings_address_path,
+                  notice: I18n.t('addresses.successful.create_address', type: address_params[:type])
     else
       render :edit
     end
@@ -13,7 +14,8 @@ class AddressesController < ApplicationController
 
   def update
     if typed_form.save
-      redirect_to edit_settings_address_path
+      redirect_to edit_settings_address_path,
+                  notice: I18n.t('addresses.successful.update_address', type: address_params[:type])
     else
       render :edit
     end
@@ -30,15 +32,11 @@ class AddressesController < ApplicationController
   end
 
   def address
-    @address ||= if Address.where(user: current_user, type: address_params[:type]).any?
-                   Address.find_by(user: current_user, type: address_params[:type])
-                 else
-                   Address.new(user: current_user, type: address_params[:type])
-                 end
+    @address ||= Address.find_or_initialize_by(user: current_user, type: address_params[:type])
   end
 
   def billing_type?
-    address_params[:type] == 'BillingAddress'
+    address_params[:type] == BillingAddress.name
   end
 
   def address_params

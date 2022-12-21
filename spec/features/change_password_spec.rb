@@ -5,7 +5,7 @@ describe 'Change password' do
   let(:empty_string) { '' }
   let(:current_password) { user.password }
   let(:invalid_password) { 'yolo12' }
-  let(:new_password) { 'Yolo123*' }
+  let(:new_password) { attributes_for(:user)[:password] }
   let(:invalid_confirmation_new_password) { 'yolO123*' }
   let(:valid_confirmation_new_password) { new_password }
 

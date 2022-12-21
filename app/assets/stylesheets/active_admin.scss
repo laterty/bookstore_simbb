@@ -11,6 +11,16 @@
 @import "active_admin/mixins";
 @import "active_admin/base";
 
+$height_book_cover_image_menu: 150px;
+$width_book_cover_image_menu: 150px;
+
+.admin_image{
+  max-width: $width_book_cover_image_menu;
+  max-height: $height_book_cover_image_menu;
+}
+
+
+
 // Overriding any non-variable Sass must be done after the fact.
 // For example, to change the default status-tag color:
 //

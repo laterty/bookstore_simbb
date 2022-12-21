@@ -3,23 +3,12 @@
 RSpec.describe AddressForm, type: :model do
   describe 'Create' do
     let!(:current_user) { create(:user) }
-    let!(:valid_params) do
-      {
-        first_name: 'Jesse',
-        last_name: 'Pinkman',
-        address: 'Address',
-        city: 'Albuquerque',
-        country: 'US',
-        zip: '03068',
-        phone: '+1483369',
-        type: 'BillingAddress'
-      }
-    end
+    let!(:valid_params) { attributes_for(:address, :billing_address) }
     let!(:valid_address) { Address.find_or_initialize_by(user_id: current_user.id, type: valid_params[:type]) }
 
     context 'when params is valid' do
       let!(:saved_address) { described_class.new(valid_address, valid_params).save }
-      let(:expected_class) { BillingAddress }
+      let!(:expected_class) { BillingAddress }
       let!(:address_save?) { Address.pluck(:id).include?(saved_address.id) }
 
       it 'stores params attributes in corresponding address attributes' do
@@ -48,10 +37,11 @@ RSpec.describe AddressForm, type: :model do
 
   describe 'Update' do
     let!(:address) { create(:address, :billing_address) }
+    let!(:attributes) { attributes_for(:address, :billing_address) }
 
     context 'when params valid' do
       let!(:valid_params) do
-        { first_name: 'testname',
+        { first_name: attributes[:first_name],
           last_name: address.last_name,
           address: address.address,
           city: address.city,
@@ -64,7 +54,7 @@ RSpec.describe AddressForm, type: :model do
       let!(:updated_address) { described_class.new(address, valid_params).save }
 
       it 'update first_name' do
-        expect(updated_address.first_name).to eq(valid_params[:first_name])
+        expect(updated_address.first_name).to eq(attributes[:first_name])
       end
     end
   end

@@ -2,9 +2,9 @@
 
 FactoryBot.define do
   factory :user do
-    email { Faker::Internet.email }
+    email { FFaker::Internet.email }
     provider { 'facebook' }
     uid { rand(10**10) }
-    password { 'Yo123L**o321' }
+    password { "#{FFaker::Internet.password(9, 16)}Yy*1" }
   end
 end

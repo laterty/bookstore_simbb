@@ -17,4 +17,8 @@ RSpec.describe Address, type: :model do
   describe 'associations' do
     it { is_expected.to belong_to(:user) }
   end
+
+  describe 'table index' do
+    it { is_expected.to have_db_index(%i[user_id type]).unique(true) }
+  end
 end
