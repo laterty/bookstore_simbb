@@ -1,0 +1,29 @@
+%main.container
+  %h1.general-title-margin= t('.title')
+  %ul.nav.clearfix.mb-20
+    %li.tab-item.active
+      = link_to t('.address_link'), edit_settings_address_path, class: 'tab-link'
+    %li.tab-item
+      = link_to t('.privacy_link'), privacy_settings_path, class: 'tab-link'
+  .tab-content
+    .hidden-xs.hidden-sm
+      .row
+        .col-md-5
+          %h3.general-subtitle.mt-0= t('.billing_address')
+        .col-md-5.col-md-offset-1
+          %h3.general-subtitle.mt-0= t('.shipping_address')
+    .row
+      .col-md-5.mb-40
+        .visible-xs.visible-sm
+          %h3.general-subtitle.mt-0= t('.billing_address')
+        - if current_user.billing_address
+          = render partial: 'addresses/partials/address_form', locals: { address: @billing_address_form ? @billing_address_form : current_user.billing_address, type: BillingAddress.name }
+        - else
+          = render partial: 'addresses/partials/address_form', locals: { address: @billing_address_form ? @billing_address_form : AddressForm.new(Address.new(type: BillingAddress.name)), type: BillingAddress.name }
+      .col-md-5.col-md-offset-1.mb-25
+        .visibe-xs.visible-s
+          %h3.general-subtitle.mt-0= t('.shipping_address')
+        - if current_user.shipping_address
+          = render partial: 'addresses/partials/address_form', locals: { address: @shipping_address_form ? @shipping_address_form : current_user.shipping_address, type: ShippingAddress.name }
+        - else
+          = render partial: 'addresses/partials/address_form', locals: { address: @shipping_address_form ? @shipping_address_form : AddressForm.new(Address.new(type: ShippingAddress.name)), type: ShippingAddress.name }

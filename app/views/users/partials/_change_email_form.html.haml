@@ -1,0 +1,12 @@
+.col-sm-5
+  %p.in-gold-500.font-18.mb-25= t('.title')
+  .general-form-md
+    = simple_form_for email, as: :user, url: update_user_email_path, method: :put do |f|
+      .form-group.mb-35
+        = f.input :email,
+          label: t('.label'),
+          input_html: { id: 'email', class: 'form-control' }, 
+          label_html: { class: 'control-label input-label' }, 
+          placeholder: t('.placeholder'), type: 'email'
+      .general-text-align
+        = f.button :submit, t('.submit_button'), class: 'btn btn-default mb-35'

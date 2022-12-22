@@ -27,7 +27,7 @@
               %li
                 = link_to category.name, category_books_path(category_id: category.id), class: "collapse-link"
           %li
-            %a{href: "#"}= t('.navigation_account')
+            = link_to t('.navigation_account'), edit_settings_address_path
       .hidden-xs
         %ul.nav.navbar-nav
           %li
@@ -45,7 +45,7 @@
                 = link_to t('.log_out'), destroy_user_session_path, method: :delete
           - if current_user
             %li
-              %a{href: "#"}= t('.navigation_account')
+              = link_to t('.navigation_account'), edit_settings_address_path
           - else
             %li
               = link_to t('.log_in'), new_user_session_path

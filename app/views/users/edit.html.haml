@@ -1,0 +1,15 @@
+%main.container
+  %h1.general-title-margin= t('.settings')
+  %ul.nav.clearfix.mb-20
+    %li.tab-item.active
+      = link_to t('.address_link'), edit_settings_address_path, class: 'tab-link'
+    %li.tab-item
+      = link_to t('.privacy_link'), privacy_settings_path, class: 'tab-link'
+  .tab-pane
+    .row.mb-60
+      #change_email_form
+        = render partial: 'users/partials/change_email_form', locals: { email: @email_form.nil? ? current_user : @email_form }
+      #change_password_form
+        = render partial: 'users/partials/change_password_form', locals: { password: @password_form.nil? ? current_user : @password_form }
+      #delete_account_form
+        = render partial: 'users/partials/delete_account_form', locals: { user: current_user }

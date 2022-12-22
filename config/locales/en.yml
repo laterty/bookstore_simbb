@@ -107,4 +107,86 @@ en:
         dont_have_account: 'Don’t have an Account?'
         sign_up: 'Sign up'
         log_in_button: 'Log in'
-      
+  addresses:
+    successful:
+      create_address: "Successfully created an %{type} address"
+      update_address: "Successfully updated an %{type} address"
+    partials:
+      address_form:
+        label:
+          first_name: 'First Name'
+          last_name: 'Last Name'
+          address: 'Address'
+          zip: 'Zip'
+          city: 'City'
+          country: 'Country'
+          phone: 'Phone'
+        placeholder:
+          first_name: 'First Name'
+          last_name: 'Last Name'
+          address: 'Address'
+          zip: 'Zip'
+          city: 'City'
+          country: 'Country'
+          phone: 'Example +355 66 123 4567'
+    edit:
+      title: 'Settings'
+      billing_address: 'Billing Address'
+      shipping_address: 'Shipping Address'
+      address_link: 'Address'
+      privacy_link: 'Privacy'
+    show:
+      back_to_result: 'Back to results'
+      add_to_cart: 'Add to Cart'
+      description: 'Description'
+      read_more: 'Read more'
+      year_of_publication: 'Year of publication'
+      dimensions: 'Dimensions'
+      material: 'Material'
+  validation:
+    blank: "Can't be blank"
+    address:
+        names_city_country: 'Consist of a-z, A-Z only, no special symbols'
+        zip: 'Consist of 0-9 only,’-’ no special symbols'
+        address: 'Consist of a-z, A-Z, 0-9, -, / only, \
+                  no special symbols'
+        phone: 'Consist of 0-9 only no special symbols'
+    password:
+      complexity: 'Complexity requirement not met. Please use: 1 uppercase, 1 lowercase, 1 digit and 1 special character'
+      confirmation: 'Password confirmation should be the same with new password'
+      current: 'Wrong current password'
+    email:
+      invalid: 'Invalid email'
+  users:
+    partials:
+      change_email_form:
+        title: 'Email'
+        label: 'Enter email'
+        placeholder: 'Enter your email'
+        submit_button: 'Save'
+      change_password_form:
+        title: 'Password'
+        label:
+          password: 'New password'
+          current_password: 'Old password'
+          password_confirmation: 'Confirm password'
+        placeholder:
+          password: 'New password'
+          current_password: 'Old password'
+          password_confirmation: 'Confirm password'
+        submit_button: 'Save'
+      delete_account_form:
+        title: 'Remove account'
+        submit_button: 'Please Remove My Account'
+        confirmation: 'I understand that all data will be lost'
+    edit:
+      address_link: 'Address'
+      privacy_link: 'Privacy'
+      settings: 'Settings'
+    successful:
+      update_email: 'Email was successfully changed!'
+      update_password: 'Password was successfully changed!'
+      delete_user: 'User was successfully deleted'
+  
+
+          
