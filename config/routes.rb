@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_scope :user do
+    get '/users', to: 'devise/registrations#new'
+  end
+
   resources :books, only: %i[index show]
   resources :categories, only: %i[show] do
     resources :books, only: %i[index]
@@ -14,16 +21,8 @@ Rails.application.routes.draw do
     get 'privacy', to: 'users#edit'
     get 'address', to: redirect('settings/address/edit')
   end
-  
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  devise_scope :user do
-    get '/users', to: 'devise/registrations#new'
-  end
-  
-  root 'home#index'
 
+  root 'home#index'
 
   get 'update_user_email', to: redirect('/user/edit')
   get 'update_user_password', to: redirect('/user/edit')
