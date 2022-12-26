@@ -12,11 +12,11 @@ class ReviewsController < ApplicationController
   private
 
   def review_form
-    @review_form ||= ReviewForm.new(review_new, permitted_params)
+    @review_form ||= ReviewForm.new(review, permitted_params)
   end
 
-  def review_new
-    @review_new ||= Review.new(permitted_params)
+  def review
+    @review ||= Review.new(permitted_params)
   end
 
   def redirect_to_book(type:, message:)

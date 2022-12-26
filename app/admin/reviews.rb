@@ -1,17 +1,15 @@
 # frozen_string_literal: true
 
 ActiveAdmin.register Review do
-  scope :unprocessed, default: true
-  scope :approved, group: :processed
-  scope :rejected, group: :processed
+  Review.statuses.each_key do |status|
+    scope status
+  end
 
   index do
     selectable_column
     id_column
-    column :book_id
-    column :title
-    column :created_at
-    column :user_id
+    column :book
+    column :rating
     column :status
     actions
   end
@@ -40,10 +38,9 @@ ActiveAdmin.register Review do
       row :content
       row :rating
       row :status
-      row :book_id
-      row :user_id
+      row :book
+      row :user
       row :created_at
-      row :updated_at
     end
   end
 end
