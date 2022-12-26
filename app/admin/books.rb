@@ -11,7 +11,6 @@ ActiveAdmin.register Book do
   index do
     selectable_column
     id_column
-
     column :title
     column :description, :short_description
     column :price
@@ -38,7 +37,7 @@ ActiveAdmin.register Book do
     f.inputs do
       f.input :category
       f.input :title
-      f.input :authors, collection: Author.all, as: :check_boxes
+      f.input :authors
       f.input :description
       f.input :year_of_publication
       f.input :dimensions

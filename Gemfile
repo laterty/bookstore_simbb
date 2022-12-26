@@ -29,7 +29,6 @@ gem 'activeadmin', '~> 2.13.1'
 gem 'devise', '~> 4.8.1'
 gem 'draper', '~> 4.0.2'
 gem 'haml-rails', '~> 2.1.0'
-gem 'i18n', '~> 1.12.0'
 gem 'mini_magick', '~> 4.11.0'
 gem 'net-smtp', '~> 0.3.2', require: false
 gem 'omniauth', '~> 2.1.0'

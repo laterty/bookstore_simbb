@@ -4,7 +4,7 @@ RSpec.describe 'edit', type: :feature do
   let!(:admin_user) { create(:admin_user) }
   let!(:author) { create(:author) }
 
-  let(:new_name) { 'Yolo p.Polo' }
+  let(:new_name) { attributes_for(:author)[:name] }
   let(:update_button) { find('#author_submit_action input').value }
   let(:cancel_button) { find('.cancel a').text }
 

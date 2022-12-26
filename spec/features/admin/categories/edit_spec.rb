@@ -4,7 +4,7 @@ RSpec.describe 'edit', type: :feature do
   let!(:admin_user) { create(:admin_user) }
   let!(:category) { create(:category) }
 
-  let(:new_name) { 'Yolo' }
+  let(:new_name) { attributes_for(:category)[:name] }
   let(:update_button) { find('#category_submit_action input').value }
   let(:cancel_button) { find('.cancel a').text }
 
