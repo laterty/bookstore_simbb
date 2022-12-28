@@ -12,20 +12,12 @@ RSpec.describe 'review', type: :feature do
   describe 'index page content' do
     before { visit admin_reviews_path }
 
-    it 'review item has title' do
-      expect(page).to have_text(review.title)
+    it 'review item has book title' do
+      expect(page).to have_text(review.book.title)
     end
 
-    it 'review item has id' do
-      expect(page).to have_text(review.id)
-    end
-
-    it 'review item has book id' do
-      expect(page).to have_text(review.user.id)
-    end
-
-    it 'review item has user id' do
-      expect(page).to have_text(review.book.id)
+    it 'review item has rating' do
+      expect(page).to have_text(review.rating)
     end
 
     it 'review item has status' do
@@ -40,8 +32,10 @@ RSpec.describe 'review', type: :feature do
     let(:reject_button) { within('.action_items') { find_link(I18n.t('active_admin.reviews.buttons.reject')) } }
 
     context 'when click approve' do
+      let(:unprocessed_review) { create(:review, status: 0) }
+
       before do
-        visit admin_review_path(review)
+        visit admin_review_path(unprocessed_review)
         approve_button.click
       end
 
@@ -51,8 +45,10 @@ RSpec.describe 'review', type: :feature do
     end
 
     context 'when click reject' do
+      let(:unprocessed_review) { create(:review, status: 0) }
+
       before do
-        visit admin_review_path(second_review)
+        visit admin_review_path(unprocessed_review)
         reject_button.click
       end
 
@@ -62,6 +58,7 @@ RSpec.describe 'review', type: :feature do
     end
 
     context 'when approve reviews it shows in approved tabs' do
+      let!(:approved_review) { create(:review, status: 1) }
       let(:approved_link) { within('.scopes') { find('.approved') } }
 
       before do
@@ -70,11 +67,12 @@ RSpec.describe 'review', type: :feature do
       end
 
       it 'shows approved review in approved tab' do
-        expect(page).to have_text(review.title)
+        expect(page).to have_text(approved_review.title)
       end
     end
 
     context 'when reject reviews it shows in rejected tabs' do
+      let!(:rejected_review) { create(:review, status: 2) }
       let(:rejected_link) { within('.scopes') { find('.rejected') } }
 
       before do
@@ -83,7 +81,7 @@ RSpec.describe 'review', type: :feature do
       end
 
       it 'shows rejected review in rejected tab' do
-        expect(page).to have_text(second_review.title)
+        expect(page).to have_text(rejected_review.title)
       end
     end
   end
