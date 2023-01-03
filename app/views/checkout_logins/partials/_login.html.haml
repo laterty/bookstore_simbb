@@ -1,9 +1,9 @@
 = simple_form_for(:user, url: user_session_path, html: { class: 'general-form' }) do |f|
   .mb-40
-    %p.mb-15 Log in with password
+    %p.mb-15= t('.title')
     .form-group.mb-30
-      = f.input :email, label: 'Enter email', label_html: { class: 'control-label input-label' }, input_html: { id: 'email', class: 'form-control' }, type: 'email', placeholder: 'Enter email'
+      = f.input :email, label: t('.label.email'), label_html: { class: 'control-label input-label' }, input_html: { id: 'email', class: 'form-control' }, type: 'email', placeholder: t('.placeholder.email')
     .form-group.mb-30
-      = f.input :password, label: 'Password', label_html: { class: 'control-label input-label' }, input_html: { id: 'password', class: 'form-control' }, type: 'password', placeholder: 'Password'
-      = link_to 'Forgot password?', new_user_password_path, class: 'help-block in-gold-500'
-  = f.button :submit, 'Log in with password', class: 'btn mb-20'
+      = f.input :password, label: t('.label.password'), label_html: { class: 'control-label input-label' }, input_html: { id: 'password', class: 'form-control' }, type: 'password', placeholder: t('.placeholder.password')
+      = link_to t('.forgot_password'), new_user_password_path, class: 'help-block in-gold-500'
+  = f.button :submit, t('.submit_button'), class: 'btn mb-20'

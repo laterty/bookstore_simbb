@@ -1,4 +1,27 @@
 en:
+  checkout_logins:
+    show:
+      title_login: Returning customer
+      title_quick_login: New customer
+      or: or
+    partials:
+      login:
+        title: Log in with password
+        label:
+          email: Enter email
+          password: Password
+        placeholder:
+          email: Enter email
+          password: Password
+        submit_button: Log in with password
+      quick_registration:
+        title: Quick register
+        explanation: You'll be able to create password later
+        label:
+          email: Enter email
+        placeholder:
+          email: Enter email
+        submit_button: Continue to checkout
   home: 
     index:
       hello: 'Hello world'

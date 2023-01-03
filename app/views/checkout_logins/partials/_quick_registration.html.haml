@@ -1,8 +1,8 @@
 = simple_form_for(:user, url: user_registration_path, method: :post, html: { class: 'general-form' }) do |f|
   .mb-40
-    %p.mb-5 Quick register
-    %p.general-info-text.font-12.mb-20 You'll be able to create password later
+    %p.mb-5= t('.title')
+    %p.general-info-text.font-12.mb-20= t('.explanation')
     .form-group.mb-30
       = f.hidden_field :quick, value: true
-      = f.input :email, label: 'Enter email', label_html: { class: 'control-label input-label' }, input_html: { id: 'email', class: 'form-control' }, type: 'email', placeholder: 'Enter email'
-      = f.button :submit, 'Continue to checkout', class: 'button btn mb-20'
+      = f.input :email, label: t('.label.email'), label_html: { class: 'control-label input-label' }, input_html: { id: 'email', class: 'form-control' }, type: 'email', placeholder: t('.placeholder.email')
+      = f.button :submit, t('.submit_button'), class: 'button btn mb-20'

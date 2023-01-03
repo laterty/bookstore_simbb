@@ -1,15 +1,15 @@
 .row
   .col-md-5.mb-40
     .text-center
-      %h3.general-subtitle Returning customer
+      %h3.general-subtitle= t('.title_login')
       = link_to user_facebook_omniauth_authorize_path, class: "general-login-icon", method: :post do
         %i.fa-brands.fa-square-facebook.fa-2xl
-      %p.general-login-text or
+      %p.general-login-text= t('.or')
     = render partial: 'checkout_logins/partials/login'
   .col-md-5.col-md-offset-1.mb-60
     .text-center
-      %h3.general-subtitle New customer
+      %h3.general-subtitle= t('.title_quick_login')
       = link_to user_facebook_omniauth_authorize_path, class: "general-login-icon", method: :post do
         %i.fa-brands.fa-square-facebook.fa-2xl
-      %p.general-login-text or
+      %p.general-login-text= t('.or')
     = render partial: 'checkout_logins/partials/quick_registration'
