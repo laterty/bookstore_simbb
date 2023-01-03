@@ -13,6 +13,7 @@ en:
         placeholder:
           email: Enter email
           password: Password
+        forgot_password: Forgot password?
         submit_button: Log in with password
       quick_registration:
         title: Quick register
