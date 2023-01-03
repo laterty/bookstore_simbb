@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
   resources :line_items, only: %i[create show destroy]
   
+  resource :checkout_login, only: %i[show]
   resource :coupon, only: %i[update]
   resource :update_user_email, only: :update
   resource :update_user_password, only: :update
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
   
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations' }
   devise_scope :user do
     get '/users', to: 'devise/registrations#new'
   end
