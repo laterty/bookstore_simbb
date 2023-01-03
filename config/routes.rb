@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
   resources :line_items, only: %i[create show destroy]
   
+  resource :order
   resource :checkout_login, only: %i[show]
   resource :coupon, only: %i[update]
   resource :update_user_email, only: :update
