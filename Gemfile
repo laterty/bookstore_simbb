@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'aasm', '~> 5.3.1'
+gem 'aasm', '~> 5.4.0'
 gem 'activeadmin', '~> 2.13.1'
 gem 'carrierwave', '>= 3.0.0.beta', '< 4.0'
 gem 'devise', '~> 4.8.1'
