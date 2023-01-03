@@ -1,4 +1,4 @@
-require 'rails_helper'
+# frozen_string_literal: true
 
 RSpec.describe OrderItem, type: :model do
   describe 'table' do
@@ -9,7 +9,7 @@ RSpec.describe OrderItem, type: :model do
   describe 'associations' do
     it do
       is_expected.to belong_to(:order)
-      is_expected.to belong_to(:book)
+      is_expected.to belong_to(:book).optional
     end
   end
 end

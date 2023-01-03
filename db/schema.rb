@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_14_144833) do
+ActiveRecord::Schema.define(version: 2023_01_03_205832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,24 @@ ActiveRecord::Schema.define(version: 2022_12_14_144833) do
     t.index ["cart_id"], name: "index_coupons_on_cart_id", unique: true
   end
 
+  create_table "credit_cards", force: :cascade do |t|
+    t.string "number", null: false
+    t.string "name", null: false
+    t.string "cvv", null: false
+    t.string "expire_date", null: false
+    t.bigint "order_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_credit_cards_on_order_id"
+  end
+
+  create_table "deliveries", force: :cascade do |t|
+    t.string "name", null: false
+    t.decimal "price", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "line_items", force: :cascade do |t|
     t.bigint "book_id", null: false
     t.bigint "cart_id", null: false
@@ -100,6 +118,27 @@ ActiveRecord::Schema.define(version: 2022_12_14_144833) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["book_id"], name: "index_line_items_on_book_id"
     t.index ["cart_id"], name: "index_line_items_on_cart_id"
+  end
+
+  create_table "order_items", force: :cascade do |t|
+    t.bigint "book_id"
+    t.bigint "order_id", null: false
+    t.integer "quantity", default: 1, null: false
+    t.decimal "price", null: false
+    t.text "description", null: false
+    t.string "title", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id", "book_id"], name: "index_order_items_on_order_id_and_book_id", unique: true
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "delivery_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["delivery_id"], name: "index_orders_on_delivery_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -133,8 +172,13 @@ ActiveRecord::Schema.define(version: 2022_12_14_144833) do
   add_foreign_key "author_books", "authors"
   add_foreign_key "author_books", "books"
   add_foreign_key "coupons", "carts"
+  add_foreign_key "credit_cards", "orders"
   add_foreign_key "line_items", "books"
   add_foreign_key "line_items", "carts"
+  add_foreign_key "order_items", "books"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "orders", "deliveries"
+  add_foreign_key "orders", "users"
   add_foreign_key "reviews", "books"
   add_foreign_key "reviews", "users"
 end
