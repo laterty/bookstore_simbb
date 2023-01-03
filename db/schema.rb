@@ -135,6 +135,8 @@ ActiveRecord::Schema.define(version: 2023_01_03_205832) do
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "delivery_id"
+    t.integer "status", default: 0, null: false
+    t.integer "state", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["delivery_id"], name: "index_orders_on_delivery_id"
