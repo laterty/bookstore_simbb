@@ -3,7 +3,7 @@
 class OrdersController < ApplicationController
   before_action :return_customer
 
-  def new; binding.pry; end
+  def new; end
 
   private
 
