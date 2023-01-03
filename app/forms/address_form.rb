@@ -38,7 +38,7 @@ class AddressForm < ApplicationForm
 
   validates :city,
             presence: true,
-            format: { with: /\A[a-z A-Z\-]*\z/,
+            format: { with: /\A[a-z A-Z-]*\z/,
                       message: I18n.t('validation.address.names_city_country') },
             length: { in: CITY_MIN_LENGTH..CITY_MAX_LENGTH }
 
@@ -56,7 +56,7 @@ class AddressForm < ApplicationForm
 
   validates :zip,
             presence: true,
-            format: { with: /\A[0-9\-]*\z/,
+            format: { with: /\A[0-9-]*\z/,
                       message: I18n.t('validation.address.zip') },
             length: { in: ZIP_MIN_LENGTH..ZIP_MAX_LENGTH }
 
