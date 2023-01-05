@@ -21,7 +21,7 @@
         - else
           = render partial: 'addresses/partials/address_form', locals: { address: @billing_address_form ? @billing_address_form : AddressForm.new(Address.new(type: BillingAddress.name)), type: BillingAddress.name }
       .col-md-5.col-md-offset-1.mb-25
-        .visibe-xs.visible-s
+        .visibe-xs.visible-sm
           %h3.general-subtitle.mt-0= t('.shipping_address')
         - if current_user.shipping_address
           = render partial: 'addresses/partials/address_form', locals: { address: @shipping_address_form ? @shipping_address_form : current_user.shipping_address, type: ShippingAddress.name }
