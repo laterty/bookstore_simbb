@@ -15,7 +15,10 @@ RSpec.describe Address, type: :model do
   end
 
   describe 'associations' do
-    it { is_expected.to belong_to(:user) }
+    it do
+      is_expected.to belong_to(:user).optional
+      is_expected.to belong_to(:order).optional
+    end
   end
 
   describe 'table index' do
