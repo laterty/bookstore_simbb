@@ -21,7 +21,7 @@ module Users
     end
 
     def devise_password
-      Devise.friendly_token[User::START_PASSWORD_LENGTH, User::END_PASSWORD_LENGTH]
+      Devise.friendly_token[UserFromOmniauthCreator::START_PASSWORD_LENGTH, UserFromOmniauthCreator::END_PASSWORD_LENGTH]
     end
 
     def quick_registration?

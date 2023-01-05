@@ -3,7 +3,11 @@
 class OrdersController < ApplicationController
   before_action :return_customer
 
-  def new; end
+  def create
+    @current_order = Order.create(user: @customer)
+    session[:current_order_id] = @current_order.id
+    redirect_to checkout_address_path
+  end
 
   private
 
