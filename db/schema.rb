@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_03_205832) do
+ActiveRecord::Schema.define(version: 2023_01_05_160412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 2023_01_03_205832) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
+    t.bigint "order_id"
+    t.index ["order_id", "type"], name: "index_addresses_on_order_id_and_type", unique: true
     t.index ["user_id", "type"], name: "index_addresses_on_user_id_and_type", unique: true
   end
 
@@ -116,8 +118,7 @@ ActiveRecord::Schema.define(version: 2023_01_03_205832) do
     t.integer "quantity", default: 1, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["book_id"], name: "index_line_items_on_book_id"
-    t.index ["cart_id"], name: "index_line_items_on_cart_id"
+    t.index ["cart_id", "book_id"], name: "index_line_items_on_cart_id_and_book_id", unique: true
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -133,10 +134,11 @@ ActiveRecord::Schema.define(version: 2023_01_03_205832) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.bigint "delivery_id"
     t.integer "status", default: 0, null: false
-    t.integer "state", default: 0, null: false
+    t.integer "stage", default: 0, null: false
+    t.integer "discount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["delivery_id"], name: "index_orders_on_delivery_id"
