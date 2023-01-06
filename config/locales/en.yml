@@ -177,7 +177,7 @@ en:
       create_address: "Successfully created an %{type} address"
       update_address: "Successfully updated an %{type} address"
     partials:
-      address_form:
+      address_fields:
         label:
           first_name: 'First Name'
           last_name: 'Last Name'
