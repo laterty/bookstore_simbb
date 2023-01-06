@@ -3,7 +3,7 @@
   = render partial: 'checkouts_partials/status_bar'
   = simple_form_for @order,
                     url: checkout_address_path,
-                    method: @order.billing_address ? :put : :post,
+                    method: :post,
                     html: { class: 'res-mb-100' },
                     defaults: { input_html: { class: 'form-control' },
                                 label_html: { class: 'control-label input-label' },
