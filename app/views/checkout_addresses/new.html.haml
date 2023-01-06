@@ -1,0 +1,34 @@
+%main.container
+  %h1.general-title-margin Checkout
+  = render partial: 'checkouts_partials/status_bar'
+  = simple_form_for @order,
+                    url: checkout_address_path,
+                    method: @order.billing_address ? :put : :post,
+                    html: { class: 'res-mb-100' },
+                    defaults: { input_html: { class: 'form-control' },
+                                label_html: { class: 'control-label input-label' },
+                                error_html: { class: 'has-error' }} do |f|
+    .hidden-xs.hidden-sm
+      .row
+        .col-md-5
+          %h3.general-subtitle= BillingAddress.name
+        .col-md-5.col-md-offset-1
+          %h3#shipping-title.general-subtitle= ShippingAddress.name
+    .row
+      = f.hidden_field :use_billing, value: false
+      .col-md-5.mb-40
+        #billing
+          = f.simple_fields_for(:billing) do |ff|
+            = render partial: 'addresses/partials/address_fields', locals: { f: ff, type: BillingAddress.name }
+      .col-md-5.col-md-offset-1.mb-60
+        #shipping
+          = f.simple_fields_for(:shipping) do |ff|
+            = render partial: 'addresses/partials/address_fields', locals: { f: ff, type: ShippingAddress.name }
+        .form-group.checkbox
+          %label.checkbox-label
+            %input.checkbox-input#use-billing{type: "checkbox", hidden: "true"}
+            %span.checkbox-icon
+              %i.fa.fa-check
+            %span.checkbox-text= t('.use_billing_address')
+    = render partial: 'checkouts_partials/order_summary'
+    = f.button :submit, 'Save and continue', class: 'btn center-block mb-20'
