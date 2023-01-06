@@ -5,12 +5,12 @@ function useBillingAddress(){
   let shipping_title = document.getElementById('shipping-title')
 
   checkbox.addEventListener('click', ()=>{
-    if (check.checked == false) {
-      check.checked = true
+    if (check.value == 'false') {
+      check.value = 'true'
       shipping_form.classList.add("hidden")
       shipping_title.classList.add("hidden")}
     else {
-      check.checked = false
+      check.value = 'false'
       shipping_form.classList.remove("hidden")
       shipping_title.classList.remove("hidden")
     }
