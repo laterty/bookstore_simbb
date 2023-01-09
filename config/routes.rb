@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   resources :line_items, only: %i[create show destroy]
   
   resource :order
-  resource :checkout_address, only: %i[new create]
+  resource :checkout_address, only: %i[new create update]
+  resource :checkout_delivery, only: %i[edit update]
+  resource :checkout_payment, only: %i[new create update]
+  resource :checkout_confirm, only: %i[show]
+  resource :checkout_complete, only: %i[show]
   resource :checkout_login, only: %i[show]
   resource :coupon, only: %i[update]
   resource :update_user_email, only: :update
