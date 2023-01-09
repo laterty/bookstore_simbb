@@ -1,0 +1,12 @@
+%main.container.general-main-wrap
+  %h1.general-title-margin= t('.title')
+  = render partial: 'checkouts_partials/status_bar', locals: {current_order: @current_order}
+  .row.mb-20
+    = render partial: 'checkout_confirms/partials/shipping', locals: {address: @current_order.shipping_address.decorate}
+    = render partial: 'checkout_confirms/partials/billing', locals: {address: @current_order.billing_address.decorate}
+    = render partial: 'checkout_confirms/partials/shipment', locals: {delivery: @current_order.delivery}
+    = render partial: 'checkout_confirms/partials/payment', locals: {card: @current_order.credit_card.decorate}
+    = render partial: 'checkout_confirms/partials/order_items', locals: {order_items: @current_order.order_items}
+  = render partial: 'checkouts_partials/order_summary_delivery', locals: {current_order: @current_order}
+  .text-center
+    %button.btn.btn-default.mb-20= t('.submit_button')
