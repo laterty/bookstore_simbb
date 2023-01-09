@@ -1,7 +1,7 @@
 %main.container
-  %h1.general-title-margin Checkout
-  = render partial: 'checkouts_partials/status_bar'
-  = simple_form_for @order,
+  %h1.general-title-margin= t('.title')
+  = render partial: 'checkouts_partials/status_bar', locals: { current_order: @current_order }
+  = simple_form_for @current_order,
                     url: checkout_address_path,
                     method: :post,
                     html: { class: 'res-mb-100' },
@@ -31,4 +31,4 @@
               %i.fa.fa-check
             %span.checkbox-text= t('.use_billing_address')
     = render partial: 'checkouts_partials/order_summary'
-    = f.button :submit, 'Save and continue', class: 'btn center-block mb-20'
+    = f.button :submit, t('.submit_button'), class: 'btn center-block mb-20'

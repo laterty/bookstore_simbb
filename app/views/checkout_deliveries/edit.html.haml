@@ -1,7 +1,7 @@
 %main.container.general-main-wrap
-  %h1.general-title-margin Checkout
+  %h1.general-title-margin= t('.title')
   = render partial: 'checkouts_partials/status_bar', locals: { current_order: @current_order }
-  %h3.general-subtitle Credit Card
+  %h3.general-subtitle= t('.subtitle')
   .hidden-xs.mb-res-50
     = simple_form_for @current_order,
                   as: :delivery,
@@ -11,11 +11,11 @@
         %thead
           %tr
             %th.col-method
-              %span.in-grey-600.ml-40 Method
+              %span.in-grey-600.ml-40= t('.methods')
             %th
-              %span.in-grey-600 Days
+              %span.in-grey-600= t('.days')
             %th
-              %span.in-grey-600 Price
+              %span.in-grey-600= t('.price')
         %tbody
           - Delivery.all.each do |delivery|
             %tr
@@ -30,4 +30,4 @@
               %td
                 %span.font-16.in-gold-500= number_to_price(delivery.price)
       = render partial: 'checkouts_partials/order_summary'
-      = f.button :submit, 'Save and continue', class: 'btn center-block mb-20'
+      = f.button :submit, t('.submit_button'), class: 'btn center-block mb-20'

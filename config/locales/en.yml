@@ -23,6 +23,57 @@ en:
         placeholder:
           email: Enter email
         submit_button: Continue to checkout
+  checkout_addresses:
+    new:
+      title: Checkout
+      use_billing_address: Use billing address
+      submit_button: Save and continue
+  checkout_deliveries:
+    edit:
+      title: Checkout
+      subtitle: Delivery
+      method: Method
+      days: Days
+      price: Price
+      submit_button: Save and continue
+  checkout_payments:
+    new:
+      title: Checkout
+      subtitle: Payment
+      label:
+        number: Card number
+        name: Name on card
+        date: MM / YY
+        cvv: CVV
+      placeholder:
+        number: Card number
+        name: Name on card
+        date: MM / YY
+        cvv: CVV
+      submit_button: Save and continue
+  checkout_confirms:
+    show:
+      title: Checkout
+      submit_button: Place Order
+    partials:
+      shipping:
+        title: Shipping Address
+        edit_link: edit
+      billing:
+        title: Billing Address
+        edit_link: edit
+      order_items:
+        book: Book
+        price: Price
+        quantity: Quantity
+        total: Total
+      payment:
+        title: Payment Information
+        edit_link: edit
+      shipment:
+        title: Shipments
+        edit_link: edit
+  checkout_completes:
   home: 
     index:
       hello: 'Hello world'
