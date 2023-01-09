@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :delivery do
-    name { "MyString" }
-    price { "9.99" }
+    delivery_method { FFaker::BaconIpsum.word }
+    price { rand(10) }
+    time { ['1 day', '6 days', '1 week', 'from 2 to 5 days'].sample }
   end
 end
