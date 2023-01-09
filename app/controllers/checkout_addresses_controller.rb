@@ -1,23 +1,20 @@
 # frozen_string_literal: true
 
 class CheckoutAddressesController < ApplicationController
-  attr_reader :order
+  before_action :current_order
 
   BILLING = :billing
   SHIPPING = :shipping
 
   def new
-    @order = current_order
-    @customer_billing_address = order.user.billing_address
-    @customer_shipping_address = order.user.shipping_address
+    @customer_billing_address = @current_order.user.billing_address
+    @customer_shipping_address = @current_order.user.shipping_address
   end
 
   def create
-    @order = current_order
     if address_form_billing.save && address_form_shipping.save
-      flash.now[:notice] = "YOLOOO"
-      @order.to_delivery!
-      binding.pry
+      @current_order.to_delivery!
+      redirect_to edit_checkout_delivery_path
     else
       render :new
     end
@@ -36,7 +33,7 @@ class CheckoutAddressesController < ApplicationController
   end
 
   def address(type)
-    Address.new(order:, type: addres_params[type][:type])
+    Address.new(order: @current_order, type: addres_params[type][:type])
   end
 
   def use_billing?
@@ -53,9 +50,5 @@ class CheckoutAddressesController < ApplicationController
     shipping_params = addres_params[BILLING]
     shipping_params[:type] = ShippingAddress.name
     shipping_params
-  end
-
-  def current_order
-    Order.find(session[:current_order_id])
   end
 end

@@ -7,7 +7,7 @@ class CheckoutPaymentsController < ApplicationController
 
   def create
     if credit_card_form.save
-      order.to_confirm!
+      @current_order.to_confirm!
       redirect_to checkout_confirm_path
     else
       render :new

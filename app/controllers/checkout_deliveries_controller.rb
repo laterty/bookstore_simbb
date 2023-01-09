@@ -6,7 +6,8 @@ class CheckoutDeliveriesController < ApplicationController
   def edit; end
 
   def update
-    if @current_order.update(delivery_id: delivery_params[:id])
+    binding.pry
+    if @current_order.update(delivery_id: delivery_params[:delivery_id])
       @current_order.to_payment!
       redirect_to new_checkout_payment_path
     else
@@ -17,6 +18,6 @@ class CheckoutDeliveriesController < ApplicationController
   private
 
   def delivery_params
-    params.require(:delivery).permit(:id)
+    params.permit(:delivery_id)
   end
 end

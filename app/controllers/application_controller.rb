@@ -28,6 +28,6 @@ class ApplicationController < ActionController::Base
   end
 
   def current_order
-    @current_order = Order.find(session[:current_order_id])
+    @current_order = Order.find(session[:current_order_id]).decorate
   end
 end
