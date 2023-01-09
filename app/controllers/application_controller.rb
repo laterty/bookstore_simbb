@@ -26,4 +26,8 @@ class ApplicationController < ActionController::Base
   def cart_count
     @cart_count ||= @current_cart ? @current_cart.line_items.sum(&:quantity) : Constants::Shared::EMPTY_CART_ITEMS_COUNT
   end
+
+  def current_order
+    @current_order = Order.find(session[:current_order_id])
+  end
 end
