@@ -1,0 +1,33 @@
+%main.container.general-main-wrap
+  %h1.general-title-margin Checkout
+  = render partial: 'checkouts_partials/status_bar', locals: { current_order: @current_order }
+  %h3.general-subtitle Credit Card
+  .hidden-xs.mb-res-50
+    = simple_form_for @current_order,
+                  as: :delivery,
+                  url: checkout_delivery_path,
+                  method: :put do |f|
+      %table.table.table-hover
+        %thead
+          %tr
+            %th.col-method
+              %span.in-grey-600.ml-40 Method
+            %th
+              %span.in-grey-600 Days
+            %th
+              %span.in-grey-600 Price
+        %tbody
+          - Delivery.all.each do |delivery|
+            %tr
+              %td
+                .form-group.radio.mt-0.mb-0
+                  %label.radio-label
+                    = radio_button_tag 'delivery_id', delivery.id, type: 'radio'
+                    %span.radio-icon
+                    %span.radio-text= delivery.delivery_method
+              %td
+                %span= delivery.time
+              %td
+                %span.font-16.in-gold-500= number_to_price(delivery.price)
+      = render partial: 'checkouts_partials/order_summary'
+      = f.button :submit, 'Save and continue', class: 'btn center-block mb-20'
