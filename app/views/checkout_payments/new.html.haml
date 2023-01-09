@@ -1,0 +1,27 @@
+%main.container.mb-res-50
+  %h1.general-title-margin Checkout
+  = render partial: 'checkouts_partials/status_bar'
+  %h3.general-subtitle Credit Card
+  = simple_form_for @current_order,
+                  url: checkout_address_path,
+                  method: :post,
+                  html: { class: 'max-600 mb-80' },
+                  defaults: { input_html: { class: 'form-control' },
+                              label_html: { class: 'control-label input-label' },
+                              error_html: { class: 'has-error' }} do |f|
+    = simple_fields_for(:payment) do |ff|
+      = ff.input :number, label: t('.label.number'), label_html: { class: 'control-label input-label' }, input_html: { id: 'cardNumber', class: 'form-control' }, type: 'number', placeholder: t('.placeholder.number')
+      .row
+        .col-sm-6
+          .form-group
+            = ff.input :name, label: t('.label.name'), label_html: { class: 'control-label input-label' }, input_html: { id: 'cardName', class: 'form-control' }, type: 'text', placeholder: t('.placeholder.name')
+        .col-sm-3
+          .form-group
+            = ff.input :date, label: t('.label.date'), label_html: { class: 'control-label input-label' }, input_html: { id: 'cardDate', class: 'form-control' }, type: 'text', placeholder: t('.placeholder.date')
+        .col-sm-3
+          .form-group.relative
+            = ff.input :cvv, label: t('.label.cvv'), label_html: { class: 'control-label input-label' }, input_html: { id: 'cardCVV', class: 'form-control' }, type: 'password', placeholder: t('.placeholder.cvv')
+            %i#hint-icon.fa.fa-question-circle.general-form-help
+              %span#hint_text= t('.hint')
+  = render partial: 'checkouts_partials/order_summary'
+  = f.button :submit, 'Save and continue', class: 'btn center-block mb-20'
