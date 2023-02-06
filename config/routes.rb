@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resource :checkout_address, only: %i[new create update]
   resource :checkout_delivery, only: %i[edit update]
   resource :checkout_payment, only: %i[new create update]
-  resource :checkout_confirm, only: %i[show]
+  resource :checkout_confirm, only: %i[show update]
   resource :checkout_complete, only: %i[show]
   resource :checkout_login, only: %i[show]
   resource :coupon, only: %i[update]

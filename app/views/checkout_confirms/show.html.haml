@@ -9,4 +9,4 @@
     = render partial: 'checkout_confirms/partials/order_items', locals: {order_items: @current_order.order_items}
   = render partial: 'checkouts_partials/order_summary_delivery', locals: {current_order: @current_order}
   .text-center
-    %button.btn.btn-default.mb-20= t('.submit_button')
+    = button_to t('.submit_button'), checkout_confirm_path, method: :put, class: 'btn btn-default mb-20'
