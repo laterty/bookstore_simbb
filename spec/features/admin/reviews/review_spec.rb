@@ -3,7 +3,6 @@
 RSpec.describe 'review', type: :feature do
   let!(:admin_user) { create(:admin_user) }
   let!(:review) { create(:review) }
-  let!(:second_review) { create(:review) }
 
   before do
     admin_log_in(admin_user)
