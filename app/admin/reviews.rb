@@ -8,6 +8,7 @@ ActiveAdmin.register Review do
   index do
     selectable_column
     id_column
+    column :title
     column :book
     column :rating
     column :status

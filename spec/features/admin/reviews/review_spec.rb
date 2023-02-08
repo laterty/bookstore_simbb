@@ -71,7 +71,7 @@ RSpec.describe 'review', type: :feature do
       end
     end
 
-    context 'when reject reviews it shows in rejected tabs' do
+    context 'when reject reviews it shows in rejected tabs', js: true do
       let!(:rejected_review) { create(:review, status: 2) }
       let(:rejected_link) { within('.scopes') { find('.rejected') } }
 
