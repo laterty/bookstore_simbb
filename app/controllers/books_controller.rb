@@ -12,6 +12,8 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id]).decorate
+    @reviews = @book.reviews.includes(:user).approved
+    @reviews_count = @reviews.count
   end
 
   private

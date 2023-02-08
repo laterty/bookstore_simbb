@@ -1,0 +1,21 @@
+- if reviews.any?
+  %h3.in-gold-500.mb-25= t('.count_reviews_title', count_reviews: reviews_count)
+  -reviews.each do |review|
+    .general-message-wrap.divider-lg
+      .clearfix
+        %span.img-circle.logo-size.inlide-block.pull-left.logo-empty
+          = review.user.email.capitalize.first
+        .ml-70
+          %div
+            .general-message-date.hidden-xs=review.created_at.strftime('%d/%m/%Y')
+            .max-240
+              .general-message-name= review.user.email.capitalize
+              .general-message-verified= t('.verified_reviewer')
+          .mb-15
+            -review.rating.times do
+              %i.fa.fa-star.rate-star 
+            -if review.rating < max_rating
+              - (max_rating - review.rating).times do
+                %i.fa.fa-star.rate-empty
+          %h3= review.title
+          %p= review.content

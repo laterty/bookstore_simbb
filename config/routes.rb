@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users', to: 'devise/registrations#new'
   end
-
-  resources :books, only: %i[index show]
+  resources :books, only: %i[index show] do
+    resource :review, only: %i[create]
+  end
   resources :categories, only: %i[show] do
     resources :books, only: %i[index]
   end
