@@ -10,5 +10,12 @@ module Helpers
         click_button(I18n.t('devise.sessions.new.log_in'))
       end
     end
+
+    def admin_log_in(admin)
+      visit admin_root_path
+      fill_in I18n.t('active_admin.devise.email.title'), with: admin.email
+      fill_in I18n.t('active_admin.devise.password.title'), with: admin.password
+      click_button(I18n.t('active_admin.devise.login.submit'))
+    end
   end
 end

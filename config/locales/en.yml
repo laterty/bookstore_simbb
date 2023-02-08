@@ -31,6 +31,15 @@ en:
       navigation_account: 'My account'
   books:
     partials:
+      reviews:
+        successful: Thanks for Review. It will be published as soon as Admin will approve it.
+        verified_reviewer: Verified Reviewer
+        count_reviews_title: Reviews (%{count_reviews})
+      reviews_form:
+        score: Score
+        form_title: Title
+        form_review: Text
+        submit_button: Post
       desktop:
         sort:
           year_of_publication_desc: 'Newest first'
@@ -59,6 +68,7 @@ en:
       year_of_publication: 'Year of publication'
       dimensions: 'Dimensions'
       materials: 'Materials'
+      message_review_for_not_authorized: 'If you want to write your review, you need to be authorized'
   devise:
     passwords:
       complexity_error: 'Complexity requirement not met. Please use: 1 uppercase, 1 lowercase, 1 digit and 1 special character'
@@ -145,6 +155,13 @@ en:
       material: 'Material'
   validation:
     blank: "Can't be blank"
+    review:
+      length:
+        title: "Must be less than 80 characters."
+        content: "Must be less than 500 characters."
+      format:
+        title: "Should not be not empty, consist of a-z, A-Z, 0-9, or one of !#$%&'*+-/=?^_`{|}~."
+        content: "Should not be not empty, consist of a-z, A-Z, 0-9, or one of !#$%&'*+-/=?^_`{|}~."
     address:
         names_city_country: 'Consist of a-z, A-Z only, no special symbols'
         zip: 'Consist of 0-9 only,’-’ no special symbols'
@@ -187,6 +204,11 @@ en:
       update_email: 'Email was successfully changed!'
       update_password: 'Password was successfully changed!'
       delete_user: 'User was successfully deleted'
-  
-
-          
+  active_admin:
+    reviews:
+      notice:
+        approved: 'You approved this review'
+        rejected: 'You rejected this review'
+      buttons:
+        approve: 'Approve'
+        reject: 'Reject'
